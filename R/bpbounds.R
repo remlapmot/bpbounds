@@ -1,0 +1,268 @@
+#' Balke-Pearl Bounds for the Average Causal Effect
+#'
+#' @param p Object of class "table" containing either cell counts or conditional
+#' probabilities, e.g. generated from xtabs( ~ x + y + z, data = data)
+#' @param t Specified for bivariate data. Object with treatment/phenotype - instrument
+#' cell counts or conditional probabilities
+#' @param fmt A character which sould be either "bivariate"
+#' (X, Z in one dataset and Y, Z in another datasets) or
+#' "trivariate" (X, Y, Z in the same dataset).
+#'
+#' @export
+#' @return List with the following elements:
+#' \describe{
+#' \item{fmt}{whether the data is bivariate or trivariate}
+#' \item{nzcats}{2 or 3, the no. instrument categories}
+#' \item{inequality}{Logical, indicating whether the IV inquality is satisfied}
+#' \item{bplb}{Lower bound of ACE}
+#' \item{bpub}{Upper bound of ACE}
+#' \item{bplower}{Vector of lower bound probabilities}
+#' \item{bpupper}{Vector of upper bound probabilities}
+#' \item{p11low}{Lower bound of P(Y=1|do(X=1))}
+#' \item{p11upp}{Upper bound of P(Y=1|do(X=1))}
+#' \item{p10low}{Lower bound of P(Y=1|do(X=0))}
+#' \item{p10upp}{Upper bound of P(Y=1|do(X=0))}
+#' \item{p11lower}{Vector of probabilities for lower bound of P(Y=1|do(X=1))}
+#' \item{p11upper}{Vector of probabilities for upper bound of P(Y=1|do(X=1))}
+#' \item{p10lower}{Vector of probabilities for lower bound of P(Y=1|do(X=0))}
+#' \item{p10upper}{Vector of probabilities for upper bound of P(Y=1|do(X=0))}
+#' \item{crrlb}{Lower bound of CRR}
+#' \item{crrub}{Upper bound of CRR}
+#' \item{monoinequality}{Logical, indicating whether the monoticity inequality is satisfied}
+#' \item{monobplb}{Lower bound of ACE assuming monotonicity}
+#' \item{monobpub}{Upper bound of ACE assuming monotonicity}
+#' \item{monobplower}{Vector of probabilities for lower bound of ACE assuming monotonicity}
+#' \item{monobpupper}{Vector of probabilities for upper bound of ACE assuming monotonicity}
+#' \item{monop11low}{Lower bound of P(Y=1|do(X=1)) assuming monotonicity}
+#' \item{monop11upp}{Upper bound of P(Y=1|do(X=1)) assuming monotonicity}
+#' \item{monop10low}{Lower bound of P(Y=1|do(X=0)) assuming monotonicity}
+#' \item{monop10upp}{Upper bound of P(Y=1|do(X=0)) assuming monotonicity}
+#' \item{monop11lower}{Vector for corresponding bound above}
+#' \item{monop11upper}{Vector for corresponding bound above}
+#' \item{monop10lower}{Vector for corresponding bound above}
+#' \item{monop10upper}{Vector for corresponding bound above}
+#' \item{monocrrlb}{Lower bound of CRR assuming monotonicity}
+#' \item{monocrrub}{Upper bound of CRR assuming monotonicity}
+#' }
+#'
+#' @examples
+#' \dontrun{
+#' library(tidyr)
+#' tab1dat <- data.frame(
+#' z = c(0,0,1,1,1,1,0,0),
+#' x = c(0,0,0,0,1,1,1,1),
+#' y = c(0,1,0,1,0,1,0,1),
+#' freq = c(74,11514,34,2385,12,9665,0,0)
+#' )
+#'
+#' tab1inddat	= uncount(tab1dat, freq)
+#' xt 		= xtabs( ~ x + y + z, data = tab1inddat)
+#' p 			= prop.table(xt, margin = 3)
+#' bpres 	= bpbounds(p)
+#' summary(bpres)
+#' }
+#'
+#'
+bpbounds <- function(p, t=NULL, fmt="trivariate") {
+
+  # Check arguments
+
+  ## check fmt specified correctly
+  if (fmt != "bivariate" & fmt != "trivariate" ) {
+    stop('fmt argument must be either "bivariate" or "trivariate"')
+  }
+
+  ## check t has been specified along with if fmt is bivariate
+  if (fmt == "bivariate" & is.null(t)) {
+    stop('t, a matrix of trestment/phenotype-instrument conditional probabilities, must be specified for bivariate data')
+  }
+
+  ## check p of class "table"
+  if (!is.table(p)) {
+    stop('p must be of class "table"')
+  }
+
+  ## check length of p
+  if (fmt == "trivariate") {
+    if (length(p) != 8 & length(p) != 12) {
+      stop("The length of p must be 8 or 12, i.e. for a 2 or 3 category instrument.")
+    }
+  } else {
+	if (length(p) != 4 & length(p) != 6) {
+	  stop("p seems to have the incorrect number of dimensions")
+	}
+  }
+
+  ## check length of t
+  if (fmt == "bivariate") {
+	  if (length(t) != 4 & length(t) != 6) {
+	   stop("t seems to have the incorrect number of dimensions")
+	  }
+  }
+
+  ## check if p conditional probabilities
+  if (sum(p <= 1) != length(p)) {
+	  stop('p seems to be a mix of cell counts and probabilities')
+  }
+  if (sum(p <= 1) == length(p)) {
+    # already in conditional probabilities
+  } else if (sum(p >= 1) == length(p)) {
+    if (fmt == "trivariate") {
+      p <- prop.table(p, margin = 3)
+	}	else {
+	  p = prop.table(p)
+	}
+  } else {
+    stop("All elements of p must either be conditional probabilities or cell counts.")
+  }
+
+  ## p should now be conditional probabilities
+  ## check they sum to approx. no. instrument categories
+  if (fmt == "trivariate" & length(p) == 8) {
+	  nzcats <- 2
+    if (abs(sum(p) - 2) > 0.1) {
+      warning("The conditional probabilities add up to ", sum(p), " instead of 2.")
+    }
+  } else if (fmt == "trivariate" & length(p) == 12) {
+	  nzcats <- 3
+    if (abs(sum(p) - 3) > 0.1) {
+      warning("The conditional probabilities add up to ", sum(p), " instead of 3.")
+    }
+  }
+
+  # check that t is either cell counts or conditional probabilities
+  if (sum(t <= 1) != length(t)) {
+	  stop('t seems to be a mix of cell counts and probabilities')
+  }
+  # convert to conditional probabilities if cell counts
+  if (fmt == "bivariate") {
+    if (sum(t >= 1) == length(t)) {
+	    t = prop.table(t)
+	  }
+  }
+
+  # Control flow for bivariate or trivariate data
+  if (fmt == "bivariate") {
+    if (length(p) == 4) {
+	    cp = numeric(8)
+	    cp[1] = p[1] # g00
+      cp[2] = p[2] # g10
+      cp[3] = p[3] # g01
+      cp[4] = p[4] # g11
+      cp[5] = t[1] # t00
+      cp[6] = t[2] # t10
+      cp[7] = t[3] # t01
+      cp[8] = t[4] # t11
+	    nzcats <- 2
+      bp <- bpbounds_biv_x2y2z2(cp)
+	    bpres = bpbounds_calc_biv_z2(g = p, t = t)
+    } else if (length(p) == 6) {
+	    cp = numeric(12)
+	    cp[1]  = p[1] # g00
+      cp[2]  = p[2] # g10
+      cp[3]  = p[3] # g01
+      cp[4]  = p[4] # g11
+      cp[5]  = p[5] # g02
+	    cp[6]  = p[6] # g12
+      cp[7]  = t[1] # t00
+      cp[8]  = t[2] # t10
+      cp[9]  = t[3] # t01
+      cp[10] = t[4] # t11
+      cp[11] = t[5] # t02
+      cp[12] = t[6] # t12
+      nzcats <- 3
+      bp <- bpbounds_biv_x2y2z3(p)
+	    bpres = bpbounds_calc_biv_z3(g = p, t = t)
+    }
+  } else if (fmt == "trivariate") {
+    if (length(p) == 8) {
+      bp <- bpbounds_tri_x2y2z2(p)
+	    bpres = bpbounds_calc_tri_z2(p)
+    } else if (length(p) == 12) {
+      bp <- bpbounds_tri_x2y2z3(p)
+	    bpres = bpbounds_calc_tri_z3(p)
+    }
+  }
+
+  # return objects
+  retlist <- list("fmt" = fmt,
+				          "nzcats" = nzcats,
+				          "inequality" = bp$inequality,
+                  "bplb" = bp$bplow,
+                  "bpub" = bp$bpupp,
+                  "bplower" = bp$bplower,
+                  "bpupper" = bp$bpupper,
+                  "p11low" = bpres$p11low,
+				          "p11upp" = bpres$p11upp,
+                  "p10low" = bpres$p10low,
+                  "p10upp" = bpres$p10upp,
+                  "p11lower" = bpres$p11lower,
+                  "p11upper" = bpres$p11upper,
+                  "p10lower" = bpres$p10lower,
+                  "p10upper" = bpres$p10upper,
+                  "crrlb" = bpres$crrlb,
+				          "crrub" = bpres$crrub,
+                  "monoinequality" = bpres$monoinequality,
+                  "monobplb" = bpres$monobplb,
+                  "monobpub" = bpres$monobpub,
+				          "monobplower" = bpres$monolower,
+				          "monobpupper" = bpres$monoupper,
+				          "monop11low" = bpres$monop11lb, # monop11low,
+                  "monop11upp" = bpres$monop11ub, # monop11upp,
+                  "monop10low" = bpres$monop10lb,  # monop10low,
+                  "monop10upp" = bpres$monop10ub, # monop10upp,
+				          "monop11lower" = bpres$monop11lower,
+				          "monop11upper" = bpres$monop11upper,
+				          "monop10lower" = bpres$monop10lower,
+				          "monop10upper" = bpres$monop10upper,
+                  "monocrrlb" = bpres$monocrrlb,
+                  "monocrrub" = bpres$monocrrub)
+  class(retlist) <- "bpbounds"
+  return(retlist)
+}
+
+
+summary.bpbounds <- function(bp){
+  if (class(bp) != "bpbounds") {
+    stop('bp must be of class "bpbounds"')
+  }
+
+  ans = list()
+  ans$fmt             = bp$fmt
+  ans$nzcats          = bp$nzcats
+  ans$inequality      = bp$inequality
+  ans$monoinequality  = bp$monoinequality
+
+  boundscolnames = c("Causal parameter", "Lower bound", "Upper bound")
+  causalparameternames = c("ACE", "P(Y|do(X=0))", "P(Y|do(X=1))", "CRR")
+
+  if (bp$inequality) {
+    lb = c(bp$bplb, bp$p10low, bp$p11low, bp$crrlb)
+    ub = c(bp$bpub, bp$p10upp, bp$p11upp, bp$crrub)
+    ans$bounds = data.frame(causalparameternames, lb, ub)
+    colnames(ans$bounds) = boundscolnames
+
+    if (bp$monoinequality) {
+      monolb = c(bp$monobplb, bp$monop10low, bp$monop11low, bp$monocrrlb)
+      monoub = c(bp$monobpub, bp$monop10upp, bp$monop11upp, bp$monocrrub)
+      ans$monobounds = data.frame(causalparameternames, monolb, monoub)
+      colnames(ans$monobounds) = boundscolnames
+    }
+  }
+
+  class(ans) <- "summary.bpbounds"
+  ans
+}
+
+
+print.summary.bpbounds <- function(bp, digits = getOption("digits")){
+  cat("\n")
+  cat("Data:                    ", bp$fmt, "\n", sep = "")
+  cat("Instrument categories:   ", bp$nzcats, "\n\n", sep = "")
+  cat("Instrumental inequality:", bp$inequality, "\n")
+  print(bp$bounds, digits = digits, row.names = FALSE)
+  cat("\nMonotonicity inequality:", bp$inequality, "\n")
+  print(bp$monobounds, digits = digits, row.names = FALSE)
+  cat("\n")
+  invisible(bp)
+}

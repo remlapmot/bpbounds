@@ -1,0 +1,23 @@
+Package: bpbounds
+Title: Balke-Pearl bounds for the average causal effect
+Version: 0.1.0
+Authors@R: c(person("Tom", "Palmer", email = "tom.palmer@lancaster.ac.uk", role = c("aut", "cre")),
+  person("Roland", "Ramsahai", role = c("aut")),
+  person("Vanessa", "Didelez", role = c("aut")),
+  person("Nuala", "Sheehan", role = c("aut")))
+Description: Implementation of the Balke-Pearl bounds for the average causal effect under 
+  an instrumental variable model. The package can cope with a binary outcome and 
+  treatment/phenotype and an instrument with either 2 or 3 categories. The package implements 
+  bounds for situations where these 3 variables are measured in the same dataset (trivariate data) 
+  or where the outcome and instrument are measured in one study and the treatment/phenotype and 
+  instrument are measured in another study.
+Depends: R (>= 3.5.0)
+Imports: tidyr, methods
+License: GPL-3 + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Suggests: testthat,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+RoxygenNote: 6.1.0

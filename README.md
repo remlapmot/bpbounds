@@ -1,2 +1,13 @@
 # bpbounds
-R package implementing nonparametric bounds for the ACE due to Balke and Pearl, JASA, 1997
+
+This R package implements the nonparametric bounds of Balke and Pearl, JASA, 1997.
+
+## Installation
+
+Install the package in R using the following R command (assuming that you have the `devtools` 
+package installed, if not run `install.packages("devtools")` first.)
+
+``` r
+devtools::install_github("remlapmot/bpbounds")
+```
+To update the package, simply run this command again.
