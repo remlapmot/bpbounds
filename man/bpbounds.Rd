@@ -84,10 +84,10 @@ tab1dat <- data.frame(
 )
 
 tab1inddat	= uncount(tab1dat, freq)
-xt 		    = xtabs( ~ x + y + z, data = tab1inddat)
-p 			    = prop.table(xt, margin = 3)
-bpres 	    = bpbounds(p)
-sbpres     = summary(bpres)
+xt = xtabs( ~ x + y + z, data = tab1inddat)
+p = prop.table(xt, margin = 3)
+bpres = bpbounds(p)
+sbpres = summary(bpres)
 print(sbpres)
 }
 

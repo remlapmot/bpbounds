@@ -11,3 +11,6 @@ package installed, if not run `install.packages("devtools")` first.)
 devtools::install_github("remlapmot/bpbounds")
 ```
 To update the package, simply run this command again.
+
+## Authors
+Tom Palmer (maintainer, tom.palmer@lancaster.ac.uk), Roland Ramsahai, Vanessa Didelez, Nuala Sheehan
