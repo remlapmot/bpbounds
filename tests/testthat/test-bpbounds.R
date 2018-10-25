@@ -1,7 +1,7 @@
 # Tests for the bpbounds package
 # 2018-10-23 Tom Palmer
 
-library(tidyr)
+require(tidyr)
 
 # Balke and Pearl, JASA, 1997 examples ----
 
@@ -20,6 +20,7 @@ p <- prop.table(xt, margin = 3)
 test_that("Balke and Pearl Table 1 example: trivariate data with 2 category instrument", {
   bpres <- bpbounds(p)
 
+  expect_equal(class(bpres), "bpbounds")
   expect_equal(bpres$fmt, "trivariate")
   expect_equal(bpres$nzcats, 2)
 
@@ -44,6 +45,9 @@ test_that("Balke and Pearl Table 1 example: trivariate data with 2 category inst
   expect_equal(bpres$monocrrub, 1.0054, tol = 1e-4)
 
   sbp = summary(bpres)
+
+  expect_equal(class(sbp), "summary.bpbounds")
+
   #print(sbp, digits = 2)
   #print(sbp, digits = 4)
   #print(sbp)

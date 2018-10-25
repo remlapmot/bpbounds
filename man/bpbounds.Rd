@@ -73,19 +73,22 @@ treatment/phenotype and instrument in another, bivariate/two sample data.
 }
 \examples{
 \dontrun{
-library(tidyr)
+require(tidyr)
+require(bpbounds)
+
 tab1dat <- data.frame(
-z = c(0,0,1,1,1,1,0,0),
-x = c(0,0,0,0,1,1,1,1),
-y = c(0,1,0,1,0,1,0,1),
-freq = c(74,11514,34,2385,12,9665,0,0)
+  z = c(0,0,1,1,1,1,0,0),
+  x = c(0,0,0,0,1,1,1,1),
+  y = c(0,1,0,1,0,1,0,1),
+  freq = c(74,11514,34,2385,12,9665,0,0)
 )
 
 tab1inddat	= uncount(tab1dat, freq)
-xt 		= xtabs( ~ x + y + z, data = tab1inddat)
-p 			= prop.table(xt, margin = 3)
-bpres 	= bpbounds(p)
-summary(bpres)
+xt 		    = xtabs( ~ x + y + z, data = tab1inddat)
+p 			    = prop.table(xt, margin = 3)
+bpres 	    = bpbounds(p)
+sbpres     = summary(bpres)
+print(sbpres)
 }
 
 

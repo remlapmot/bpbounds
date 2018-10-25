@@ -58,8 +58,6 @@ y2 = rbinom(n, 1, p2)
 
 tab1 = xtabs( ~ x + y1 + z)
 p1 <- prop.table(tab1, margin = 3)
-tab1
-p1
 
 bpres1 = bpbounds(p1)
 sbp1 = summary(bpres1)
@@ -68,8 +66,6 @@ print(sbp1)
 ## ------------------------------------------------------------------------
 tab2 = xtabs( ~ x + y2 + z)
 p2 <- prop.table(tab2, margin = 3)
-tab2
-p2
 
 bpres2 = bpbounds(p2)
 sbp2 = summary(bpres2)

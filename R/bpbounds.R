@@ -47,19 +47,22 @@
 #'
 #' @examples
 #' \dontrun{
-#' library(tidyr)
+#' require(tidyr)
+#' require(bpbounds)
+#'
 #' tab1dat <- data.frame(
-#' z = c(0,0,1,1,1,1,0,0),
-#' x = c(0,0,0,0,1,1,1,1),
-#' y = c(0,1,0,1,0,1,0,1),
-#' freq = c(74,11514,34,2385,12,9665,0,0)
+#'   z = c(0,0,1,1,1,1,0,0),
+#'   x = c(0,0,0,0,1,1,1,1),
+#'   y = c(0,1,0,1,0,1,0,1),
+#'   freq = c(74,11514,34,2385,12,9665,0,0)
 #' )
 #'
 #' tab1inddat	= uncount(tab1dat, freq)
-#' xt 		= xtabs( ~ x + y + z, data = tab1inddat)
-#' p 			= prop.table(xt, margin = 3)
-#' bpres 	= bpbounds(p)
-#' summary(bpres)
+#' xt 		    = xtabs( ~ x + y + z, data = tab1inddat)
+#' p 			    = prop.table(xt, margin = 3)
+#' bpres 	    = bpbounds(p)
+#' sbpres     = summary(bpres)
+#' print(sbpres)
 #' }
 #'
 #'
@@ -222,12 +225,14 @@ bpbounds <- function(p, t=NULL, fmt="trivariate") {
 }
 
 
-summary.bpbounds <- function(bp){
-  if (class(bp) != "bpbounds") {
-    stop('bp must be of class "bpbounds"')
+#' @export
+summary.bpbounds <- function(object, ...){
+  if (class(object) != "bpbounds") {
+    stop('object must be of class "bpbounds"')
   }
 
   ans = list()
+  bp = object
   ans$fmt             = bp$fmt
   ans$nzcats          = bp$nzcats
   ans$inequality      = bp$inequality
@@ -255,14 +260,15 @@ summary.bpbounds <- function(bp){
 }
 
 
-print.summary.bpbounds <- function(bp, digits = getOption("digits")){
+#' @export
+print.summary.bpbounds <- function(x, digits = getOption("digits"), ...){
   cat("\n")
-  cat("Data:                    ", bp$fmt, "\n", sep = "")
-  cat("Instrument categories:   ", bp$nzcats, "\n\n", sep = "")
-  cat("Instrumental inequality:", bp$inequality, "\n")
-  print(bp$bounds, digits = digits, row.names = FALSE)
-  cat("\nMonotonicity inequality:", bp$inequality, "\n")
-  print(bp$monobounds, digits = digits, row.names = FALSE)
+  cat("Data:                    ", x$fmt, "\n", sep = "")
+  cat("Instrument categories:   ", x$nzcats, "\n\n", sep = "")
+  cat("Instrumental inequality:", x$inequality, "\n")
+  print(x$bounds, digits = digits, row.names = FALSE)
+  cat("\nMonotonicity inequality:", x$inequality, "\n")
+  print(x$monobounds, digits = digits, row.names = FALSE)
   cat("\n")
-  invisible(bp)
+  invisible(x)
 }

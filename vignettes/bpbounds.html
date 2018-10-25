@@ -405,95 +405,39 @@ University of Leicester<br><h4 class="date"><em>2018-10-25</em></h4>
 <a class="sourceLine" id="cb5-11" data-line-number="11"></a>
 <a class="sourceLine" id="cb5-12" data-line-number="12">tab1 =<span class="st"> </span><span class="kw">xtabs</span>( <span class="op">~</span><span class="st"> </span>x <span class="op">+</span><span class="st"> </span>y1 <span class="op">+</span><span class="st"> </span>z)</a>
 <a class="sourceLine" id="cb5-13" data-line-number="13">p1 &lt;-<span class="st"> </span><span class="kw">prop.table</span>(tab1, <span class="dt">margin =</span> <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb5-14" data-line-number="14">tab1</a>
-<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="co">#&gt; , , z = 0</span></a>
-<a class="sourceLine" id="cb5-16" data-line-number="16"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb5-17" data-line-number="17"><span class="co">#&gt;    y1</span></a>
-<a class="sourceLine" id="cb5-18" data-line-number="18"><span class="co">#&gt; x      0    1</span></a>
-<a class="sourceLine" id="cb5-19" data-line-number="19"><span class="co">#&gt;   0 3836  675</span></a>
-<a class="sourceLine" id="cb5-20" data-line-number="20"><span class="co">#&gt;   1  416  102</span></a>
+<a class="sourceLine" id="cb5-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb5-15" data-line-number="15">bpres1 =<span class="st"> </span><span class="kw">bpbounds</span>(p1)</a>
+<a class="sourceLine" id="cb5-16" data-line-number="16">sbp1 =<span class="st"> </span><span class="kw">summary</span>(bpres1)</a>
+<a class="sourceLine" id="cb5-17" data-line-number="17"><span class="kw">print</span>(sbp1)</a>
+<a class="sourceLine" id="cb5-18" data-line-number="18"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb5-19" data-line-number="19"><span class="co">#&gt; Data:                    trivariate</span></a>
+<a class="sourceLine" id="cb5-20" data-line-number="20"><span class="co">#&gt; Instrument categories:   2</span></a>
 <a class="sourceLine" id="cb5-21" data-line-number="21"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb5-22" data-line-number="22"><span class="co">#&gt; , , z = 1</span></a>
-<a class="sourceLine" id="cb5-23" data-line-number="23"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb5-24" data-line-number="24"><span class="co">#&gt;    y1</span></a>
-<a class="sourceLine" id="cb5-25" data-line-number="25"><span class="co">#&gt; x      0    1</span></a>
-<a class="sourceLine" id="cb5-26" data-line-number="26"><span class="co">#&gt;   0 2622 1381</span></a>
-<a class="sourceLine" id="cb5-27" data-line-number="27"><span class="co">#&gt;   1  579  389</span></a>
-<a class="sourceLine" id="cb5-28" data-line-number="28">p1</a>
-<a class="sourceLine" id="cb5-29" data-line-number="29"><span class="co">#&gt; , , z = 0</span></a>
-<a class="sourceLine" id="cb5-30" data-line-number="30"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb5-31" data-line-number="31"><span class="co">#&gt;    y1</span></a>
-<a class="sourceLine" id="cb5-32" data-line-number="32"><span class="co">#&gt; x            0          1</span></a>
-<a class="sourceLine" id="cb5-33" data-line-number="33"><span class="co">#&gt;   0 0.76277590 0.13422152</span></a>
-<a class="sourceLine" id="cb5-34" data-line-number="34"><span class="co">#&gt;   1 0.08272022 0.02028236</span></a>
-<a class="sourceLine" id="cb5-35" data-line-number="35"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb5-36" data-line-number="36"><span class="co">#&gt; , , z = 1</span></a>
-<a class="sourceLine" id="cb5-37" data-line-number="37"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb5-38" data-line-number="38"><span class="co">#&gt;    y1</span></a>
-<a class="sourceLine" id="cb5-39" data-line-number="39"><span class="co">#&gt; x            0          1</span></a>
-<a class="sourceLine" id="cb5-40" data-line-number="40"><span class="co">#&gt;   0 0.52745926 0.27781131</span></a>
-<a class="sourceLine" id="cb5-41" data-line-number="41"><span class="co">#&gt;   1 0.11647556 0.07825387</span></a>
-<a class="sourceLine" id="cb5-42" data-line-number="42"></a>
-<a class="sourceLine" id="cb5-43" data-line-number="43">bpres1 =<span class="st"> </span><span class="kw">bpbounds</span>(p1)</a>
-<a class="sourceLine" id="cb5-44" data-line-number="44">sbp1 =<span class="st"> </span><span class="kw">summary</span>(bpres1)</a>
-<a class="sourceLine" id="cb5-45" data-line-number="45"><span class="kw">print</span>(sbp1)</a>
-<a class="sourceLine" id="cb5-46" data-line-number="46"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb5-47" data-line-number="47"><span class="co">#&gt; Data:                    trivariate</span></a>
-<a class="sourceLine" id="cb5-48" data-line-number="48"><span class="co">#&gt; Instrument categories:   2</span></a>
-<a class="sourceLine" id="cb5-49" data-line-number="49"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb5-50" data-line-number="50"><span class="co">#&gt; Instrumental inequality: FALSE </span></a>
-<a class="sourceLine" id="cb5-51" data-line-number="51"><span class="co">#&gt; NULL</span></a>
-<a class="sourceLine" id="cb5-52" data-line-number="52"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb5-53" data-line-number="53"><span class="co">#&gt; Monotonicity inequality: FALSE </span></a>
-<a class="sourceLine" id="cb5-54" data-line-number="54"><span class="co">#&gt; NULL</span></a></code></pre></div>
+<a class="sourceLine" id="cb5-22" data-line-number="22"><span class="co">#&gt; Instrumental inequality: FALSE </span></a>
+<a class="sourceLine" id="cb5-23" data-line-number="23"><span class="co">#&gt; NULL</span></a>
+<a class="sourceLine" id="cb5-24" data-line-number="24"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb5-25" data-line-number="25"><span class="co">#&gt; Monotonicity inequality: FALSE </span></a>
+<a class="sourceLine" id="cb5-26" data-line-number="26"><span class="co">#&gt; NULL</span></a></code></pre></div>
 <p>Due to the strong direct effect of the instrument on the outcome, both the instrumental variable and monotonicity inequalities are not satisifed.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">tab2 =<span class="st"> </span><span class="kw">xtabs</span>( <span class="op">~</span><span class="st"> </span>x <span class="op">+</span><span class="st"> </span>y2 <span class="op">+</span><span class="st"> </span>z)</a>
 <a class="sourceLine" id="cb6-2" data-line-number="2">p2 &lt;-<span class="st"> </span><span class="kw">prop.table</span>(tab2, <span class="dt">margin =</span> <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3">tab2</a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">#&gt; , , z = 0</span></a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">#&gt;    y2</span></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">#&gt; x      0    1</span></a>
-<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co">#&gt;   0 3830  681</span></a>
-<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">#&gt;   1  411  107</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">bpres2 =<span class="st"> </span><span class="kw">bpbounds</span>(p2)</a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">sbp2 =<span class="st"> </span><span class="kw">summary</span>(bpres2)</a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="kw">print</span>(sbp2)</a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co">#&gt; Data:                    trivariate</span></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">#&gt; Instrument categories:   2</span></a>
 <a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="co">#&gt; , , z = 1</span></a>
-<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="co">#&gt;    y2</span></a>
-<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="co">#&gt; x      0    1</span></a>
-<a class="sourceLine" id="cb6-15" data-line-number="15"><span class="co">#&gt;   0 3150  853</span></a>
-<a class="sourceLine" id="cb6-16" data-line-number="16"><span class="co">#&gt;   1  713  255</span></a>
-<a class="sourceLine" id="cb6-17" data-line-number="17">p2</a>
-<a class="sourceLine" id="cb6-18" data-line-number="18"><span class="co">#&gt; , , z = 0</span></a>
-<a class="sourceLine" id="cb6-19" data-line-number="19"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb6-20" data-line-number="20"><span class="co">#&gt;    y2</span></a>
-<a class="sourceLine" id="cb6-21" data-line-number="21"><span class="co">#&gt; x            0          1</span></a>
-<a class="sourceLine" id="cb6-22" data-line-number="22"><span class="co">#&gt;   0 0.76158282 0.13541460</span></a>
-<a class="sourceLine" id="cb6-23" data-line-number="23"><span class="co">#&gt;   1 0.08172599 0.02127660</span></a>
-<a class="sourceLine" id="cb6-24" data-line-number="24"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb6-25" data-line-number="25"><span class="co">#&gt; , , z = 1</span></a>
-<a class="sourceLine" id="cb6-26" data-line-number="26"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb6-27" data-line-number="27"><span class="co">#&gt;    y2</span></a>
-<a class="sourceLine" id="cb6-28" data-line-number="28"><span class="co">#&gt; x            0          1</span></a>
-<a class="sourceLine" id="cb6-29" data-line-number="29"><span class="co">#&gt;   0 0.63367532 0.17159525</span></a>
-<a class="sourceLine" id="cb6-30" data-line-number="30"><span class="co">#&gt;   1 0.14343191 0.05129753</span></a>
-<a class="sourceLine" id="cb6-31" data-line-number="31"></a>
-<a class="sourceLine" id="cb6-32" data-line-number="32">bpres2 =<span class="st"> </span><span class="kw">bpbounds</span>(p2)</a>
-<a class="sourceLine" id="cb6-33" data-line-number="33">sbp2 =<span class="st"> </span><span class="kw">summary</span>(bpres2)</a>
-<a class="sourceLine" id="cb6-34" data-line-number="34"><span class="kw">print</span>(sbp2)</a>
-<a class="sourceLine" id="cb6-35" data-line-number="35"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb6-36" data-line-number="36"><span class="co">#&gt; Data:                    trivariate</span></a>
-<a class="sourceLine" id="cb6-37" data-line-number="37"><span class="co">#&gt; Instrument categories:   2</span></a>
-<a class="sourceLine" id="cb6-38" data-line-number="38"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb6-39" data-line-number="39"><span class="co">#&gt; Instrumental inequality: TRUE </span></a>
-<a class="sourceLine" id="cb6-40" data-line-number="40"><span class="co">#&gt;  Causal parameter Lower bound Upper bound</span></a>
-<a class="sourceLine" id="cb6-41" data-line-number="41"><span class="co">#&gt;               ACE -0.18711965   0.6700688</span></a>
-<a class="sourceLine" id="cb6-42" data-line-number="42"><span class="co">#&gt;      P(Y|do(X=0))  0.17159525   0.2384172</span></a>
-<a class="sourceLine" id="cb6-43" data-line-number="43"><span class="co">#&gt;      P(Y|do(X=1))  0.05129753   0.8416640</span></a>
-<a class="sourceLine" id="cb6-44" data-line-number="44"><span class="co">#&gt;               CRR  0.21515868   4.9049378</span></a>
-<a class="sourceLine" id="cb6-45" data-line-number="45"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb6-46" data-line-number="46"><span class="co">#&gt; Monotonicity inequality: TRUE </span></a>
-<a class="sourceLine" id="cb6-47" data-line-number="47"><span class="co">#&gt; NULL</span></a></code></pre></div>
+<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="co">#&gt; Instrumental inequality: TRUE </span></a>
+<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="co">#&gt;  Causal parameter Lower bound Upper bound</span></a>
+<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="co">#&gt;               ACE -0.18711965   0.6700688</span></a>
+<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="co">#&gt;      P(Y|do(X=0))  0.17159525   0.2384172</span></a>
+<a class="sourceLine" id="cb6-15" data-line-number="15"><span class="co">#&gt;      P(Y|do(X=1))  0.05129753   0.8416640</span></a>
+<a class="sourceLine" id="cb6-16" data-line-number="16"><span class="co">#&gt;               CRR  0.21515868   4.9049378</span></a>
+<a class="sourceLine" id="cb6-17" data-line-number="17"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb6-18" data-line-number="18"><span class="co">#&gt; Monotonicity inequality: TRUE </span></a>
+<a class="sourceLine" id="cb6-19" data-line-number="19"><span class="co">#&gt; NULL</span></a></code></pre></div>
 <p>However, with the weaker direct effect we see that both are satisfied when the true underlying data generating model does not satisfy the instrumental variable assumptions.</p>
 <div id="refs" class="references">
 <div id="ref-balke-jasa-1997">
