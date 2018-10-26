@@ -57,7 +57,7 @@
 #'   freq = c(74,11514,34,2385,12,9665,0,0)
 #' )
 #'
-#' tab1inddat	= uncount(tab1dat, freq)
+#' tab1inddat = uncount(tab1dat, freq)
 #' xt = xtabs( ~ x + y + z, data = tab1inddat)
 #' p = prop.table(xt, margin = 3)
 #' bpres = bpbounds(p)

@@ -12,12 +12,13 @@ Description: Implementation of the Balke-Pearl bounds for the average causal eff
   or where the outcome and instrument are measured in one study and the treatment/phenotype and 
   instrument are measured in another study.
 Depends: R (>= 3.5.0)
-Imports: tidyr, methods
+Imports: methods
 License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Suggests: testthat,
     knitr,
-    rmarkdown
+    rmarkdown,
+    tidyr
 VignetteBuilder: knitr
 RoxygenNote: 6.1.0
