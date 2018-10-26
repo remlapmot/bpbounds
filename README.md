@@ -1,5 +1,7 @@
 # bpbounds
 
+[![Build Status](https://travis-ci.org/remlapmot/bpbounds.svg?branch=master)](https://travis-ci.org/remlapmot/bpbounds)
+
 This R package implements the nonparametric bounds of Balke and Pearl, JASA, 1997.
 
 ## Installation
