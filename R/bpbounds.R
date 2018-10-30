@@ -266,9 +266,14 @@ print.summary.bpbounds <- function(x, digits = getOption("digits"), ...){
   cat("Data:                    ", x$fmt, "\n", sep = "")
   cat("Instrument categories:   ", x$nzcats, "\n\n", sep = "")
   cat("Instrumental inequality:", x$inequality, "\n")
-  print(x$bounds, digits = digits, row.names = FALSE)
+  print(x$bounds, digits = digits, row.names = FALSE, ...)
   cat("\nMonotonicity inequality:", x$inequality, "\n")
-  print(x$monobounds, digits = digits, row.names = FALSE)
+  print(x$monobounds, digits = digits, row.names = FALSE, ...)
   cat("\n")
   invisible(x)
+}
+
+#' @export
+print.bpbounds <- function(x, digits = getOption("digits"), ...){
+  print(summary(x), digits = digits, ...)
 }

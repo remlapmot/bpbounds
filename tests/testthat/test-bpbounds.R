@@ -2,6 +2,7 @@
 # 2018-10-23 Tom Palmer
 
 require(tidyr)
+context("Tests for bpbounds package")
 
 # Balke and Pearl, JASA, 1997 examples ----
 
@@ -44,13 +45,17 @@ test_that("Balke and Pearl Table 1 example: trivariate data with 2 category inst
   expect_equal(bpres$monocrrlb, 0.8042, tol = 1e-4)
   expect_equal(bpres$monocrrub, 1.0054, tol = 1e-4)
 
-  sbp = summary(bpres)
+  print(bpres)
+  print(bpres, digits = 4)
+  bpres
 
+  sbp = summary(bpres)
   expect_equal(class(sbp), "summary.bpbounds")
 
-  #print(sbp, digits = 2)
-  #print(sbp, digits = 4)
-  #print(sbp)
+  print(sbp)
+  sbp
+  print(sbp, digits = 2)
+  print(sbp, digits = 4)
 })
 
 
@@ -74,8 +79,8 @@ test_that("Balke and Pearl Table 1 example treated as bivariate data", {
   expect_equal(bpres$crrub, 1.2039, tol = 1e-4)
   expect_true(bpres$monoinequality)
   sbp = summary(bpres)
-  #print(sbp, digits = 2)
-  #print(sbp)
+  print(sbp, digits = 3)
+  print(sbp)
 })
 
 
@@ -88,7 +93,31 @@ sum(p2)
 test_that("Balke and Pearl Table 2 example: trivariate data with 2 category instrument", {
   bpres = bpbounds(p2, fmt="trivariate")
   sbp = summary(bpres)
-  #print(sbp)
+  print(sbp)
+
+  expect_equal(class(bpres), "bpbounds")
+  expect_equal(bpres$fmt, "trivariate")
+  expect_equal(bpres$nzcats, 2)
+
+  expect_true(bpres$inequality)
+  expect_equal(bpres$bplb, -0.1946, tol = 1e-4)
+  expect_equal(bpres$bpub, 0.0054, tol = 1e-4)
+  expect_equal(bpres$p10low, 0.9936, tol = 1e-4)
+  expect_equal(bpres$p10upp, 0.9936, tol = 1e-4)
+  expect_equal(bpres$p11low, 0.7990, tol = 1e-4)
+  expect_equal(bpres$p11upp, 0.9990, tol = 1e-4)
+  expect_equal(bpres$crrlb, 0.8042, tol = 1e-4)
+  expect_equal(bpres$crrub, 1.0054, tol = 1e-4)
+
+  expect_true(bpres$monoinequality)
+  expect_equal(bpres$monobplb, -0.1946, tol = 1e-4)
+  expect_equal(bpres$monobpub, 0.0054, tol = 1e-4)
+  expect_equal(bpres$monop10low, 0.9936, tol = 1e-4)
+  expect_equal(bpres$monop10upp, 0.9936, tol = 1e-4)
+  expect_equal(bpres$monop11low, 0.7990, tol = 1e-4)
+  expect_equal(bpres$monop11upp, 0.9990, tol = 1e-4)
+  expect_equal(bpres$monocrrlb, 0.8042, tol = 1e-4)
+  expect_equal(bpres$monocrrub, 1.0054, tol = 1e-4)
 })
 
 
@@ -110,5 +139,5 @@ test_that("Mendelian randomization with 3 category instrument, trivariate data",
   expect_equal(bpres$crrub, 13.3333, tol = 1e-4)
   expect_false(bpres$monoinequality)
   sbp = summary(bpres)
-  #print(sbp)
+  print(sbp)
 })
