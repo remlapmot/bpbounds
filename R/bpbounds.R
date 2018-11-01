@@ -46,7 +46,7 @@
 #' }
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' require(tidyr)
 #' require(bpbounds)
 #'

@@ -72,7 +72,7 @@ trivariate data, and when the outcome and instrument are measured in one study a
 treatment/phenotype and instrument in another, bivariate/two sample data.
 }
 \examples{
-\dontrun{
+\donttest{
 require(tidyr)
 require(bpbounds)
 
