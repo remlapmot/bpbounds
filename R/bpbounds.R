@@ -91,9 +91,9 @@ bpbounds <- function(p, t=NULL, fmt="trivariate") {
       stop("The length of p must be 8 or 12, i.e. for a 2 or 3 category instrument.")
     }
   } else {
-	if (length(p) != 4 & length(p) != 6) {
-	  stop("p seems to have the incorrect number of dimensions")
-	}
+	  if (length(p) != 4 & length(p) != 6) {
+	    stop("p seems to have the incorrect number of dimensions")
+	  }
   }
 
   ## check length of t
@@ -112,9 +112,9 @@ bpbounds <- function(p, t=NULL, fmt="trivariate") {
   } else if (sum(p >= 1) == length(p)) {
     if (fmt == "trivariate") {
       p <- prop.table(p, margin = 3)
-	}	else {
-	  p = prop.table(p)
-	}
+	  }	else {
+	    p = prop.table(p)
+	  }
   } else {
     stop("All elements of p must either be conditional probabilities or cell counts.")
   }
@@ -174,7 +174,7 @@ bpbounds <- function(p, t=NULL, fmt="trivariate") {
       cp[11] = t[5] # t02
       cp[12] = t[6] # t12
       nzcats <- 3
-      bp <- bpbounds_biv_x2y2z3(p)
+      bp <- bpbounds_biv_x2y2z3(cp)
 	    bpres = bpbounds_calc_biv_z3(g = p, t = t)
     }
   } else if (fmt == "trivariate") {

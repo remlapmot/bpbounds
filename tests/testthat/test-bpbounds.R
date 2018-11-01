@@ -122,6 +122,7 @@ test_that("Balke and Pearl Table 2 example: trivariate data with 2 category inst
 
 
 # Meleady AJCN 2003; Trivariate data with 3 category instrument - Table 3 of paper ----
+## Trivariate data
 mt3 <- c(.83, .05, .11, .01, .88, .06, .05, .01, .72, .05, .20, .03)
 p3 = array(mt3, dim = c(2,2,3), dimnames = list(x = c(0,1), y = c(0,1), z = c(0,1,2)))
 p3 = as.table(p3)
@@ -138,6 +139,39 @@ test_that("Mendelian randomization with 3 category instrument, trivariate data",
   expect_equal(bpres$crrlb, 0.25, tol = 1e-4)
   expect_equal(bpres$crrub, 13.3333, tol = 1e-4)
   expect_false(bpres$monoinequality)
+  sbp = summary(bpres)
+  print(sbp)
+})
+
+## Bivariate data
+dat = data.frame(count = c(341, 47, 297, 17, 63, 18, 272, 41, 269, 38, 56, 35),
+                 z = c(0, 0, 1, 1, 2, 2, 0, 0, 1, 1, 2, 2),
+                 y = c(0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1),
+                 x = c(0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1))
+longdat = uncount(dat, weights = count)
+
+gtab = xtabs(~ y + z, data = longdat)
+gp = prop.table(gtab, margin = 2)
+gp
+
+ttab  = xtabs(~ x + z, data = longdat)
+tp = prop.table(ttab, margin = 2)
+tp
+
+test_that("Mendelian randomization with 3 category instrument, bivariate data", {
+  bpres = bpbounds(p=gp, t=tp, fmt="bivariate")
+  print(bpres)
+  expect_true(bpres$inequality)
+  expect_equal(bpres$bplb, -0.5720, tol = 1e-4)
+  expect_equal(bpres$bpub, 0.5942, tol = 1e-4)
+  expect_equal(bpres$p10low, 0.4058, tol = 1e-4)
+  expect_equal(bpres$p10upp, 0.5720, tol = 1e-4)
+  expect_equal(bpres$p11low, -0.1628, tol = 1e-4)
+  expect_equal(bpres$p11upp, 1.2209, tol = 1e-4)
+  expect_equal(bpres$crrlb, -0.2846, tol = 1e-4)
+  expect_equal(bpres$crrub, 3.009, tol = 1e-4)
+  expect_false(bpres$monoinequality)
+
   sbp = summary(bpres)
   print(sbp)
 })
