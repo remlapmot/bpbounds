@@ -157,7 +157,7 @@ bpbounds <- function(p, t=NULL, fmt="trivariate") {
       cp[7] = t[3] # t01
       cp[8] = t[4] # t11
 	    nzcats <- 2
-      bp <- bpbounds_biv_x2y2z2(cp)
+      bp <- bpbounds_biv_x2y2z2(p = cp)
 	    bpres = bpbounds_calc_biv_z2(g = p, t = t)
     } else if (length(p) == 6) {
 	    cp = numeric(12)
@@ -174,15 +174,15 @@ bpbounds <- function(p, t=NULL, fmt="trivariate") {
       cp[11] = t[5] # t02
       cp[12] = t[6] # t12
       nzcats <- 3
-      bp <- bpbounds_biv_x2y2z3(cp)
+      bp <- bpbounds_biv_x2y2z3(p = cp)
 	    bpres = bpbounds_calc_biv_z3(g = p, t = t)
     }
   } else if (fmt == "trivariate") {
     if (length(p) == 8) {
-      bp <- bpbounds_tri_x2y2z2(p)
+      bp <- bpbounds_tri_x2y2z2(p = p)
 	    bpres = bpbounds_calc_tri_z2(p)
     } else if (length(p) == 12) {
-      bp <- bpbounds_tri_x2y2z3(p)
+      bp <- bpbounds_tri_x2y2z3(p = p)
 	    bpres = bpbounds_calc_tri_z3(p)
     }
   }
