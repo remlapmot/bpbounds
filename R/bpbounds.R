@@ -132,20 +132,21 @@ bpbounds <- function(p, t=NULL, fmt="trivariate") {
   }
 
   ## check if p conditional probabilities
-  if (sum(p <= 1) != length(p)) {
-	  stop('p seems to be a mix of cell counts and probabilities')
-  }
+#  if (sum(p <= 1) != length(p)) {
+#	  stop('p seems to be a mix of cell counts and probabilities')
+#  }
   if (sum(p <= 1) == length(p)) {
     # already in conditional probabilities
-  } else if (sum(p >= 1) == length(p)) {
+  } else {
     if (fmt == "trivariate") {
       p <- prop.table(p, margin = 3)
 	  }	else {
-	    p = prop.table(p)
+	    p = prop.table(p, margin = 2)
 	  }
-  } else {
-    stop("All elements of p must either be conditional probabilities or cell counts.")
   }
+  #else {
+  #  stop("All elements of p must either be conditional probabilities or cell counts.")
+  #}
 
   ## p should now be conditional probabilities
   ## check they sum to approx. no. instrument categories
@@ -162,14 +163,13 @@ bpbounds <- function(p, t=NULL, fmt="trivariate") {
   }
 
   # check that t is either cell counts or conditional probabilities
-  if (sum(t <= 1) != length(t)) {
-	  stop('t seems to be a mix of cell counts and probabilities')
-  }
-  # convert to conditional probabilities if cell counts
-  if (fmt == "bivariate") {
-    if (sum(t >= 1) == length(t)) {
-	    t = prop.table(t)
-	  }
+  if (sum(t <= 1) == length(t)) {
+	  # conditional probabilities
+  } else {
+    # convert to conditional probabilities if cell counts
+    if (fmt == "bivariate") {
+        t = prop.table(t, margin = 2)
+    }
   }
 
   # Control flow for bivariate or trivariate data
