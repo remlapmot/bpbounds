@@ -256,10 +256,6 @@ bpbounds <- function(p, t=NULL, fmt="trivariate") {
 
 #' @export
 summary.bpbounds <- function(object, ...){
-  if (class(object) != "bpbounds") {
-    stop('object must be of class "bpbounds"')
-  }
-
   ans = list()
   bp = object
   ans$fmt             = bp$fmt
