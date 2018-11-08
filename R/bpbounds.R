@@ -137,39 +137,40 @@ bpbounds <- function(p, t=NULL, fmt="trivariate") {
 #  }
   if (sum(p <= 1) == length(p)) {
     # already in conditional probabilities
-  } else {
+  } else if (all(p == floor(p))) {
     if (fmt == "trivariate") {
       p <- prop.table(p, margin = 3)
 	  }	else {
 	    p = prop.table(p, margin = 2)
 	  }
+  } else {
+    stop("All elements of p must either be conditional probabilities or cell counts.")
   }
-  #else {
-  #  stop("All elements of p must either be conditional probabilities or cell counts.")
-  #}
 
   ## p should now be conditional probabilities
   ## check they sum to approx. no. instrument categories
   if (fmt == "trivariate" & length(p) == 8) {
 	  nzcats <- 2
     if (abs(sum(p) - 2) > 0.1) {
-      warning("The conditional probabilities add up to ", sum(p), " instead of 2.")
+      stop("The conditional probabilities add up to ", sum(p), " instead of 2.")
     }
   } else if (fmt == "trivariate" & length(p) == 12) {
 	  nzcats <- 3
     if (abs(sum(p) - 3) > 0.1) {
-      warning("The conditional probabilities add up to ", sum(p), " instead of 3.")
+      stop("The conditional probabilities add up to ", sum(p), " instead of 3.")
     }
   }
 
   # check that t is either cell counts or conditional probabilities
   if (sum(t <= 1) == length(t)) {
 	  # conditional probabilities
-  } else {
+  } else if (all(t == floor(t))) {
     # convert to conditional probabilities if cell counts
     if (fmt == "bivariate") {
         t = prop.table(t, margin = 2)
     }
+  } else {
+    stop("All elements of t must either be conditional probabilities or cell counts.")
   }
 
   # Control flow for bivariate or trivariate data
