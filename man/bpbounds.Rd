@@ -10,13 +10,30 @@ bpbounds(p, t = NULL, fmt = "trivariate")
 }
 \arguments{
 \item{p}{Object of class "table" containing either cell counts or conditional
-probabilities, e.g. generated from xtabs( ~ x + y + z, data = data)}
+probabilities. For trivariate data these are for the phenotype/treatment-outcome
+association given Z, i.e. P(X, Y | Z).
 
-\item{t}{Specified for bivariate data. Object with treatment/phenotype - instrument
-cell counts or conditional probabilities}
+Cell counts could be generated from xtabs( ~ x + y + z, data = data). And then
+conditional probabilities obatained by calling prop.table(, margins = 3) on your object from
+xtabs().
 
-\item{fmt}{A character which sould be either "bivariate"
-(X, Z in one dataset and Y, Z in another datasets) or
+If you only know the conditional probabilities you can enter these as e.g. for the
+Balke and Pearl Vitamin A example:
+
+  cp    = c(.0064, 0, .9936, 0, .0028, .001, .1972, .799)
+
+  tabp = as.table(array(cp, dim=c(2, 2, 2), dimnames = list(x = c(0, 1), y = c(0, 1), z = c(0, 1))))
+
+And then call bpbounds using this object.
+
+For bivariate data this object contains cell conditional probabilities for the outcome-instrument
+(Y|Z) association.}
+
+\item{t}{Specified for bivariate data. Object with treatment/phenotype-instrument
+cell counts or conditional probabilities, i.e. (X|Z).}
+
+\item{fmt}{A character string which sould be either "bivariate"
+(i.e. X, Z in one dataset and Y, Z in another dataset) or
 "trivariate" (X, Y, Z in the same dataset).}
 }
 \value{
@@ -73,6 +90,8 @@ treatment/phenotype and instrument in another, bivariate/two sample data.
 }
 \examples{
 \donttest{
+# Vitamin A example, using cell counts
+
 require(tidyr)
 require(bpbounds)
 
@@ -80,7 +99,7 @@ tab1dat <- data.frame(
   z = c(0,0,1,1,1,1,0,0),
   x = c(0,0,0,0,1,1,1,1),
   y = c(0,1,0,1,0,1,0,1),
-  freq = c(74,11514,34,2385,12,9665,0,0)
+  freq = c(74, 11514, 34, 2385, 12, 9663, 0, 0)
 )
 
 tab1inddat = uncount(tab1dat, freq)
@@ -91,5 +110,14 @@ sbpres = summary(bpres)
 print(sbpres)
 }
 
+\donttest{
+# Vitamin A example, using conditional probabilities
+
+require(bpbounds)
+cp = c(.0064, 0, .9936, 0, .0028, .001, .1972, .799)
+tabp = as.table(array(cp, dim=c(2, 2, 2),
+  dimnames = list(x = c(0, 1), y = c(0, 1), z = c(0, 1))))
+bpbounds(tabp)
+}
 
 }
