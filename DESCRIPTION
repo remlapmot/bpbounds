@@ -16,7 +16,8 @@ Imports: methods
 License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Suggests: testthat,
+Suggests: dplyr,
+    testthat,
     knitr,
     rmarkdown,
     tidyr
