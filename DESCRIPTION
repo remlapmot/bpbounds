@@ -1,9 +1,11 @@
 Package: bpbounds
 Title: Balke-Pearl Bounds for the Average Causal Effect
 Version: 0.1.0
-Authors@R: c(person("Tom", "Palmer", email = "tom.palmer@lancaster.ac.uk", role = c("aut", "cre")),
+Authors@R: c(person("Tom", "Palmer", 
+    email = "tom.palmer@lancaster.ac.uk", role = c("aut", "cre"),
+    comment = c(ORCID = "0000-0003-4655-4511")),
   person("Roland", "Ramsahai", role = c("aut")),
-  person("Vanessa", "Didelez", role = c("aut")),
+  person("Vanessa", "Didelez", role = c("aut"), comment = c(ORCID = "0000-0001-8587-7706")),
   person("Nuala", "Sheehan", role = c("aut")))
 Description: Implementation of the Balke-Pearl bounds for the average causal effect under 
   an instrumental variable model. The package can cope with a binary outcome and 
