@@ -1,5 +1,5 @@
 Package: bpbounds
-Title: Balke-Pearl bounds for the average causal effect
+Title: Balke-Pearl Bounds for the Average Causal Effect
 Version: 0.1.0
 Authors@R: c(person("Tom", "Palmer", email = "tom.palmer@lancaster.ac.uk", role = c("aut", "cre")),
   person("Roland", "Ramsahai", role = c("aut")),

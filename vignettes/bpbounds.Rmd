@@ -29,7 +29,7 @@ knitr::opts_chunk$set(
 ```
 
 ## Introduction
-This short vignette demonstrates the use of the `bpbounds` package. This is a R implementation of the of the nonparametric bounds for the average causal effect of @balke-jasa-1997 and some extensions. Currently this R package is a port of our `bpbounds` Stata package @palmer-sj-2011. The code implements the approach of calculating the bounds outlined by @ramsahai-uai-2007, @ramsahai-thesis, and @ramsahai-jmlr-2012.
+This short vignette demonstrates the use of the `bpbounds` package. This is a R implementation of the of the nonparametric bounds for the average causal effect of @balke-jasa-1997 and some extensions. Currently this R package is a port of our `bpbounds` Stata package (@palmer-sj-2011). The code implements the approach of calculating the bounds outlined by @ramsahai-uai-2007, @ramsahai-thesis, and @ramsahai-jmlr-2012.
 
 We start by loading our package and the others needed for the code in this vignette.
 ```{r}
