@@ -1,6 +1,7 @@
+^LICENSE$
+^README\.Rmd$
 ^Meta$
 ^doc$
 ^\.travis\.yml$
 ^.*\.Rproj$
 ^\.Rproj\.user$
-LICENSE
