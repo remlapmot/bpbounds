@@ -20,7 +20,7 @@ Description: Implementation of the nonparametric bounds for the average causal
     (bivariate data).
 Depends: R (>= 3.5.0)
 Imports: methods
-License: GPL-3 + file LICENSE
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Suggests: dplyr,
