@@ -7,3 +7,4 @@ doc
 .Renviron
 .Rprofile
 .DS_Store
+inst/doc
