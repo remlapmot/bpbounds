@@ -1,0 +1,17 @@
+bibentry(
+  bibtype = "Manual",
+  header = "To cite bpbounds in publications please use:",
+  author = c(
+    person("T.M.", "Palmer", role = c("aut", "cre")),
+    person("R.", "Ramsahai", role = "aut"),
+    person("V.", "Didelez", role = "aut"),
+    person("N.A.", "Sheehan", role = "aut")
+  ),
+  title = "bpbounds: R package implementing Balke-Pearl bounds for the average causal effect",
+  year = "2018",
+  url = "https://github.com/remlapmot/bpbounds",
+  key = "bpbounds-package",
+  textVersion = paste("Palmer T, Ramsahai R, Didelez V, Sheehan N (2018).",
+  "bpbounds: R package implementing Balke-Pearl bounds for the average causal effect.",
+  "https://github.com/remlapmot/bpbounds.")
+)
