@@ -1,26 +1,26 @@
-#' Nonparametric Bounds for the Average Causal Effect due to Balke and Pearl
+#' Nonparametric Bounds for the Average Causal Effect due to Balke and Pearl.
 #'
 #' @param p Object of class "table" containing either cell counts or conditional
-#' probabilities. For trivariate data these are for the 
+#' probabilities. For trivariate data these are for the
 #' phenotype/treatment-outcome association given Z, i.e. P(X, Y | Z).
 #'
-#' Cell counts could be generated from `xtabs( ~ x + y + z, data = data)`. 
-#' And then conditional probabilities obatained by calling 
+#' Cell counts could be generated from `xtabs( ~ x + y + z, data = data)`.
+#' And then conditional probabilities obatained by calling
 #' `prop.table(..., margins = 3)` on your object from `xtabs()`.
 #'
-#' If you only know the conditional probabilities you can enter these, e.g. 
+#' If you only know the conditional probabilities you can enter these, e.g.
 #' for the Balke and Pearl Vitamin A example:
 #' ```
 #' cp   = c(.0064, 0, .9936, 0, .0028, .001, .1972, .799)
-#' tabp = as.table(array(cp, dim=c(2, 2, 2), 
+#' tabp = as.table(array(cp, dim=c(2, 2, 2),
 #'    dimnames = list(x = c(0, 1), y = c(0, 1), z = c(0, 1))))
 #' ```
 #' And then call `bpbounds()` using this object.
 #'
-#' For bivariate data this object contains cell conditional probabilities for 
+#' For bivariate data this object contains cell conditional probabilities for
 #' the outcome-instrument (Y|Z) association.
-#' @param t Specified for bivariate data. Object with 
-#' treatment/phenotype-instrument cell counts or conditional probabilities, 
+#' @param t Specified for bivariate data. Object with
+#' treatment/phenotype-instrument cell counts or conditional probabilities,
 #' i.e. (X|Z).
 #' @param fmt A character string which sould be either "bivariate"
 #' (i.e. X, Z in one dataset and Y, Z in another dataset) or
@@ -46,13 +46,13 @@
 #' \item{p10upper}{Vector of probabilities for upper bound of P(Y=1|do(X=0))}
 #' \item{crrlb}{Lower bound of CRR}
 #' \item{crrub}{Upper bound of CRR}
-#' \item{monoinequality}{Logical, indicating whether the monoticity inequality 
+#' \item{monoinequality}{Logical, indicating whether the monoticity inequality
 #' is satisfied}
 #' \item{monobplb}{Lower bound of ACE assuming monotonicity}
 #' \item{monobpub}{Upper bound of ACE assuming monotonicity}
-#' \item{monobplower}{Vector of probabilities for lower bound of ACE assuming 
+#' \item{monobplower}{Vector of probabilities for lower bound of ACE assuming
 #' monotonicity}
-#' \item{monobpupper}{Vector of probabilities for upper bound of ACE assuming 
+#' \item{monobpupper}{Vector of probabilities for upper bound of ACE assuming
 #' monotonicity}
 #' \item{monop11low}{Lower bound of P(Y=1|do(X=1)) assuming monotonicity}
 #' \item{monop11upp}{Upper bound of P(Y=1|do(X=1)) assuming monotonicity}
