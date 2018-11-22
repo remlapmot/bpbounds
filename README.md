@@ -8,13 +8,19 @@ R package implementing the nonparametric bounds for the average causal effect of
 
 ## Installation
 
-Install the package in R using the following R command (assuming that you have the `devtools` 
-package installed, if not run `install.packages("devtools")` first.)
+Install the released version of `bpbounds` from CRAN:
 
 ``` r
+install.packages("bpbounds")
+```
+
+Or install the development version from GitHub with:
+
+``` r
+# install.packages("devtools") # uncomment if devtools not installed
 devtools::install_github("remlapmot/bpbounds")
 ```
-To update the package, simply run this command again.
+To update the development version of the package, simply run this command again.
 
 ## Authors
 Tom Palmer (maintainer, tom.palmer@lancaster.ac.uk), Roland Ramsahai, Vanessa Didelez, Nuala Sheehan
