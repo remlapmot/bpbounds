@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/remlapmot/bpbounds.svg?branch=master)](https://travis-ci.org/remlapmot/bpbounds)
 [![Coverage status](https://codecov.io/gh/remlapmot/bpbounds/branch/master/graph/badge.svg)](https://codecov.io/github/remlapmot/bpbounds?branch=master)
 [![CRAN status](https://www.r-pkg.org/badges/version/bpbounds)](https://cran.r-project.org/package=bpbounds)
+[![RStudio_CRAN_mirror_downloads_badge](http://cranlogs.r-pkg.org/badges/grand-total/bpbounds?color=blue)](http://cran.r-project.org/web/packages/bpbounds)
 
 R package implementing the nonparametric bounds for the average causal effect of Balke and Pearl, JASA, 1997.
 
