@@ -123,13 +123,20 @@
       <td><p>Object of class "table" containing either cell counts or conditional
 probabilities. For trivariate data these are for the
 phenotype/treatment-outcome association given Z, i.e. P(X, Y | Z).</p>
-<p>Cell counts could be generated from <code><a href='https://www.rdocumentation.org/packages/stats/topics/xtabs'>xtabs( ~ x + y + z, data = data)</a></code>.
+<p>Cell counts could be generated from <code><a href='https://www.rdocumentation.org/packages/stats/topics/xtabs'>xtabs(~ x + y + z, data = data)</a></code>.
 And then conditional probabilities obatained by calling
 <code><a href='https://www.rdocumentation.org/packages/base/topics/prop.table'>prop.table(..., margins = 3)</a></code> on your object from <code><a href='https://www.rdocumentation.org/packages/stats/topics/xtabs'>xtabs()</a></code>.</p>
 <p>If you only know the conditional probabilities you can enter these, e.g.
 for the Balke and Pearl Vitamin A example:</p><pre>cp   = c(.0064, 0, .9936, 0, .0028, .001, .1972, .799)
-tabp = as.table(array(cp, dim=c(2, 2, 2),
-   dimnames = list(x = c(0, 1), y = c(0, 1), z = c(0, 1))))
+tabp = as.table(array(
+  cp,
+  dim = c(2, 2, 2),
+  dimnames = list(
+    x = c(0, 1),
+    y = c(0, 1),
+    z = c(0, 1)
+  )
+))
 </pre>
 
 <p>And then call <code>bpbounds()</code> using this object.</p>
@@ -198,14 +205,14 @@ monotonicity</p></dd>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>require</a></span>(<span class='no'>tidyr</span>)</div><div class='output co'>#&gt; <span class='message'>Loading required package: tidyr</span></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>require</a></span>(<span class='no'>bpbounds</span>)
 
 <span class='no'>tab1dat</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/data.frame'>data.frame</a></span>(
-  <span class='kw'>z</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>0</span>,<span class='fl'>0</span>),
-  <span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>,<span class='fl'>1</span>),
-  <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>0</span>,<span class='fl'>1</span>,<span class='fl'>0</span>,<span class='fl'>1</span>),
+  <span class='kw'>z</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>0</span>),
+  <span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>),
+  <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>1</span>),
   <span class='kw'>freq</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>74</span>, <span class='fl'>11514</span>, <span class='fl'>34</span>, <span class='fl'>2385</span>, <span class='fl'>12</span>, <span class='fl'>9663</span>, <span class='fl'>0</span>, <span class='fl'>0</span>)
 )
 
 <span class='no'>tab1inddat</span> <span class='kw'>=</span> <span class='fu'><a href='https://tidyr.tidyverse.org/reference/uncount.html'>uncount</a></span>(<span class='no'>tab1dat</span>, <span class='no'>freq</span>)
-<span class='no'>xt</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/xtabs'>xtabs</a></span>( ~ <span class='no'>x</span> + <span class='no'>y</span> + <span class='no'>z</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>tab1inddat</span>)
+<span class='no'>xt</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/xtabs'>xtabs</a></span>(~ <span class='no'>x</span> + <span class='no'>y</span> + <span class='no'>z</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>tab1inddat</span>)
 <span class='no'>p</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/prop.table'>prop.table</a></span>(<span class='no'>xt</span>, <span class='kw'>margin</span> <span class='kw'>=</span> <span class='fl'>3</span>)
 <span class='no'>bpres</span> <span class='kw'>=</span> <span class='fu'>bpbounds</span>(<span class='no'>p</span>)
 <span class='no'>sbpres</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>bpres</span>)
@@ -231,8 +238,15 @@ monotonicity</p></dd>
 
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>require</a></span>(<span class='no'>bpbounds</span>)
 <span class='no'>cp</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>.0064</span>, <span class='fl'>0</span>, <span class='fl'>.9936</span>, <span class='fl'>0</span>, <span class='fl'>.0028</span>, <span class='fl'>.001</span>, <span class='fl'>.1972</span>, <span class='fl'>.799</span>)
-<span class='no'>tabp</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/table'>as.table</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/array'>array</a></span>(<span class='no'>cp</span>, <span class='kw'>dim</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>2</span>),
-  <span class='kw'>dimnames</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>), <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>), <span class='kw'>z</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>))))
+<span class='no'>tabp</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/table'>as.table</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/array'>array</a></span>(
+  <span class='no'>cp</span>,
+  <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>2</span>),
+  <span class='kw'>dimnames</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(
+    <span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>),
+    <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>),
+    <span class='kw'>z</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>)
+  )
+))
 <span class='fu'>bpbounds</span>(<span class='no'>tabp</span>)</div><div class='output co'>#&gt; 
 #&gt; Data:                    trivariate
 #&gt; Instrument categories:   2
