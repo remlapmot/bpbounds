@@ -98,18 +98,19 @@
 #' bpbounds(tabp)
 #' }
 #'
-bpbounds <- function(p, t=NULL, fmt="trivariate") {
-
+bpbounds <- function(p, t = NULL, fmt = "trivariate") {
   # Check arguments
 
   ## check fmt specified correctly
-  if (fmt != "bivariate" & fmt != "trivariate" ) {
+  if (fmt != "bivariate" & fmt != "trivariate") {
     stop('fmt argument must be either "bivariate" or "trivariate"')
   }
 
   ## check t has been specified along with if fmt is bivariate
   if (fmt == "bivariate" & is.null(t)) {
-    stop('t, a matrix of trestment/phenotype-instrument conditional probabilities, must be specified for bivariate data')
+    stop(
+      't, a matrix of trestment/phenotype-instrument conditional probabilities, must be specified for bivariate data'
+    )
   }
 
   ## check p of class "table"
@@ -123,30 +124,30 @@ bpbounds <- function(p, t=NULL, fmt="trivariate") {
       stop("The length of p must be 8 or 12, i.e. for a 2 or 3 category instrument.")
     }
   } else {
-	  if (length(p) != 4 & length(p) != 6) {
-	    stop("p seems to have the incorrect number of dimensions")
-	  }
+    if (length(p) != 4 & length(p) != 6) {
+      stop("p seems to have the incorrect number of dimensions")
+    }
   }
 
   ## check length of t
   if (fmt == "bivariate") {
-	  if (length(t) != 4 & length(t) != 6) {
-	   stop("t seems to have the incorrect number of dimensions")
-	  }
+    if (length(t) != 4 & length(t) != 6) {
+      stop("t seems to have the incorrect number of dimensions")
+    }
   }
 
   ## check if p conditional probabilities
-#  if (sum(p <= 1) != length(p)) {
-#	  stop('p seems to be a mix of cell counts and probabilities')
-#  }
+  #  if (sum(p <= 1) != length(p)) {
+  #	  stop('p seems to be a mix of cell counts and probabilities')
+  #  }
   if (sum(p <= 1) == length(p)) {
     # already in conditional probabilities
   } else if (all(p == floor(p))) {
     if (fmt == "trivariate") {
       p <- prop.table(p, margin = 3)
-	  }	else {
-	    p = prop.table(p, margin = 2)
-	  }
+    }	else {
+      p = prop.table(p, margin = 2)
+    }
   } else {
     stop("All elements of p must either be conditional probabilities or cell counts.")
   }
@@ -154,24 +155,28 @@ bpbounds <- function(p, t=NULL, fmt="trivariate") {
   ## p should now be conditional probabilities
   ## check they sum to approx. no. instrument categories
   if (fmt == "trivariate" & length(p) == 8) {
-	  nzcats <- 2
+    nzcats <- 2
     if (abs(sum(p) - 2) > 0.1) {
-      stop("The conditional probabilities add up to ", sum(p), " instead of 2.")
+      stop("The conditional probabilities add up to ",
+           sum(p),
+           " instead of 2.")
     }
   } else if (fmt == "trivariate" & length(p) == 12) {
-	  nzcats <- 3
+    nzcats <- 3
     if (abs(sum(p) - 3) > 0.1) {
-      stop("The conditional probabilities add up to ", sum(p), " instead of 3.")
+      stop("The conditional probabilities add up to ",
+           sum(p),
+           " instead of 3.")
     }
   }
 
   # check that t is either cell counts or conditional probabilities
   if (sum(t <= 1) == length(t)) {
-	  # conditional probabilities
+    # conditional probabilities
   } else if (all(t == floor(t))) {
     # convert to conditional probabilities if cell counts
     if (fmt == "bivariate") {
-        t = prop.table(t, margin = 2)
+      t = prop.table(t, margin = 2)
     }
   } else {
     stop("All elements of t must either be conditional probabilities or cell counts.")
@@ -180,8 +185,8 @@ bpbounds <- function(p, t=NULL, fmt="trivariate") {
   # Control flow for bivariate or trivariate data
   if (fmt == "bivariate") {
     if (length(p) == 4) {
-	    cp = numeric(8)
-	    cp[1] = p[1] # g00
+      cp = numeric(8)
+      cp[1] = p[1] # g00
       cp[2] = p[2] # g10
       cp[3] = p[3] # g01
       cp[4] = p[4] # g11
@@ -189,17 +194,17 @@ bpbounds <- function(p, t=NULL, fmt="trivariate") {
       cp[6] = t[2] # t10
       cp[7] = t[3] # t01
       cp[8] = t[4] # t11
-	    nzcats <- 2
+      nzcats <- 2
       bp <- bpbounds_biv_x2y2z2(p = cp)
-	    bpres = bpbounds_calc_biv_z2(g = p, t = t)
+      bpres = bpbounds_calc_biv_z2(g = p, t = t)
     } else if (length(p) == 6) {
-	    cp = numeric(12)
-	    cp[1]  = p[1] # g00
+      cp = numeric(12)
+      cp[1]  = p[1] # g00
       cp[2]  = p[2] # g10
       cp[3]  = p[3] # g01
       cp[4]  = p[4] # g11
       cp[5]  = p[5] # g02
-	    cp[6]  = p[6] # g12
+      cp[6]  = p[6] # g12
       cp[7]  = t[1] # t00
       cp[8]  = t[2] # t10
       cp[9]  = t[3] # t01
@@ -208,58 +213,60 @@ bpbounds <- function(p, t=NULL, fmt="trivariate") {
       cp[12] = t[6] # t12
       nzcats <- 3
       bp <- bpbounds_biv_x2y2z3(p = cp)
-	    bpres = bpbounds_calc_biv_z3(g = p, t = t)
+      bpres = bpbounds_calc_biv_z3(g = p, t = t)
     }
   } else if (fmt == "trivariate") {
     if (length(p) == 8) {
       bp <- bpbounds_tri_x2y2z2(p = p)
-	    bpres = bpbounds_calc_tri_z2(p)
+      bpres = bpbounds_calc_tri_z2(p)
     } else if (length(p) == 12) {
       bp <- bpbounds_tri_x2y2z3(p = p)
-	    bpres = bpbounds_calc_tri_z3(p)
+      bpres = bpbounds_calc_tri_z3(p)
     }
   }
 
   # return objects
-  retlist <- list("fmt" = fmt,
-				          "nzcats" = nzcats,
-				          "inequality" = bp$inequality,
-                  "bplb" = bp$bplow,
-                  "bpub" = bp$bpupp,
-                  "bplower" = bp$bplower,
-                  "bpupper" = bp$bpupper,
-                  "p11low" = bpres$p11low,
-				          "p11upp" = bpres$p11upp,
-                  "p10low" = bpres$p10low,
-                  "p10upp" = bpres$p10upp,
-                  "p11lower" = bpres$p11lower,
-                  "p11upper" = bpres$p11upper,
-                  "p10lower" = bpres$p10lower,
-                  "p10upper" = bpres$p10upper,
-                  "crrlb" = bpres$crrlb,
-				          "crrub" = bpres$crrub,
-                  "monoinequality" = bpres$monoinequality,
-                  "monobplb" = bpres$monobplb,
-                  "monobpub" = bpres$monobpub,
-				          "monobplower" = bpres$monolower,
-				          "monobpupper" = bpres$monoupper,
-				          "monop11low" = bpres$monop11lb, # monop11low,
-                  "monop11upp" = bpres$monop11ub, # monop11upp,
-                  "monop10low" = bpres$monop10lb,  # monop10low,
-                  "monop10upp" = bpres$monop10ub, # monop10upp,
-				          "monop11lower" = bpres$monop11lower,
-				          "monop11upper" = bpres$monop11upper,
-				          "monop10lower" = bpres$monop10lower,
-				          "monop10upper" = bpres$monop10upper,
-                  "monocrrlb" = bpres$monocrrlb,
-                  "monocrrub" = bpres$monocrrub)
+  retlist <- list(
+    "fmt" = fmt,
+    "nzcats" = nzcats,
+    "inequality" = bp$inequality,
+    "bplb" = bp$bplow,
+    "bpub" = bp$bpupp,
+    "bplower" = bp$bplower,
+    "bpupper" = bp$bpupper,
+    "p11low" = bpres$p11low,
+    "p11upp" = bpres$p11upp,
+    "p10low" = bpres$p10low,
+    "p10upp" = bpres$p10upp,
+    "p11lower" = bpres$p11lower,
+    "p11upper" = bpres$p11upper,
+    "p10lower" = bpres$p10lower,
+    "p10upper" = bpres$p10upper,
+    "crrlb" = bpres$crrlb,
+    "crrub" = bpres$crrub,
+    "monoinequality" = bpres$monoinequality,
+    "monobplb" = bpres$monobplb,
+    "monobpub" = bpres$monobpub,
+    "monobplower" = bpres$monolower,
+    "monobpupper" = bpres$monoupper,
+    "monop11low" = bpres$monop11lb,
+    "monop11upp" = bpres$monop11ub,
+    "monop10low" = bpres$monop10lb,
+    "monop10upp" = bpres$monop10ub,
+    "monop11lower" = bpres$monop11lower,
+    "monop11upper" = bpres$monop11upper,
+    "monop10lower" = bpres$monop10lower,
+    "monop10upper" = bpres$monop10upper,
+    "monocrrlb" = bpres$monocrrlb,
+    "monocrrub" = bpres$monocrrub
+  )
   class(retlist) <- "bpbounds"
   return(retlist)
 }
 
 
 #' @export
-summary.bpbounds <- function(object, ...){
+summary.bpbounds <- function(object, ...) {
   ans = list()
   bp = object
   ans$fmt             = bp$fmt
@@ -290,24 +297,28 @@ summary.bpbounds <- function(object, ...){
 
 
 #' @export
-print.summary.bpbounds <- function(x, digits = getOption("digits"), ...){
-  cat("\n")
-  cat("Data:                    ", x$fmt, "\n", sep = "")
-  cat("Instrument categories:   ", x$nzcats, "\n\n", sep = "")
-  cat("Instrumental inequality:", x$inequality, "\n")
-  if (x$inequality) {
-    print(x$bounds, digits = digits, row.names = FALSE, ...)
+print.summary.bpbounds <-
+  function(x, digits = getOption("digits"), ...) {
+    cat("\n")
+    cat("Data:                    ", x$fmt, "\n", sep = "")
+    cat("Instrument categories:   ", x$nzcats, "\n\n", sep = "")
+    cat("Instrumental inequality:", x$inequality, "\n")
+    if (x$inequality) {
+      print(x$bounds, digits = digits, row.names = FALSE, ...)
+    }
+    cat("\nMonotonicity inequality:", x$monoinequality, "\n")
+    if (x$monoinequality) {
+      print(x$monobounds,
+            digits = digits,
+            row.names = FALSE,
+            ...)
+    }
+    cat("\n")
+    invisible(x)
   }
-  cat("\nMonotonicity inequality:", x$monoinequality, "\n")
-  if (x$monoinequality) {
-    print(x$monobounds, digits = digits, row.names = FALSE, ...)
-  }
-  cat("\n")
-  invisible(x)
-}
 
 
 #' @export
-print.bpbounds <- function(x, digits = getOption("digits"), ...){
+print.bpbounds <- function(x, digits = getOption("digits"), ...) {
   print(summary(x), digits = digits, ...)
 }
