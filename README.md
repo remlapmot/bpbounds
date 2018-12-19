@@ -27,5 +27,9 @@ To update the development version of the package, simply run this command again.
 
 There is a Shiny app demonstrating the package at: <https://remlapmot.shinyapps.io/bpbounds>.
 
+## Package website
+
+The helpfiles and vignette are shown at: <https://remlapmot.github.io/bpbounds/>.
+
 ## Authors
 Tom Palmer (maintainer, tom.palmer@lancaster.ac.uk), Roland Ramsahai, Vanessa Didelez, Nuala Sheehan
