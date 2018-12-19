@@ -13,8 +13,7 @@ runExample(...)
 Run Shiny App demonstrating the package
 }
 \examples{
-\donttest{
-bpbounds::runExample()
+if (interactive()) {
+  bpbounds::runExample()
 }
-
 }

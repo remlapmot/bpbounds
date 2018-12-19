@@ -3,10 +3,9 @@
 #' @param ... passed to runApp, e.g. port, launch.browser
 #'
 #' @examples
-#' \donttest{
-#' bpbounds::runExample()
+#' if (interactive()) {
+#'   bpbounds::runExample()
 #' }
-#'
 #' @export
 runExample <- function(...) {
   appDir <- system.file("shiny-examples", "myapp", package = "bpbounds")
