@@ -239,11 +239,5 @@ server <- function(input, output) {
   })
 }
 
-# Run ----
-#' @param ... passed to runApp, e.g. port, launch.browser
-#' @export
-runExample <- function(...) {
-  app <- shinyApp(ui = ui, server = server)
-  runApp(app, ...)
-}
-
+# Define as app ----
+shinyApp(ui = ui, server = server)
