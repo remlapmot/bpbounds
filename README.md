@@ -23,5 +23,9 @@ devtools::install_github("remlapmot/bpbounds")
 ```
 To update the development version of the package, simply run this command again.
 
+## Shiny App
+
+There is a Shiny app demonstrating the package at: <https://remlapmot.shinyapps.io/bpbounds>.
+
 ## Authors
 Tom Palmer (maintainer, tom.palmer@lancaster.ac.uk), Roland Ramsahai, Vanessa Didelez, Nuala Sheehan
