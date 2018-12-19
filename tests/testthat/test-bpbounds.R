@@ -129,7 +129,7 @@ test_that("Balke and Pearl Table 1 example treated as bivariate data", {
   print(sbp)
 })
 
-test_that("Mendelian randomization with 3 category instrument, bivariate data, cell counts",
+test_that("Balke and Pearl, bivariate data using cell counts",
           {
             bpres = bpbounds(p = g, t = t, fmt = "bivariate")
             expect_true(bpres$inequality)
