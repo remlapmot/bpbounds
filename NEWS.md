@@ -1,6 +1,10 @@
+# bpbounds 0.1.2
+
+* Added Roland's ORCID to DESCRIPTION.
+
 # bpbounds 0.1.1
 
-* Added `runExample()` to launch the Shiny App included in ./inst/shiny-examples/myapp
+* Added `runExample()` to launch the Shiny App included in ./inst/shiny-examples/myapp .
 
 # bpbounds 0.1.0
 
