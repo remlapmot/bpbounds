@@ -1,10 +1,11 @@
 Package: bpbounds
 Title: Nonparametric Bounds for the Average Causal Effect Due to Balke and Pearl and Extensions
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: c(person("Tom", "Palmer", 
     email = "tom.palmer@lancaster.ac.uk", role = c("aut", "cre"),
     comment = c(ORCID = "0000-0003-4655-4511")),
-  person("Roland", "Ramsahai", role = c("aut")),
+  person("Roland", "Ramsahai", role = c("aut"),
+    comment = c(ORCID = "0000-0002-7349-1977")),
   person("Vanessa", "Didelez", role = c("aut"), 
     comment = c(ORCID = "0000-0001-8587-7706")),
   person("Nuala", "Sheehan", role = c("aut")))
