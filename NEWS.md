@@ -1,3 +1,7 @@
+# bpbounds 0.1.3
+
+* Added Nuala's ORCID to DESCRIPTION.
+
 # bpbounds 0.1.2
 
 * Added Roland's ORCID to DESCRIPTION.
