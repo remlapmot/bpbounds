@@ -1,6 +1,6 @@
 #' Run Shiny App demonstrating the package
 #'
-#' @param ... passed to `shiny::runApp()``, e.g. port, launch.browser
+#' @param ... passed to `shiny::runApp()`, e.g. port, launch.browser
 #'
 #' @examples
 #' if (interactive()) {

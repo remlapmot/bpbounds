@@ -7,7 +7,7 @@
 runExample(...)
 }
 \arguments{
-\item{...}{passed to `shiny::runApp()``, e.g. port, launch.browser}
+\item{...}{passed to \code{shiny::runApp()}, e.g. port, launch.browser}
 }
 \description{
 Run Shiny App demonstrating the package
