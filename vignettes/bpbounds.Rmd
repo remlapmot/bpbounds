@@ -92,7 +92,7 @@ ace
 ```
 
 ### Entering the data as conditional probabilities
-If you already known the conditional probabilities you could pass them to `bpbounds()` as follows.
+If you already know the conditional probabilities you could pass them to `bpbounds()` as follows.
 ```{r}
 condprob = c(.0064, 0, .9936, 0, .0028, .001, .1972, .799)
 tabp = array(condprob,

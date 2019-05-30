@@ -1,3 +1,7 @@
+# bpbounds 0.1.4
+
+* Fixed typo in vignette.
+
 # bpbounds 0.1.3
 
 * Added Nuala's ORCID to DESCRIPTION.
