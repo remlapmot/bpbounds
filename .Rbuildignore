@@ -7,3 +7,5 @@
 ^\.travis\.yml$
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^pkgdown$
+^docs$
