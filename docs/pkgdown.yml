@@ -3,4 +3,7 @@ pkgdown: 1.3.0
 pkgdown_sha: ~
 articles:
   bpbounds: bpbounds.html
+urls:
+  reference: https://remlapmot.github.io/bpbounds//reference
+  article: https://remlapmot.github.io/bpbounds//articles
 
