@@ -18,8 +18,12 @@ install.packages("bpbounds")
 Or install the development version from GitHub with:
 
 ``` r
-# install.packages("devtools") # uncomment if devtools not installed
-devtools::install_github("remlapmot/bpbounds")
+# Uncomment the next command if you don't have the remotes packages installed.
+# The tidyverse have moved some functions out of the devtools package
+# install.packages("remotes") 
+
+# I call install_github() with these options to build the vignette in the package when installing
+remotes::install_github("remlapmot/bpbounds", build_opts = c("--no-resave-data", "--no-manual"))
 ```
 To update the development version of the package, simply run this command again.
 
@@ -29,7 +33,7 @@ There is a Shiny app demonstrating the package at: <https://remlapmot.shinyapps.
 
 ## Package website
 
-The helpfiles and vignette are shown at: <https://remlapmot.github.io/bpbounds/>.
+The helpfiles and vignette are shown on the package website at: <https://remlapmot.github.io/bpbounds/>.
 
 ## Authors
 Tom Palmer (maintainer, tom.palmer@lancaster.ac.uk), Roland Ramsahai, Vanessa Didelez, Nuala Sheehan
