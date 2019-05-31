@@ -19,10 +19,10 @@ Or install the development version from GitHub with:
 
 ``` r
 # Uncomment the next command if you don't have the remotes packages installed.
-# The tidyverse have moved some functions out of the devtools package
+# The tidyverse have moved some functions out of the devtools package.
 # install.packages("remotes") 
 
-# I call install_github() with these options to build the vignette in the package when installing
+# I call install_github() with these options to build the vignette in the package when installing.
 remotes::install_github("remlapmot/bpbounds", build_opts = c("--no-resave-data", "--no-manual"))
 ```
 To update the development version of the package, simply run this command again.
