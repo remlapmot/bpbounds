@@ -1,1 +1,6 @@
 url: https://remlapmot.github.io/bpbounds/
+template:
+  params:
+    docsearch:
+      api_key: 179b246487c1c10aaf23f1267f744696
+      index_name: bpbounds
