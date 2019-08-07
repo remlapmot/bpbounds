@@ -22,7 +22,7 @@ Or install the development version from GitHub with:
 # The tidyverse have moved some functions out of the devtools package.
 # install.packages("remotes") 
 
-# I call install_github() with these options to build the vignette in the package when installing.
+# I call install_github() with these options to build the vignette.
 remotes::install_github("remlapmot/bpbounds", 
                         build_opts = c("--no-resave-data", "--no-manual"), 
                         build_vignettes = TRUE)
