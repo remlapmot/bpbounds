@@ -23,7 +23,7 @@ Or install the development version from GitHub with:
 # install.packages("remotes") 
 
 # I call install_github() with these options to build the vignette in the package when installing.
-remotes::install_github("remlapmot/bpbounds", build_opts = c("--no-resave-data", "--no-manual"))
+remotes::install_github("remlapmot/bpbounds", build_opts = c("--no-resave-data", "--no-manual"), build_vignettes = TRUE)
 ```
 To update the development version of the package, simply run this command again.
 
