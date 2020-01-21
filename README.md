@@ -1,5 +1,6 @@
 # bpbounds
 
+[![Build Status](https://github.com/remlapmot/bpbounds/workflows/R-CMD-check/badge.svg)](https://github.com/remlapmot/bpbounds/actions?query=workflow%3AR-CMD-check)
 [![Build Status](https://travis-ci.org/remlapmot/bpbounds.svg?branch=master)](https://travis-ci.org/remlapmot/bpbounds)
 [![Coverage status](https://codecov.io/gh/remlapmot/bpbounds/branch/master/graph/badge.svg)](https://codecov.io/github/remlapmot/bpbounds?branch=master)
 [![CRAN status](https://www.r-pkg.org/badges/version/bpbounds)](https://cran.r-project.org/package=bpbounds)
