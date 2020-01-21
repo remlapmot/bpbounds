@@ -9,7 +9,7 @@
 ^\.Rproj\.user$
 ^pkgdown$
 ^README\.Rmd$       # An Rmarkdown file used to generate README.md
+README.Rmd
 ^cran-comments\.md$ # Comments for CRAN submission
 cran-comments.md
-^NEWS\.md$          # A news file written in Markdown
 ^.github$
