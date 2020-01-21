@@ -10,5 +10,6 @@
 ^pkgdown$
 ^README\.Rmd$       # An Rmarkdown file used to generate README.md
 ^cran-comments\.md$ # Comments for CRAN submission
+cran-comments.md
 ^NEWS\.md$          # A news file written in Markdown
 ^.github$
