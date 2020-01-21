@@ -1,8 +1,7 @@
-pandoc: 2.7.3
+pandoc: 2.9.1.1
 pkgdown: 1.4.1
 pkgdown_sha: ~
-articles:
-  bpbounds: bpbounds.html
+articles: []
 urls:
   reference: https://remlapmot.github.io/bpbounds//reference
   article: https://remlapmot.github.io/bpbounds//articles
