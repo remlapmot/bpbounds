@@ -1,3 +1,7 @@
+# bpbounds 0.1.5
+
+* Changed email address.
+
 # bpbounds 0.1.4
 
 * Fixed typo in vignette.
