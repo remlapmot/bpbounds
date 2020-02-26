@@ -3,7 +3,7 @@ title: "Nonparametric bounds for the average causal effect: `bpbounds` examples"
 author:
 - name: "Tom Palmer"
   affiliation: "Lancaster University"
-  email: tom.palmer@lancaster.ac.uk
+  email: tom.palmer@bristol.ac.uk
 - name: "Roland Ramsahai"
 - name: "Vanessa Didelez"
   affiliation: "Leibniz BIPS and University of Bremen"
