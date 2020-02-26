@@ -39,4 +39,4 @@ There is a Shiny app demonstrating the package at: <https://remlapmot.shinyapps.
 The helpfiles and vignette are shown on the package website at: <https://remlapmot.github.io/bpbounds/>.
 
 ## Authors
-Tom Palmer (maintainer, tom.palmer@lancaster.ac.uk), Roland Ramsahai, Vanessa Didelez, Nuala Sheehan
+Tom Palmer (maintainer, tom.palmer@bristol.ac.uk), Roland Ramsahai, Vanessa Didelez, Nuala Sheehan
