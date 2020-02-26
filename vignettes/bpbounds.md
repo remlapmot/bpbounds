@@ -2,14 +2,14 @@
 title: "Nonparametric bounds for the average causal effect: `bpbounds` examples"
 author:
 - name: "Tom Palmer"
-  affiliation: "Lancaster University"
-  email: tom.palmer@lancaster.ac.uk
+  affiliation: "MRC IEU and Population Health Sciences, Bristol Medical School, University of Bristol"
+  email: tom.palmer@bristol.ac.uk
 - name: "Roland Ramsahai"
 - name: "Vanessa Didelez"
   affiliation: "Leibniz BIPS and University of Bremen"
 - name: "Nuala Sheehan"
   affiliation: "University of Leicester"
-date: "2019-05-30"
+date: "2020-02-26"
 output: 
   rmarkdown::html_vignette:
     keep_md: true
