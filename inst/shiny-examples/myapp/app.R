@@ -114,7 +114,7 @@ ui <- fluidPage(
       ),
       p(
         "Author: Tom Palmer,",
-        a("tom.palmer@lancaster.ac.uk", href = "mailto:tom.palmer@lancaster.ac.uk")
+        a("tom.palmer@bristol.ac.uk", href = "mailto:tom.palmer@bristol.ac.uk")
       )
     )
 
