@@ -6,7 +6,7 @@
 [![CRAN status](https://www.r-pkg.org/badges/version/bpbounds)](https://cran.r-project.org/package=bpbounds)
 [![RStudio_CRAN_mirror_downloads_badge](http://cranlogs.r-pkg.org/badges/grand-total/bpbounds?color=blue)](https://CRAN.R-project.org/package=bpbounds)
 
-R package implementing the nonparametric bounds for the average causal effect of Balke and Pearl, JASA, 1997.
+R package implementing the nonparametric bounds for the average causal effect of [Balke and Pearl (1997)](https://doi.org/10.1080/01621459.1997.10474074).
 
 ## Installation
 
@@ -39,4 +39,8 @@ There is a Shiny app demonstrating the package at: <https://remlapmot.shinyapps.
 The helpfiles and vignette are shown on the package website at: <https://remlapmot.github.io/bpbounds/>.
 
 ## Authors
-Tom Palmer (maintainer, tom.palmer@bristol.ac.uk), Roland Ramsahai, Vanessa Didelez, Nuala Sheehan
+Tom Palmer (maintainer, tom.palmer@bristol.ac.uk), Roland Ramsahai, Vanessa Didelez, Nuala Sheehan.
+
+## References
+
+Balke A, Pearl J. Bounds on Treatment Effects from studies with imperfect compliance. Journal of the American Statistical Association, 1997, 92, 439, 1171-1176, doi: [10.1080/01621459.1997.10474074](https://doi.org/10.1080/01621459.1997.10474074).
