@@ -1,8 +1,8 @@
 pandoc: 2.7.3
-pkgdown: 1.4.1
+pkgdown: 1.5.0
 pkgdown_sha: ~
-articles:
-  bpbounds: bpbounds.html
+articles: []
+last_built: 2020-03-26T22:06Z
 urls:
   reference: https://remlapmot.github.io/bpbounds//reference
   article: https://remlapmot.github.io/bpbounds//articles
