@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -35,7 +39,7 @@
 
 <!-- docsearch -->
 <script src="../docsearch.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/docsearch.js/2.6.1/docsearch.min.css" integrity="sha256-QOSRU/ra9ActyXkIBbiIB144aDBdtvXBcNc3OTNuX/Q=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/docsearch.js/2.6.3/docsearch.min.css" integrity="sha256-QOSRU/ra9ActyXkIBbiIB144aDBdtvXBcNc3OTNuX/Q=" crossorigin="anonymous" />
 <link href="../docsearch.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
 
@@ -43,7 +47,6 @@
 
 <meta property="og:title" content="Nonparametric Bounds for the Average Causal Effect due to Balke and Pearl. — bpbounds" />
 <meta property="og:description" content="Nonparametric Bounds for the Average Causal Effect due to Balke and Pearl." />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -71,7 +74,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -109,7 +112,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/remlapmot/bpbounds">
+  <a href="https://github.com/remlapmot/bpbounds/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -156,17 +159,16 @@ phenotype/treatment-outcome association given Z, i.e. P(X, Y | Z).</p>
 And then conditional probabilities obatained by calling
 <code><a href='https://rdrr.io/r/base/prop.table.html'>prop.table(..., margins = 3)</a></code> on your object from <code><a href='https://rdrr.io/r/stats/xtabs.html'>xtabs()</a></code>.</p>
 <p>If you only know the conditional probabilities you can enter these, e.g.
-for the Balke and Pearl Vitamin A example:</p><pre>cp   = c(.0064, 0, .9936, 0, .0028, .001, .1972, .799)
-tabp = as.table(array(
-  cp,
-  dim = c(2, 2, 2),
-  dimnames = list(
-    x = c(0, 1),
-    y = c(0, 1),
-    z = c(0, 1)
+for the Balke and Pearl Vitamin A example:</p><pre><span class='no'>cp</span>   <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>.0064</span>, <span class='fl'>0</span>, <span class='fl'>.9936</span>, <span class='fl'>0</span>, <span class='fl'>.0028</span>, <span class='fl'>.001</span>, <span class='fl'>.1972</span>, <span class='fl'>.799</span>)
+<span class='no'>tabp</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/table.html'>as.table</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>(
+  <span class='no'>cp</span>,
+  <span class='kw'>dim</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>2</span>),
+  <span class='kw'>dimnames</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
+    <span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>),
+    <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>),
+    <span class='kw'>z</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>)
   )
-))
-</pre>
+))</pre>
 
 <p>And then call <code>bpbounds()</code> using this object.</p>
 <p>For bivariate data this object contains cell conditional probabilities for
@@ -188,7 +190,7 @@ i.e. (X|Z).</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>List with the following elements:</p><dl class='dl-horizontal'>
+    <p>List with the following elements:</p><dl'>
 <dt>fmt</dt><dd><p>whether the data is bivariate or trivariate</p></dd>
 <dt>nzcats</dt><dd><p>2 or 3, the no. instrument categories</p></dd>
 <dt>inequality</dt><dd><p>Logical, indicating whether the IV inquality is satisfied</p></dd>
@@ -241,10 +243,10 @@ monotonicity</p></dd>
   <span class='kw'>freq</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>74</span>, <span class='fl'>11514</span>, <span class='fl'>34</span>, <span class='fl'>2385</span>, <span class='fl'>12</span>, <span class='fl'>9663</span>, <span class='fl'>0</span>, <span class='fl'>0</span>)
 )
 
-<span class='no'>tab1inddat</span> <span class='kw'>=</span> <span class='fu'><a href='https://tidyr.tidyverse.org/reference/uncount.html'>uncount</a></span>(<span class='no'>tab1dat</span>, <span class='no'>freq</span>)
+<span class='no'>tab1inddat</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/tidyr/man/uncount.html'>uncount</a></span>(<span class='no'>tab1dat</span>, <span class='no'>freq</span>)
 <span class='no'>xt</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/xtabs.html'>xtabs</a></span>(~ <span class='no'>x</span> + <span class='no'>y</span> + <span class='no'>z</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>tab1inddat</span>)
 <span class='no'>p</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/prop.table.html'>prop.table</a></span>(<span class='no'>xt</span>, <span class='kw'>margin</span> <span class='kw'>=</span> <span class='fl'>3</span>)
-<span class='no'>bpres</span> <span class='kw'>=</span> <span class='fu'>bpbounds</span>(<span class='no'>p</span>)
+<span class='no'>bpres</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/bpbounds/man/bpbounds.html'>bpbounds</a></span>(<span class='no'>p</span>)
 <span class='no'>sbpres</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>bpres</span>)
 <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>sbpres</span>)</div><div class='output co'>#&gt; 
 #&gt; Data:                    trivariate
@@ -279,7 +281,7 @@ monotonicity</p></dd>
     <span class='kw'>z</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>)
   )
 ))
-<span class='fu'>bpbounds</span>(<span class='no'>tabp</span>)</div><div class='output co'>#&gt; 
+<span class='fu'><a href='https://rdrr.io/pkg/bpbounds/man/bpbounds.html'>bpbounds</a></span>(<span class='no'>tabp</span>)</div><div class='output co'>#&gt; 
 #&gt; Data:                    trivariate
 #&gt; Instrument categories:   2
 #&gt; 
@@ -300,14 +302,10 @@ monotonicity</p></dd>
 
 </div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -318,7 +316,7 @@ monotonicity</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.</p>
 </div>
 
       </footer>

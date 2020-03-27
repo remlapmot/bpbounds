@@ -1,8 +1,12 @@
 # Tests for the bpbounds package
 # 2018-10-23 Tom Palmer
 
-require(tidyr)
-require(dplyr)
+if (!requireNamespace("dplyr", quietly = TRUE)) {
+  install.packages("dplyr", repos = "https://cloud.r-project.org/")
+}
+if (!requireNamespace("tidyr", quietly = TRUE)) {
+  install.packages("tidyr", repos = "https://cloud.r-project.org/")
+}
 context("Tests for bpbounds package")
 
 # Balke and Pearl, JASA, 1997 examples ----
@@ -15,7 +19,7 @@ tab1dat <- data.frame(
   freq = c(74, 11514, 34, 2385, 12, 9665, 0, 0)
 )
 
-tab1inddat <- uncount(tab1dat, freq)
+tab1inddat <- tidyr::uncount(tab1dat, freq)
 xt <- xtabs(~ x + y + z, data = tab1inddat)
 p <- prop.table(xt, margin = 3)
 
@@ -158,7 +162,32 @@ test_that("Balke and Pearl, bivariate data using cell counts",
           })
 
 test_that("Bivariate data with cell counts for one and cond probs other", {
-  bpbounds(p = gp, t = t, fmt = "bivariate")
+  bpres <- bpbounds(p = gp, t = t, fmt = "bivariate")
+  sbp <- summary(bpres)
+
+  expect_equal(class(bpres), "bpbounds")
+  expect_equal(bpres$fmt, "bivariate")
+  expect_equal(bpres$nzcats, 2)
+
+  expect_true(bpres$inequality)
+  expect_equal(bpres$bplb,-0.1974, tol = 1e-4)
+  expect_equal(bpres$bpub, 0.0064, tol = 1e-4)
+  expect_equal(bpres$p10low, 0.9936, tol = 1e-4)
+  expect_equal(bpres$p10upp, 0.9936, tol = 1e-4)
+  expect_equal(bpres$p11low, 0.7962, tol = 1e-4)
+  expect_equal(bpres$p11upp, 1.1962, tol = 1e-4) # TODO: bug??
+  expect_equal(bpres$crrlb, 0.8013, tol = 1e-4)
+  expect_equal(bpres$crrub, 1.2039, tol = 1e-4)
+
+  expect_true(bpres$inequality)
+  expect_equal(bpres$monobplb,-0.1974, tol = 1e-4)
+  expect_equal(bpres$monobpub, 0.0064, tol = 1e-4)
+  expect_equal(bpres$monop10low, 0.9936, tol = 1e-4)
+  expect_equal(bpres$monop10upp, 0.9936, tol = 1e-4)
+  expect_equal(bpres$monop11low, 0.7962, tol = 1e-4)
+  expect_equal(bpres$monop11upp, 1.0026, tol = 1e-4) # TODO: bug??
+  expect_equal(bpres$monocrrlb, 0.8013, tol = 1e-4)
+  expect_equal(bpres$monocrrub, 1.0090, tol = 1e-4)
 })
 
 ## Balke and Pearl, 1997, Table 2 - 0.001 was 0 in published table ----
@@ -241,7 +270,7 @@ dat = data.frame(
   y = c(0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1),
   x = c(0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1)
 )
-longdat = uncount(dat, weights = count)
+longdat = tidyr::uncount(dat, weights = count)
 
 gtab = xtabs( ~ y + z, data = longdat)
 gp = prop.table(gtab, margin = 2)
