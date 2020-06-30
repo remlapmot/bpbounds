@@ -33,7 +33,7 @@ Suggests:
     tidyr,
     shiny
 VignetteBuilder: knitr
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 URL: https://github.com/remlapmot/bpbounds
 BugReports: https://github.com/remlapmot/bpbounds/issues
 Roxygen: list(markdown = TRUE)
