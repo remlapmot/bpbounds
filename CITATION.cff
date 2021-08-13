@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Palmer"
+  given-names: "Tom"
+  orcid: "https://orcid.org/0000-0003-4655-4511"
+- family-names: "Ramsahai"
+  given-names: "Roland"
+  orcid: "https://orcid.org/0000-0002-7349-1977"
+- family-names: "Didelez"
+  given-names: "Vanessa"
+  orcid: "https://orcid.org/0000-0001-8587-7706"
+- family-names: "Sheehan"
+  given-names: "Nuala"
+  orcid: "https://orcid.org/0000-0001-9094-2605"
+title: "bpbounds: R package implementing Balke-Pearl bounds for the average causal effect"
+type: software
+version: 0.1.4
+date-released: 2020-01-21
+url: "https://remlapmot.github.io/bpbounds/index.html"
+repository-code: "https://github.com/remlapmot/bpbounds"
+license: MIT
