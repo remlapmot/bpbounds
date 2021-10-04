@@ -24,7 +24,6 @@ Depends: R (>= 3.5.0)
 Imports: methods
 License: GPL-3
 Encoding: UTF-8
-LazyData: true
 Suggests:
     dplyr,
     testthat,
