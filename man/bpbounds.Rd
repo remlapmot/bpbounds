@@ -16,7 +16,9 @@ And then conditional probabilities obatained by calling
 \code{prop.table(..., margins = 3)} on your object from \code{xtabs()}.
 
 If you only know the conditional probabilities you can enter these, e.g.
-for the Balke and Pearl Vitamin A example:\preformatted{cp   = c(.0064, 0, .9936, 0, .0028, .001, .1972, .799)
+for the Balke and Pearl Vitamin A example:
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{cp   = c(.0064, 0, .9936, 0, .0028, .001, .1972, .799)
 tabp = as.table(array(
   cp,
   dim = c(2, 2, 2),
@@ -26,7 +28,7 @@ tabp = as.table(array(
     z = c(0, 1)
   )
 ))
-}
+}\if{html}{\out{</div>}}
 
 And then call \code{bpbounds()} using this object.
 
