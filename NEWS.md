@@ -1,4 +1,4 @@
-# bpbounds 0.1.5
+# bpbounds 0.1.4.9000
 
 * Additional email address and affiliation edits.
 * Remove LazyData from DESCRIPTION.
