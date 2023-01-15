@@ -1,5 +1,5 @@
 ---
-title: "Nonparametric bounds for the average causal effect: `bpbounds` examples"
+title: "Nonparametric bounds for the average causal effect: bpbounds examples"
 author:
 - name: "Tom Palmer"
   affiliation: "MRC IEU and Population Health Sciences, Bristol Medical School, University of Bristol"
