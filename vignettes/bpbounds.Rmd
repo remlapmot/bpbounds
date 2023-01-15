@@ -16,7 +16,7 @@ output:
     fig_caption: yes
 bibliography: bibliography.bib
 vignette: >
-  %\VignetteIndexEntry{Nonparametric bounds for the average causal effect: `bpbounds` examples}
+  %\VignetteIndexEntry{Nonparametric bounds for the average causal effect: bpbounds examples}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
