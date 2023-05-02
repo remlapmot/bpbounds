@@ -32,8 +32,6 @@
 #' @param fmt A character string which sould be either "bivariate"
 #' (i.e. X, Z in one dataset and Y, Z in another dataset) or
 #' "trivariate" (X, Y, Z in the same dataset).
-#'
-#' @importFrom methods new
 #' @export
 #' @return List with the following elements:
 #' \describe{
