@@ -12,5 +12,12 @@ runExample <- function(...) {
   if (appDir == "") {
     stop("Could not find example app.")
   }
+
+  if (!requireNamespace("shiny", quietly = TRUE)) {
+    stop(
+      "Package \"shiny\" must be installed to use this function.",
+      call. = FALSE
+    )
+  }
   shiny::runApp(appDir, ...)
 }
