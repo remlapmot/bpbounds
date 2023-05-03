@@ -3,7 +3,7 @@
 #' @param ... passed to [shiny::runApp()], e.g. `port`, `launch.browser`
 #'
 #' @examples
-#' if (interactive()) {
+#' if (interactive() && requireNamespace("shiny", quietly = TRUE)) {
 #'   bpbounds::runExample()
 #' }
 #' @export
