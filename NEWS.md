@@ -3,7 +3,7 @@
 * Additional email address and affiliation edits.
 * Remove `LazyData` from `DESCRIPTION`.
 * Update **roxygen2** version number in `DESCRIPTION`.
-* Simplify NAMESPACE
+* Simplify NAMESPACE by not importing functions from other packages.
 
 # bpbounds 0.1.4
 
