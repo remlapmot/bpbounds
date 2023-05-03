@@ -7,13 +7,13 @@
 runExample(...)
 }
 \arguments{
-\item{...}{passed to \code{shiny::runApp()}, e.g. port, launch.browser}
+\item{...}{passed to \code{\link[shiny:runApp]{shiny::runApp()}}, e.g. \code{port}, \code{launch.browser}}
 }
 \description{
 Run Shiny App demonstrating the package
 }
 \examples{
-if (interactive()) {
+if (interactive() && requireNamespace("shiny", quietly = TRUE)) {
   bpbounds::runExample()
 }
 }
