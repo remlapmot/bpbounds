@@ -92,7 +92,7 @@ Didelez</h4>
 Bremen<br><h4 data-toc-skip class="author">Nuala
 Sheehan</h4>
             <address class="author_afil">
-      University of Leicester<br><h4 data-toc-skip class="date">2023-05-04</h4>
+      University of Leicester<br><h4 data-toc-skip class="date">2023-05-12</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/remlapmot/bpbounds/blob/HEAD/vignettes/bpbounds.Rmd" class="external-link"><code>vignettes/bpbounds.Rmd</code></a></small>
       <div class="d-none name"><code>bpbounds.Rmd</code></div>
@@ -171,7 +171,7 @@ variable).</p>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">tab1inddat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/uncount.html" class="external-link">uncount</a></span><span class="op">(</span><span class="va">tab1dat</span>, <span class="va">freq</span><span class="op">)</span></span>
-<span><span class="va">xt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/xtabs.html" class="external-link">xtabs</a></span><span class="op">(</span><span class="op">~</span> <span class="va">x</span> <span class="op">+</span> <span class="va">y</span> <span class="op">+</span> <span class="va">z</span>, data <span class="op">=</span> <span class="va">tab1inddat</span><span class="op">)</span></span>
+<span><span class="va">xt</span>         <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/xtabs.html" class="external-link">xtabs</a></span><span class="op">(</span><span class="op">~</span> <span class="va">x</span> <span class="op">+</span> <span class="va">y</span> <span class="op">+</span> <span class="va">z</span>, data <span class="op">=</span> <span class="va">tab1inddat</span><span class="op">)</span></span>
 <span><span class="va">xt</span></span>
 <span><span class="co">#&gt; , , z = 0</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -209,7 +209,7 @@ could call <code><a href="../reference/bpbounds.html">bpbounds()</a></code> usin
 <span><span class="co">#&gt;   1 0.0009922276 0.7989912353</span></span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bpres</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/bpbounds.html">bpbounds</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span></span>
-<span><span class="va">sbp</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">bpres</span><span class="op">)</span></span>
+<span><span class="va">sbp</span>   <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">bpres</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">sbp</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Data:                    trivariate</span></span>
@@ -232,11 +232,9 @@ could call <code><a href="../reference/bpbounds.html">bpbounds()</a></code> usin
 0.0054. The estimate of the ACE is found as <span class="math display">\[\text{ACE} =
 \frac{\text{cov}(Y,Z)}{\text{cov}(X,Z)}\]</span> as follows.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">covyz</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html" class="external-link">cov</a></span><span class="op">(</span><span class="va">tab1inddat</span><span class="op">$</span><span class="va">y</span>, <span class="va">tab1inddat</span><span class="op">$</span><span class="va">z</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">covxz</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html" class="external-link">cov</a></span><span class="op">(</span><span class="va">tab1inddat</span><span class="op">$</span><span class="va">x</span>, <span class="va">tab1inddat</span><span class="op">$</span><span class="va">z</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">ace</span> <span class="op">=</span> <span class="va">covyz</span> <span class="op">/</span> <span class="va">covxz</span></span>
+<code class="sourceCode R"><span><span class="va">covyz</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html" class="external-link">cov</a></span><span class="op">(</span><span class="va">tab1inddat</span><span class="op">$</span><span class="va">y</span>, <span class="va">tab1inddat</span><span class="op">$</span><span class="va">z</span><span class="op">)</span></span>
+<span><span class="va">covxz</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html" class="external-link">cov</a></span><span class="op">(</span><span class="va">tab1inddat</span><span class="op">$</span><span class="va">x</span>, <span class="va">tab1inddat</span><span class="op">$</span><span class="va">z</span><span class="op">)</span></span>
+<span><span class="va">ace</span>   <span class="op">&lt;-</span> <span class="va">covyz</span> <span class="op">/</span> <span class="va">covxz</span></span>
 <span><span class="va">ace</span></span>
 <span><span class="co">#&gt; [1] 0.003228039</span></span></code></pre></div>
 <div class="section level3">
@@ -245,8 +243,8 @@ could call <code><a href="../reference/bpbounds.html">bpbounds()</a></code> usin
 <p>If you already know the conditional probabilities you could pass them
 to <code><a href="../reference/bpbounds.html">bpbounds()</a></code> as follows.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">condprob</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">.0064</span>, <span class="fl">0</span>, <span class="fl">.9936</span>, <span class="fl">0</span>, <span class="fl">.0028</span>, <span class="fl">.001</span>, <span class="fl">.1972</span>, <span class="fl">.799</span><span class="op">)</span></span>
-<span><span class="va">tabp</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="va">condprob</span>,</span>
+<code class="sourceCode R"><span><span class="va">condprob</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">.0064</span>, <span class="fl">0</span>, <span class="fl">.9936</span>, <span class="fl">0</span>, <span class="fl">.0028</span>, <span class="fl">.001</span>, <span class="fl">.1972</span>, <span class="fl">.799</span><span class="op">)</span></span>
+<span><span class="va">tabp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html" class="external-link">array</a></span><span class="op">(</span><span class="va">condprob</span>,</span>
 <span>             dim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span>,</span>
 <span>             dimnames <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>               x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>,</span>
@@ -279,24 +277,24 @@ to <code><a href="../reference/bpbounds.html">bpbounds()</a></code> as follows.<
 <p>To demonstrate the features of the command we can treat this data as
 bivariate.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">gtab</span>  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/xtabs.html" class="external-link">xtabs</a></span><span class="op">(</span> <span class="op">~</span> <span class="va">y</span> <span class="op">+</span> <span class="va">z</span>, data <span class="op">=</span> <span class="va">tab1inddat</span><span class="op">)</span></span>
-<span><span class="va">gp</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/proportions.html" class="external-link">prop.table</a></span><span class="op">(</span><span class="va">gtab</span>, margin <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">gtab</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/xtabs.html" class="external-link">xtabs</a></span><span class="op">(</span> <span class="op">~</span> <span class="va">y</span> <span class="op">+</span> <span class="va">z</span>, data <span class="op">=</span> <span class="va">tab1inddat</span><span class="op">)</span></span>
+<span><span class="va">gp</span>   <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/proportions.html" class="external-link">prop.table</a></span><span class="op">(</span><span class="va">gtab</span>, margin <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span><span class="va">gp</span></span>
 <span><span class="co">#&gt;    z</span></span>
 <span><span class="co">#&gt; y             0           1</span></span>
 <span><span class="co">#&gt;   0 0.006385916 0.003803539</span></span>
 <span><span class="co">#&gt;   1 0.993614084 0.996196461</span></span>
 <span></span>
-<span><span class="va">ttab</span>  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/xtabs.html" class="external-link">xtabs</a></span><span class="op">(</span> <span class="op">~</span> <span class="va">x</span> <span class="op">+</span> <span class="va">z</span>, data <span class="op">=</span> <span class="va">tab1inddat</span><span class="op">)</span></span>
-<span><span class="va">tp</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/proportions.html" class="external-link">prop.table</a></span><span class="op">(</span><span class="va">ttab</span>, margin <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="va">ttab</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/xtabs.html" class="external-link">xtabs</a></span><span class="op">(</span> <span class="op">~</span> <span class="va">x</span> <span class="op">+</span> <span class="va">z</span>, data <span class="op">=</span> <span class="va">tab1inddat</span><span class="op">)</span></span>
+<span><span class="va">tp</span>   <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/proportions.html" class="external-link">prop.table</a></span><span class="op">(</span><span class="va">ttab</span>, margin <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span><span class="va">tp</span></span>
 <span><span class="co">#&gt;    z</span></span>
 <span><span class="co">#&gt; x           0         1</span></span>
 <span><span class="co">#&gt;   0 1.0000000 0.2000165</span></span>
 <span><span class="co">#&gt;   1 0.0000000 0.7999835</span></span>
 <span></span>
-<span><span class="va">bpres2</span> <span class="op">=</span> <span class="fu"><a href="../reference/bpbounds.html">bpbounds</a></span><span class="op">(</span>p <span class="op">=</span> <span class="va">gp</span>, t <span class="op">=</span> <span class="va">tp</span>, fmt <span class="op">=</span> <span class="st">"bivariate"</span><span class="op">)</span></span>
-<span><span class="va">sbp2</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">bpres2</span><span class="op">)</span></span>
+<span><span class="va">bpres2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/bpbounds.html">bpbounds</a></span><span class="op">(</span>p <span class="op">=</span> <span class="va">gp</span>, t <span class="op">=</span> <span class="va">tp</span>, fmt <span class="op">=</span> <span class="st">"bivariate"</span><span class="op">)</span></span>
+<span><span class="va">sbp2</span>   <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">bpres2</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">sbp2</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Data:                    bivariate</span></span>
@@ -341,9 +339,9 @@ care to enter them in the correct position in the vectors.</p>
 <span>             y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>,</span>
 <span>             z <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span></span>
 <span>           <span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">p3</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">as.table</a></span><span class="op">(</span><span class="va">p3</span><span class="op">)</span></span>
-<span><span class="va">bpres3</span> <span class="op">=</span> <span class="fu"><a href="../reference/bpbounds.html">bpbounds</a></span><span class="op">(</span><span class="va">p3</span><span class="op">)</span></span>
-<span><span class="va">sbp3</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">bpres3</span><span class="op">)</span></span>
+<span><span class="va">p3</span>     <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">as.table</a></span><span class="op">(</span><span class="va">p3</span><span class="op">)</span></span>
+<span><span class="va">bpres3</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/bpbounds.html">bpbounds</a></span><span class="op">(</span><span class="va">p3</span><span class="op">)</span></span>
+<span><span class="va">sbp3</span>   <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">bpres3</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">sbp3</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Data:                    trivariate</span></span>
@@ -373,21 +371,21 @@ on <code>y2</code> is much smaller in magnitude than the direct effect
 on <code>y1</code>.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">2232011</span><span class="op">)</span></span>
-<span><span class="va">n</span> <span class="op">=</span> <span class="fl">10000</span></span>
-<span><span class="va">z</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">rbinom</a></span><span class="op">(</span><span class="va">n</span>, <span class="fl">1</span>, <span class="fl">.5</span><span class="op">)</span></span>
-<span><span class="va">u</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">rbinom</a></span><span class="op">(</span><span class="va">n</span>, <span class="fl">1</span>, <span class="fl">.5</span><span class="op">)</span></span>
-<span><span class="va">px</span> <span class="op">=</span> <span class="fl">.05</span> <span class="op">+</span> <span class="fl">.1</span> <span class="op">*</span> <span class="va">z</span> <span class="op">+</span> <span class="fl">.1</span> <span class="op">*</span> <span class="va">u</span></span>
-<span><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">rbinom</a></span><span class="op">(</span><span class="va">n</span>, <span class="fl">1</span>, <span class="va">px</span><span class="op">)</span></span>
-<span><span class="va">p1</span> <span class="op">=</span> <span class="fl">.1</span> <span class="op">+</span> <span class="fl">.2</span> <span class="op">*</span> <span class="va">z</span> <span class="op">+</span> <span class="fl">.05</span> <span class="op">*</span> <span class="va">x</span> <span class="op">+</span> <span class="fl">.1</span> <span class="op">*</span> <span class="va">u</span></span>
-<span><span class="va">y1</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">rbinom</a></span><span class="op">(</span><span class="va">n</span>, <span class="fl">1</span>, <span class="va">p1</span><span class="op">)</span></span>
-<span><span class="va">p2</span> <span class="op">=</span> <span class="fl">.1</span> <span class="op">+</span> <span class="fl">.05</span> <span class="op">*</span> <span class="va">z</span> <span class="op">+</span> <span class="fl">.05</span> <span class="op">*</span> <span class="va">x</span> <span class="op">+</span> <span class="fl">.1</span> <span class="op">*</span> <span class="va">u</span></span>
-<span><span class="va">y2</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">rbinom</a></span><span class="op">(</span><span class="va">n</span>, <span class="fl">1</span>, <span class="va">p2</span><span class="op">)</span></span>
+<span><span class="va">n</span>      <span class="op">&lt;-</span> <span class="fl">10000</span></span>
+<span><span class="va">z</span>      <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">rbinom</a></span><span class="op">(</span><span class="va">n</span>, <span class="fl">1</span>, <span class="fl">.5</span><span class="op">)</span></span>
+<span><span class="va">u</span>      <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">rbinom</a></span><span class="op">(</span><span class="va">n</span>, <span class="fl">1</span>, <span class="fl">.5</span><span class="op">)</span></span>
+<span><span class="va">px</span>     <span class="op">&lt;-</span> <span class="fl">.05</span> <span class="op">+</span> <span class="fl">.1</span> <span class="op">*</span> <span class="va">z</span> <span class="op">+</span> <span class="fl">.1</span> <span class="op">*</span> <span class="va">u</span></span>
+<span><span class="va">x</span>      <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">rbinom</a></span><span class="op">(</span><span class="va">n</span>, <span class="fl">1</span>, <span class="va">px</span><span class="op">)</span></span>
+<span><span class="va">p1</span>     <span class="op">&lt;-</span> <span class="fl">.1</span> <span class="op">+</span> <span class="fl">.2</span> <span class="op">*</span> <span class="va">z</span> <span class="op">+</span> <span class="fl">.05</span> <span class="op">*</span> <span class="va">x</span> <span class="op">+</span> <span class="fl">.1</span> <span class="op">*</span> <span class="va">u</span></span>
+<span><span class="va">y1</span>     <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">rbinom</a></span><span class="op">(</span><span class="va">n</span>, <span class="fl">1</span>, <span class="va">p1</span><span class="op">)</span></span>
+<span><span class="va">p2</span>     <span class="op">&lt;-</span> <span class="fl">.1</span> <span class="op">+</span> <span class="fl">.05</span> <span class="op">*</span> <span class="va">z</span> <span class="op">+</span> <span class="fl">.05</span> <span class="op">*</span> <span class="va">x</span> <span class="op">+</span> <span class="fl">.1</span> <span class="op">*</span> <span class="va">u</span></span>
+<span><span class="va">y2</span>     <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">rbinom</a></span><span class="op">(</span><span class="va">n</span>, <span class="fl">1</span>, <span class="va">p2</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">tab1</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/xtabs.html" class="external-link">xtabs</a></span><span class="op">(</span><span class="op">~</span> <span class="va">x</span> <span class="op">+</span> <span class="va">y1</span> <span class="op">+</span> <span class="va">z</span><span class="op">)</span></span>
-<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/proportions.html" class="external-link">prop.table</a></span><span class="op">(</span><span class="va">tab1</span>, margin <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
+<span><span class="va">tab1</span>   <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/xtabs.html" class="external-link">xtabs</a></span><span class="op">(</span><span class="op">~</span> <span class="va">x</span> <span class="op">+</span> <span class="va">y1</span> <span class="op">+</span> <span class="va">z</span><span class="op">)</span></span>
+<span><span class="va">p1</span>     <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/proportions.html" class="external-link">prop.table</a></span><span class="op">(</span><span class="va">tab1</span>, margin <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">bpres1</span> <span class="op">=</span> <span class="fu"><a href="../reference/bpbounds.html">bpbounds</a></span><span class="op">(</span><span class="va">p1</span><span class="op">)</span></span>
-<span><span class="va">sbp1</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">bpres1</span><span class="op">)</span></span>
+<span><span class="va">bpres1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/bpbounds.html">bpbounds</a></span><span class="op">(</span><span class="va">p1</span><span class="op">)</span></span>
+<span><span class="va">sbp1</span>   <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">bpres1</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">sbp1</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Data:                    trivariate</span></span>
@@ -400,11 +398,11 @@ on <code>y1</code>.</p>
 both the instrumental variable and monotonicity inequalities are not
 satisifed.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">tab2</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/xtabs.html" class="external-link">xtabs</a></span><span class="op">(</span><span class="op">~</span> <span class="va">x</span> <span class="op">+</span> <span class="va">y2</span> <span class="op">+</span> <span class="va">z</span><span class="op">)</span></span>
-<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/proportions.html" class="external-link">prop.table</a></span><span class="op">(</span><span class="va">tab2</span>, margin <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">tab2</span>   <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/xtabs.html" class="external-link">xtabs</a></span><span class="op">(</span><span class="op">~</span> <span class="va">x</span> <span class="op">+</span> <span class="va">y2</span> <span class="op">+</span> <span class="va">z</span><span class="op">)</span></span>
+<span><span class="va">p2</span>     <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/proportions.html" class="external-link">prop.table</a></span><span class="op">(</span><span class="va">tab2</span>, margin <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">bpres2</span> <span class="op">=</span> <span class="fu"><a href="../reference/bpbounds.html">bpbounds</a></span><span class="op">(</span><span class="va">p2</span><span class="op">)</span></span>
-<span><span class="va">sbp2</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">bpres2</span><span class="op">)</span></span>
+<span><span class="va">bpres2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/bpbounds.html">bpbounds</a></span><span class="op">(</span><span class="va">p2</span><span class="op">)</span></span>
+<span><span class="va">sbp2</span>   <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">bpres2</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">sbp2</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Data:                    trivariate</span></span>
