@@ -10,9 +10,9 @@
 #'
 #' If you only know the conditional probabilities you can enter these, e.g.
 #' for the Balke and Pearl Vitamin A example:
-#' cp   = c(.0064, 0, .9936, 0, .0028, .001, .1972, .799)
-#' tabp = as.table(array(
 #' ```r
+#' cp   <- c(.0064, 0, .9936, 0, .0028, .001, .1972, .799)
+#' tabp <- as.table(array(
 #'   cp,
 #'   dim = c(2, 2, 2),
 #'   dimnames = list(
