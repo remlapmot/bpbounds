@@ -2,6 +2,8 @@
 
 * Tweak formatting of code in helpfile examples and vignette
 
+* Bumped minimum required version of R to be at least 3.6.0 because this is now required by **testthat** version 3.2.0
+
 # bpbounds 0.1.5
 
 * Additional email address and affiliation edits.
