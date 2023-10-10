@@ -35,7 +35,7 @@ if (!requireNamespace("tidyr", quietly = TRUE)) {
 ```
 
 ## Introduction
-This short vignette demonstrates the use of the `bpbounds` package. This is a R implementation of the of the nonparametric bounds for the average causal effect of @balke-jasa-1997 and some extensions. Currently this R package is a port of our `bpbounds` Stata package (@palmer-sj-2011). The code implements the approach of calculating the bounds outlined by @ramsahai-uai-2007, @ramsahai-thesis, and @ramsahai-jmlr-2012.
+This short vignette demonstrates the use of the **bpbounds** package. This is a R implementation of the of the nonparametric bounds for the average causal effect of @balke-jasa-1997 and some extensions. Currently this R package is a port of our **bpbounds** Stata package (@palmer-sj-2011). The code implements the approach of calculating the bounds outlined by @ramsahai-uai-2007, @ramsahai-thesis, and @ramsahai-jmlr-2012.
 
 We start by loading our package and the others needed for the code in this vignette.
 ```{r}
@@ -44,7 +44,7 @@ library(dplyr)
 library(tidyr)
 ```
 
-## Features of the `bpbounds` package
+## Features of the bpbounds package
 Currently the package has one function, `bpbounds()`, which can accommodate the four scenarios implemented in our Stata command. These are to calculate the bounds for a binary outcome, a binary treatment/phenotype, and:
 
 * a binary instrumental variable;
@@ -183,6 +183,6 @@ print(sbp2)
 However, with the weaker direct effect we see that both are satisfied when the true underlying data generating model does not satisfy the instrumental variable assumptions.
 
 ## Conclusion
-In conclusion, we have demonstrated the use of our `bpbounds` package implementing nonparametric bounds for the average causal effect for a range of data scenarios.
+In conclusion, we have demonstrated the use of our **bpbounds** package implementing nonparametric bounds for the average causal effect for a range of data scenarios.
 
 ## References
