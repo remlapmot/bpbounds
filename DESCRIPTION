@@ -15,7 +15,7 @@ Authors@R: c(
 Description: Implementation of the nonparametric bounds for the average
     causal effect under an instrumental variable model by Balke and Pearl
     (Bounds on Treatment Effects from Studies with Imperfect Compliance,
-    JASA, 1997, 92, 439, 1171-1176). The package can calculate bounds for
+    JASA, 1997, 92, 439, 1171-1176, <doi:10.2307/2965583>). The package can calculate bounds for
     a binary outcome, a binary treatment/phenotype, and an instrument with
     either 2 or 3 categories. The package implements bounds for situations
     where these 3 variables are measured in the same dataset (trivariate
