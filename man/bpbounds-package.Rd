@@ -3,19 +3,28 @@
 \docType{package}
 \name{bpbounds-package}
 \alias{bpbounds-package}
-\title{bpbounds: Nonparametric bounds for the Average Causal Effect due to Balke and Pearl and extensions}
+\title{bpbounds: Nonparametric Bounds for the Average Causal Effect Due to Balke and Pearl and Extensions}
 \description{
-This package implements the nonparametric bounds for the average causal effect defined by
-Balke and Pearl, Bounds on Treatment Effects from Studies with Imperfect Compliance,
-JASA, 1997; and some extensions.
+Implementation of the nonparametric bounds for the average causal effect under an instrumental variable model by Balke and Pearl (Bounds on Treatment Effects from Studies with Imperfect Compliance, JASA, 1997, 92, 439, 1171-1176). The package can calculate bounds for a binary outcome, a binary treatment/phenotype, and an instrument with either 2 or 3 categories. The package implements bounds for situations where these 3 variables are measured in the same dataset (trivariate data) or where the outcome and instrument are measured in one study and the treatment/phenotype and instrument are measured in another study (bivariate data).
 }
-\details{
-The functions implement bounds for the situation where each of the outcome,
-treatment/phenotype, and instrumental variable are binary; and additionally for when the
-instrument has 3 categories (e.g. a single genotype under an additive model in a
-Mendelian randomization study).
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/remlapmot/bpbounds}
+  \item \url{https://remlapmot.github.io/bpbounds/}
+  \item Report bugs at \url{https://github.com/remlapmot/bpbounds/issues}
+}
 
-The package implements bounds for when the three variables are measured in the same study
-(trivariate data) and when the outcome and instrument are measured in one study and the
-treatment/phenotype and instrument in another sample (bivariate/two sample data).
 }
+\author{
+\strong{Maintainer}: Tom Palmer \email{remlapmot@hotmail.com} (\href{https://orcid.org/0000-0003-4655-4511}{ORCID})
+
+Authors:
+\itemize{
+  \item Roland Ramsahai (\href{https://orcid.org/0000-0002-7349-1977}{ORCID})
+  \item Vanessa Didelez (\href{https://orcid.org/0000-0001-8587-7706}{ORCID})
+  \item Nuala Sheehan (\href{https://orcid.org/0000-0001-9094-2605}{ORCID})
+}
+
+}
+\keyword{internal}
