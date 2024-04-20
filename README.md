@@ -1,10 +1,12 @@
 # bpbounds
 
+<!-- badges: start -->
 [![R-CMD-check](https://github.com/remlapmot/bpbounds/actions/workflows/check-full.yaml/badge.svg)](https://github.com/remlapmot/bpbounds/actions/workflows/check-full.yaml)
 [![Coverage status](https://codecov.io/gh/remlapmot/bpbounds/branch/master/graph/badge.svg)](https://app.codecov.io/github/remlapmot/bpbounds?branch=master)
 [![CRAN status](https://www.r-pkg.org/badges/version/bpbounds)](https://cran.r-project.org/package=bpbounds)
 [![RStudio_CRAN_mirror_downloads_badge](http://cranlogs.r-pkg.org/badges/grand-total/bpbounds?color=blue)](https://CRAN.R-project.org/package=bpbounds)
 [![r-universe](https://remlapmot.r-universe.dev/badges/bpbounds)](https://remlapmot.r-universe.dev/bpbounds)
+<!-- badges: end -->
 
 R package implementing the nonparametric bounds for the average causal effect of [Balke and Pearl (1997)](https://doi.org/10.1080/01621459.1997.10474074).
 
