@@ -6,6 +6,8 @@
 
 * Bumped version of **roxygen2** used to create package documentation
 
+* Minor edits to README.md
+
 # bpbounds 0.1.5
 
 * Additional email address and affiliation edits.

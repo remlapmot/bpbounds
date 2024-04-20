@@ -1,4 +1,4 @@
-# bpbounds
+# bpbounds: Nonparametric bounds for the average causal effect for one-sample (bivariate) and two-sample (trivariate) data
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/remlapmot/bpbounds/actions/workflows/check-full.yaml/badge.svg)](https://github.com/remlapmot/bpbounds/actions/workflows/check-full.yaml)
