@@ -2,7 +2,7 @@
 
 * Tweak formatting of code in helpfile examples and vignette
 
-* Bumped minimum required version of R to be at least 3.6.0 because this is now required by **testthat** version 3.2.0
+* Bumped minimum required version of R to be at least 4.0.0 because this is now required by **evaluate**, which is a dependency of **knitr**.
 
 * Bumped version of **roxygen2** used to create package documentation
 
