@@ -12,25 +12,30 @@ R package implementing the nonparametric bounds for the average causal effect of
 
 ## Installation
 
-Install the released version of `bpbounds` from CRAN:
+Install the released version of **bpbounds** from CRAN:
 
 ``` r
 install.packages("bpbounds")
 ```
 
+or from the MRCIEU R-universe
+
+```r
+install.packages("bpbounds", repos = c("https://mrcieu.r-universe.dev", "https://cloud.r-project.org"))
+```
+
+Or install the development version from my r-universe
+
+```r
+install.packages("bpbounds", repos = c("https://remlapmot.r-universe.dev", "https://cloud.r-project.org"))
+```
+
 Or install the development version from GitHub with:
 
 ``` r
-# Uncomment the next command if you don't have the remotes packages installed.
-# The tidyverse have moved some functions out of the devtools package.
 # install.packages("remotes") 
-
-# I call install_github() with these options to build the vignette.
-remotes::install_github("remlapmot/bpbounds", 
-                        build_opts = c("--no-resave-data", "--no-manual"), 
-                        build_vignettes = TRUE)
+remotes::install_github("remlapmot/bpbounds")
 ```
-To update the development version of the package, simply run this command again.
 
 ## Shiny App
 
