@@ -1,6 +1,7 @@
 url: https://remlapmot.github.io/bpbounds/
 template:
   bootstrap: 5
+  light-switch: true
   params:
     docsearch:
       api_key: 179b246487c1c10aaf23f1267f744696
