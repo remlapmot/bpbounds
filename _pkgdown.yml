@@ -9,3 +9,11 @@ template:
     ganalytics: UA-156933160-2
 development:
   mode: auto
+navbar:
+  structure:
+    right: [search, cran, github, lightswitch]
+  components:
+    cran:
+      icon: fab fa-r-project
+      href: https://cran.r-project.org/package=bpbounds
+      aria-label: View on CRAN
