@@ -99,12 +99,12 @@ If you already know the conditional probabilities you could pass them to `bpboun
 ```{r}
 condprob <- c(.0064, 0, .9936, 0, .0028, .001, .1972, .799)
 tabp <- array(condprob,
-             dim = c(2, 2, 2),
-             dimnames = list(
-               x = c(0, 1),
-               y = c(0, 1),
-               z = c(0, 1)
-             )) %>%
+              dim = c(2, 2, 2),
+              dimnames = list(
+                x = c(0, 1),
+                y = c(0, 1),
+                z = c(0, 1)
+              )) %>%
   as.table()
 bpbounds(tabp)
 ```
@@ -112,11 +112,11 @@ bpbounds(tabp)
 ### Treating the data as bivariate
 To demonstrate the features of the command we can treat this data as bivariate.
 ```{r}
-gtab <- xtabs( ~ y + z, data = tab1inddat)
+gtab <- xtabs(~ y + z, data = tab1inddat)
 gp   <- prop.table(gtab, margin = 2)
 gp
 
-ttab <- xtabs( ~ x + z, data = tab1inddat)
+ttab <- xtabs(~ x + z, data = tab1inddat)
 tp   <- prop.table(ttab, margin = 2)
 tp
 
@@ -134,13 +134,13 @@ disease.
 The data are presented to us as conditional probabilities, so we take care to enter them in the correct position in the vectors.
 ```{r}
 mt3 <- c(.83, .05, .11, .01, .88, .06, .05, .01, .72, .05, .20, .03)
-p3 = array(mt3,
-           dim = c(2, 2, 3),
-           dimnames = list(
-             x = c(0, 1),
-             y = c(0, 1),
-             z = c(0, 1, 2)
-           ))
+p3 <- array(mt3,
+            dim = c(2, 2, 3),
+            dimnames = list(
+              x = c(0, 1),
+              y = c(0, 1),
+              z = c(0, 1, 2)
+            ))
 p3     <- as.table(p3)
 bpres3 <- bpbounds(p3)
 sbp3   <- summary(bpres3)

@@ -125,7 +125,7 @@ ui <- fluidPage(
 server <- function(input, output) {
   observe({
     if (input$zcats == 2 & input$fmt == "trivariate") {
-      cp = c(
+      cp <- c(
         input$cp1,
         input$cp2,
         input$cp3,
@@ -135,7 +135,7 @@ server <- function(input, output) {
         input$cp7,
         input$cp8
       )
-      tabp =
+      tabp <-
         as.table(array(
           cp,
           dim = c(2, 2, 2),

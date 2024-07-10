@@ -114,12 +114,12 @@ bpbounds <- function(p, t = NULL, fmt = "trivariate") {
   # Check arguments
 
   ## check fmt specified correctly
-  if (fmt != "bivariate" & fmt != "trivariate") {
+  if (fmt != "bivariate" && fmt != "trivariate") {
     stop('fmt argument must be either "bivariate" or "trivariate"')
   }
 
   ## check t has been specified along with if fmt is bivariate
-  if (fmt == "bivariate" & is.null(t)) {
+  if (fmt == "bivariate" && is.null(t)) {
     stop(
       't, a matrix of trestment/phenotype-instrument conditional probabilities, must be specified for bivariate data'
     )
@@ -132,18 +132,18 @@ bpbounds <- function(p, t = NULL, fmt = "trivariate") {
 
   ## check length of p
   if (fmt == "trivariate") {
-    if (length(p) != 8 & length(p) != 12) {
+    if (length(p) != 8 && length(p) != 12) {
       stop("The length of p must be 8 or 12, i.e. for a 2 or 3 category instrument.")
     }
   } else {
-    if (length(p) != 4 & length(p) != 6) {
+    if (length(p) != 4 && length(p) != 6) {
       stop("p seems to have the incorrect number of dimensions")
     }
   }
 
   ## check length of t
   if (fmt == "bivariate") {
-    if (length(t) != 4 & length(t) != 6) {
+    if (length(t) != 4 && length(t) != 6) {
       stop("t seems to have the incorrect number of dimensions")
     }
   }
@@ -158,7 +158,7 @@ bpbounds <- function(p, t = NULL, fmt = "trivariate") {
     if (fmt == "trivariate") {
       p <- prop.table(p, margin = 3)
     }	else {
-      p = prop.table(p, margin = 2)
+      p <- prop.table(p, margin = 2)
     }
   } else {
     stop("All elements of p must either be conditional probabilities or cell counts.")
@@ -166,14 +166,14 @@ bpbounds <- function(p, t = NULL, fmt = "trivariate") {
 
   ## p should now be conditional probabilities
   ## check they sum to approx. no. instrument categories
-  if (fmt == "trivariate" & length(p) == 8) {
+  if (fmt == "trivariate" && length(p) == 8) {
     nzcats <- 2
     if (abs(sum(p) - 2) > 0.1) {
       stop("The conditional probabilities add up to ",
            sum(p),
            " instead of 2.")
     }
-  } else if (fmt == "trivariate" & length(p) == 12) {
+  } else if (fmt == "trivariate" && length(p) == 12) {
     nzcats <- 3
     if (abs(sum(p) - 3) > 0.1) {
       stop("The conditional probabilities add up to ",
@@ -188,7 +188,7 @@ bpbounds <- function(p, t = NULL, fmt = "trivariate") {
   } else if (all(t == floor(t))) {
     # convert to conditional probabilities if cell counts
     if (fmt == "bivariate") {
-      t = prop.table(t, margin = 2)
+      t <- prop.table(t, margin = 2)
     }
   } else {
     stop("All elements of t must either be conditional probabilities or cell counts.")

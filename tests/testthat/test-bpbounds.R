@@ -40,7 +40,7 @@ test_that("Balke and Pearl Table 1 example: trivariate data with 2 category inst
             expect_equal(bpres$nzcats, 2)
 
             expect_true(bpres$inequality)
-            expect_equal(bpres$bplb,-0.1946, tol = 1e-4)
+            expect_equal(bpres$bplb, -0.1946, tol = 1e-4)
             expect_equal(bpres$bpub, 0.0054, tol = 1e-4)
             expect_equal(bpres$p10low, 0.9936, tol = 1e-4)
             expect_equal(bpres$p10upp, 0.9936, tol = 1e-4)
@@ -50,7 +50,7 @@ test_that("Balke and Pearl Table 1 example: trivariate data with 2 category inst
             expect_equal(bpres$crrub, 1.0054, tol = 1e-4)
 
             expect_true(bpres$monoinequality)
-            expect_equal(bpres$monobplb,-0.1946, tol = 1e-4)
+            expect_equal(bpres$monobplb, -0.1946, tol = 1e-4)
             expect_equal(bpres$monobpub, 0.0054, tol = 1e-4)
             expect_equal(bpres$monop10low, 0.9936, tol = 1e-4)
             expect_equal(bpres$monop10upp, 0.9936, tol = 1e-4)
@@ -78,7 +78,7 @@ test_that("Balke and Pearl Table 1 example: trivariate data with 2 category inst
             expect_equal(bpres$nzcats, 2)
 
             expect_true(bpres$inequality)
-            expect_equal(bpres$bplb,-0.1946, tol = 1e-4)
+            expect_equal(bpres$bplb, -0.1946, tol = 1e-4)
             expect_equal(bpres$bpub, 0.0054, tol = 1e-4)
             expect_equal(bpres$p10low, 0.9936, tol = 1e-4)
             expect_equal(bpres$p10upp, 0.9936, tol = 1e-4)
@@ -88,7 +88,7 @@ test_that("Balke and Pearl Table 1 example: trivariate data with 2 category inst
             expect_equal(bpres$crrub, 1.0054, tol = 1e-4)
 
             expect_true(bpres$monoinequality)
-            expect_equal(bpres$monobplb,-0.1946, tol = 1e-4)
+            expect_equal(bpres$monobplb, -0.1946, tol = 1e-4)
             expect_equal(bpres$monobpub, 0.0054, tol = 1e-4)
             expect_equal(bpres$monop10low, 0.9936, tol = 1e-4)
             expect_equal(bpres$monop10upp, 0.9936, tol = 1e-4)
@@ -100,16 +100,16 @@ test_that("Balke and Pearl Table 1 example: trivariate data with 2 category inst
 
 
 ## Test the bivariate formulation ----
-g  = xtabs( ~ y + z, data = tab1inddat)
+g  = xtabs(~ y + z, data = tab1inddat)
 gp = prop.table(g, margin = 2)
 
-t  = xtabs( ~ x + z, data = tab1inddat)
+t  = xtabs(~ x + z, data = tab1inddat)
 tp = prop.table(t, margin = 2)
 
 test_that("Balke and Pearl Table 1 example treated as bivariate data", {
   bpres = bpbounds(p = gp, t = tp, fmt = "bivariate")
   expect_true(bpres$inequality)
-  expect_equal(bpres$bplb,-0.1974, tol = 1e-4)
+  expect_equal(bpres$bplb, -0.1974, tol = 1e-4)
   expect_equal(bpres$bpub, 0.0064, tol = 1e-4)
   expect_equal(bpres$p10low, 0.9936, tol = 1e-4)
   expect_equal(bpres$p10upp, 0.9936, tol = 1e-4)
@@ -119,7 +119,7 @@ test_that("Balke and Pearl Table 1 example treated as bivariate data", {
   expect_equal(bpres$crrub, 1.2039, tol = 1e-4)
 
   expect_true(bpres$monoinequality)
-  expect_equal(bpres$monobplb,-0.1974, tol = 1e-4)
+  expect_equal(bpres$monobplb, -0.1974, tol = 1e-4)
   expect_equal(bpres$monobpub, 0.0064, tol = 1e-4)
   expect_equal(bpres$monop10low, 0.9936, tol = 1e-4)
   expect_equal(bpres$monop10upp, 0.9936, tol = 1e-4)
@@ -137,7 +137,7 @@ test_that("Balke and Pearl, bivariate data using cell counts",
           {
             bpres = bpbounds(p = g, t = t, fmt = "bivariate")
             expect_true(bpres$inequality)
-            expect_equal(bpres$bplb,-0.1974, tol = 1e-4)
+            expect_equal(bpres$bplb, -0.1974, tol = 1e-4)
             expect_equal(bpres$bpub, 0.0064, tol = 1e-4)
             expect_equal(bpres$p10low, 0.9936, tol = 1e-4)
             expect_equal(bpres$p10upp, 0.9936, tol = 1e-4)
@@ -147,7 +147,7 @@ test_that("Balke and Pearl, bivariate data using cell counts",
             expect_equal(bpres$crrub, 1.2039, tol = 1e-4)
 
             expect_true(bpres$monoinequality)
-            expect_equal(bpres$monobplb,-0.1974, tol = 1e-4)
+            expect_equal(bpres$monobplb, -0.1974, tol = 1e-4)
             expect_equal(bpres$monobpub, 0.0064, tol = 1e-4)
             expect_equal(bpres$monop10low, 0.9936, tol = 1e-4)
             expect_equal(bpres$monop10upp, 0.9936, tol = 1e-4)
@@ -170,7 +170,7 @@ test_that("Bivariate data with cell counts for one and cond probs other", {
   expect_equal(bpres$nzcats, 2)
 
   expect_true(bpres$inequality)
-  expect_equal(bpres$bplb,-0.1974, tol = 1e-4)
+  expect_equal(bpres$bplb, -0.1974, tol = 1e-4)
   expect_equal(bpres$bpub, 0.0064, tol = 1e-4)
   expect_equal(bpres$p10low, 0.9936, tol = 1e-4)
   expect_equal(bpres$p10upp, 0.9936, tol = 1e-4)
@@ -180,7 +180,7 @@ test_that("Bivariate data with cell counts for one and cond probs other", {
   expect_equal(bpres$crrub, 1.2039, tol = 1e-4)
 
   expect_true(bpres$inequality)
-  expect_equal(bpres$monobplb,-0.1974, tol = 1e-4)
+  expect_equal(bpres$monobplb, -0.1974, tol = 1e-4)
   expect_equal(bpres$monobpub, 0.0064, tol = 1e-4)
   expect_equal(bpres$monop10low, 0.9936, tol = 1e-4)
   expect_equal(bpres$monop10upp, 0.9936, tol = 1e-4)
@@ -213,7 +213,7 @@ test_that("Balke and Pearl Table 2 example: trivariate data with 2 category inst
             expect_equal(bpres$nzcats, 2)
 
             expect_true(bpres$inequality)
-            expect_equal(bpres$bplb,-0.1946, tol = 1e-4)
+            expect_equal(bpres$bplb, -0.1946, tol = 1e-4)
             expect_equal(bpres$bpub, 0.0054, tol = 1e-4)
             expect_equal(bpres$p10low, 0.9936, tol = 1e-4)
             expect_equal(bpres$p10upp, 0.9936, tol = 1e-4)
@@ -223,7 +223,7 @@ test_that("Balke and Pearl Table 2 example: trivariate data with 2 category inst
             expect_equal(bpres$crrub, 1.0054, tol = 1e-4)
 
             expect_true(bpres$monoinequality)
-            expect_equal(bpres$monobplb,-0.1946, tol = 1e-4)
+            expect_equal(bpres$monobplb, -0.1946, tol = 1e-4)
             expect_equal(bpres$monobpub, 0.0054, tol = 1e-4)
             expect_equal(bpres$monop10low, 0.9936, tol = 1e-4)
             expect_equal(bpres$monop10upp, 0.9936, tol = 1e-4)
@@ -250,7 +250,7 @@ test_that("Mendelian randomization with 3 category instrument, trivariate data",
           {
             bpres = bpbounds(p3)
             expect_true(bpres$inequality)
-            expect_equal(bpres$bplb,-0.090, tol = 1e-4)
+            expect_equal(bpres$bplb, -0.090, tol = 1e-4)
             expect_equal(bpres$bpub, 0.74, tol = 1e-4)
             expect_equal(bpres$p10low, 0.06, tol = 1e-4)
             expect_equal(bpres$p10upp, 0.12, tol = 1e-4)
@@ -272,11 +272,11 @@ dat = data.frame(
 )
 longdat = tidyr::uncount(dat, weights = count)
 
-gtab = xtabs( ~ y + z, data = longdat)
+gtab = xtabs(~ y + z, data = longdat)
 gp = prop.table(gtab, margin = 2)
 gp
 
-ttab  = xtabs( ~ x + z, data = longdat)
+ttab  = xtabs(~ x + z, data = longdat)
 tp = prop.table(ttab, margin = 2)
 tp
 
@@ -285,13 +285,13 @@ test_that("Mendelian randomization with 3 category instrument, bivariate data",
             bpres = bpbounds(p = gp, t = tp, fmt = "bivariate")
             print(bpres)
             expect_true(bpres$inequality)
-            expect_equal(bpres$bplb,-0.5720, tol = 1e-4)
+            expect_equal(bpres$bplb, -0.5720, tol = 1e-4)
             expect_equal(bpres$bpub, 0.5942, tol = 1e-4)
             expect_equal(bpres$p10low, 0.4058, tol = 1e-4)
             expect_equal(bpres$p10upp, 0.5720, tol = 1e-4)
-            expect_equal(bpres$p11low,-0.1628, tol = 1e-4)
+            expect_equal(bpres$p11low, -0.1628, tol = 1e-4)
             expect_equal(bpres$p11upp, 1.2209, tol = 1e-4)
-            expect_equal(bpres$crrlb,-0.2846, tol = 1e-4)
+            expect_equal(bpres$crrlb, -0.2846, tol = 1e-4)
             expect_equal(bpres$crrub, 3.009, tol = 1e-4)
             expect_false(bpres$monoinequality)
 
