@@ -12,6 +12,7 @@ Useful links:
 \itemize{
   \item \url{https://github.com/remlapmot/bpbounds}
   \item \url{https://remlapmot.github.io/bpbounds/}
+  \item \url{https://mrcieu.r-universe.dev/bpbounds}
   \item Report bugs at \url{https://github.com/remlapmot/bpbounds/issues}
 }
 
