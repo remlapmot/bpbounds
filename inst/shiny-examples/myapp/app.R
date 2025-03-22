@@ -14,14 +14,14 @@ ui <- fluidPage(
         "Data format:",
         c(
           "Trivariate (Z, X, and Y in same dataset)" = "trivariate",
-          "Bivariate (Two sample data: {Z,X} in one dataset; {Z,Y} in another)" =
-            "bivariate"
+          "Bivariate (Two sample data: {Z,X} in one dataset; {Z,Y} in another)" = "bivariate"
         )
       ),
-      radioButtons("zcats",
-                   "Number of instrument categories:",
-                   c("2" = 2,
-                     "3" = 3)),
+      radioButtons(
+        "zcats",
+        "Number of instrument categories:",
+        c("2" = 2, "3" = 3)
+      ),
       conditionalPanel(
         condition = "input.zcats == 2 & input.fmt == 'trivariate'",
         p(
@@ -110,14 +110,16 @@ ui <- fluidPage(
       br(),
       p(
         "Further details are available on the package website:",
-        a("https://remlapmot.github.io/bpbounds", href = "https://remlapmot.github.io/bpbounds")
+        a(
+          "https://remlapmot.github.io/bpbounds",
+          href = "https://remlapmot.github.io/bpbounds"
+        )
       ),
       p(
         "Author: Tom Palmer,",
         a("tom.palmer@bristol.ac.uk", href = "mailto:tom.palmer@bristol.ac.uk")
       )
     )
-
   )
 )
 
@@ -178,61 +180,37 @@ server <- function(input, output) {
         summary(res)
       })
     } else if (input$zcats == 2 & input$fmt == "bivariate") {
-      cp = c(input$vp1,
-             input$vp2,
-             input$vp3,
-             input$vp4)
-      tp = c(input$tp1,
-             input$tp2,
-             input$tp3,
-             input$tp4)
+      cp = c(input$vp1, input$vp2, input$vp3, input$vp4)
+      tp = c(input$tp1, input$tp2, input$tp3, input$tp4)
       tabp = as.table(array(
         cp,
         dim = c(2, 2),
-        dimnames = list(y = c(0, 1),
-                        z = c(0, 1))
+        dimnames = list(y = c(0, 1), z = c(0, 1))
       ))
       tabt = as.matrix(as.table(array(
         tp,
         dim = c(2, 2),
-        dimnames = list(x = c(0, 1),
-                        z = c(0, 1))
+        dimnames = list(x = c(0, 1), z = c(0, 1))
       )))
       output$bpboundsSummary <- renderPrint({
-        res <- bpbounds(p = tabp,
-                        t = tabt,
-                        fmt = input$fmt)
+        res <- bpbounds(p = tabp, t = tabt, fmt = input$fmt)
         summary(res)
       })
     } else if (input$zcats == 3 & input$fmt == "bivariate") {
-      cp = c(input$xp1,
-             input$xp2,
-             input$xp3,
-             input$xp4,
-             input$xp5,
-             input$xp6)
-      tp = c(input$qp1,
-             input$qp2,
-             input$qp3,
-             input$qp4,
-             input$qp5,
-             input$qp6)
+      cp = c(input$xp1, input$xp2, input$xp3, input$xp4, input$xp5, input$xp6)
+      tp = c(input$qp1, input$qp2, input$qp3, input$qp4, input$qp5, input$qp6)
       tabp = as.table(array(
         cp,
         dim = c(2, 3),
-        dimnames = list(y = c(0, 1),
-                        z = c(0, 1, 2))
+        dimnames = list(y = c(0, 1), z = c(0, 1, 2))
       ))
       tabt = as.matrix(as.table(array(
         tp,
         dim = c(2, 3),
-        dimnames = list(x = c(0, 1),
-                        z = c(0, 1, 2))
+        dimnames = list(x = c(0, 1), z = c(0, 1, 2))
       )))
       output$bpboundsSummary <- renderPrint({
-        res <- bpbounds(tabp,
-                        tabt,
-                        fmt = input$fmt)
+        res <- bpbounds(tabp, tabt, fmt = input$fmt)
         summary(res)
       })
     }

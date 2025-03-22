@@ -43,8 +43,7 @@ bpbounds_calc_biv_z2 <- function(g, t) {
   # bounds on causal risk ratio
   rrlow = p11low / p10upp
   rrupp = p11upp / p10low
-  retlist = append(retlist, list("crrlb" = rrlow,
-                                 "crrub" = rrupp))
+  retlist = append(retlist, list("crrlb" = rrlow, "crrub" = rrupp))
 
   # bounds assuming monotonicity
   monoinequality = t00 - t01 >= abs(g00 - g01)
@@ -63,13 +62,13 @@ bpbounds_calc_biv_z2 <- function(g, t) {
   monolow = max(c(monolow1, monolow2, monolow3, monolow4, monolow5))
   monoupp = min(c(monoupp1, monoupp2, monoupp3, monoupp4, monoupp5))
   if (monoinequality) {
-    retlist = append(retlist, list("monobplb" = monolow,
-                                   "monobpub" = monoupp))
+    retlist = append(retlist, list("monobplb" = monolow, "monobpub" = monoupp))
     monolower = c(monolow1, monolow2, monolow3, monolow4, monolow5)
     monoupper = c(monoupp1, monoupp2, monoupp3, monoupp4, monoupp5)
-    retlist = append(retlist,
-                     list("monolower" = monolower,
-                          "monoupper" = monoupper))
+    retlist = append(
+      retlist,
+      list("monolower" = monolower, "monoupper" = monoupper)
+    )
 
     # bounds on intervention probs under monotonicity
     monop10low1 = g10 - g11
@@ -112,9 +111,10 @@ bpbounds_calc_biv_z2 <- function(g, t) {
     # bounds on causal risk ratio assuming monotonicity
     monocrrlb = monop11lb / monop10ub
     monocrrub = monop11ub / monop10lb
-    retlist = append(retlist,
-                     list("monocrrlb" = monocrrlb,
-                          "monocrrub" = monocrrub))
+    retlist = append(
+      retlist,
+      list("monocrrlb" = monocrrlb, "monocrrub" = monocrrub)
+    )
   }
   return(retlist)
 }

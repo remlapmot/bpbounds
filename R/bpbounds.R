@@ -133,7 +133,9 @@ bpbounds <- function(p, t = NULL, fmt = "trivariate") {
   ## check length of p
   if (fmt == "trivariate") {
     if (length(p) != 8 && length(p) != 12) {
-      stop("The length of p must be 8 or 12, i.e. for a 2 or 3 category instrument.")
+      stop(
+        "The length of p must be 8 or 12, i.e. for a 2 or 3 category instrument."
+      )
     }
   } else {
     if (length(p) != 4 && length(p) != 6) {
@@ -157,11 +159,13 @@ bpbounds <- function(p, t = NULL, fmt = "trivariate") {
   } else if (all(p == floor(p))) {
     if (fmt == "trivariate") {
       p <- prop.table(p, margin = 3)
-    }	else {
+    } else {
       p <- prop.table(p, margin = 2)
     }
   } else {
-    stop("All elements of p must either be conditional probabilities or cell counts.")
+    stop(
+      "All elements of p must either be conditional probabilities or cell counts."
+    )
   }
 
   ## p should now be conditional probabilities
@@ -169,16 +173,12 @@ bpbounds <- function(p, t = NULL, fmt = "trivariate") {
   if (fmt == "trivariate" && length(p) == 8) {
     nzcats <- 2
     if (abs(sum(p) - 2) > 0.1) {
-      stop("The conditional probabilities add up to ",
-           sum(p),
-           " instead of 2.")
+      stop("The conditional probabilities add up to ", sum(p), " instead of 2.")
     }
   } else if (fmt == "trivariate" && length(p) == 12) {
     nzcats <- 3
     if (abs(sum(p) - 3) > 0.1) {
-      stop("The conditional probabilities add up to ",
-           sum(p),
-           " instead of 3.")
+      stop("The conditional probabilities add up to ", sum(p), " instead of 3.")
     }
   }
 
@@ -191,7 +191,9 @@ bpbounds <- function(p, t = NULL, fmt = "trivariate") {
       t <- prop.table(t, margin = 2)
     }
   } else {
-    stop("All elements of t must either be conditional probabilities or cell counts.")
+    stop(
+      "All elements of t must either be conditional probabilities or cell counts."
+    )
   }
 
   # Control flow for bivariate or trivariate data
@@ -211,15 +213,15 @@ bpbounds <- function(p, t = NULL, fmt = "trivariate") {
       bpres = bpbounds_calc_biv_z2(g = p, t = t)
     } else if (length(p) == 6) {
       cp = numeric(12)
-      cp[1]  = p[1] # g00
-      cp[2]  = p[2] # g10
-      cp[3]  = p[3] # g01
-      cp[4]  = p[4] # g11
-      cp[5]  = p[5] # g02
-      cp[6]  = p[6] # g12
-      cp[7]  = t[1] # t00
-      cp[8]  = t[2] # t10
-      cp[9]  = t[3] # t01
+      cp[1] = p[1] # g00
+      cp[2] = p[2] # g10
+      cp[3] = p[3] # g01
+      cp[4] = p[4] # g11
+      cp[5] = p[5] # g02
+      cp[6] = p[6] # g12
+      cp[7] = t[1] # t00
+      cp[8] = t[2] # t10
+      cp[9] = t[3] # t01
       cp[10] = t[4] # t11
       cp[11] = t[5] # t02
       cp[12] = t[6] # t12
@@ -281,10 +283,10 @@ bpbounds <- function(p, t = NULL, fmt = "trivariate") {
 summary.bpbounds <- function(object, ...) {
   ans = list()
   bp = object
-  ans$fmt             = bp$fmt
-  ans$nzcats          = bp$nzcats
-  ans$inequality      = bp$inequality
-  ans$monoinequality  = bp$monoinequality
+  ans$fmt = bp$fmt
+  ans$nzcats = bp$nzcats
+  ans$inequality = bp$inequality
+  ans$monoinequality = bp$monoinequality
 
   boundscolnames = c("Causal parameter", "Lower bound", "Upper bound")
   causalparameternames = c("ACE", "P(Y|do(X=0))", "P(Y|do(X=1))", "CRR")
@@ -320,10 +322,7 @@ print.summary.bpbounds <-
     }
     cat("\nMonotonicity inequality:", x$monoinequality, "\n")
     if (x$monoinequality) {
-      print(x$monobounds,
-            digits = digits,
-            row.names = FALSE,
-            ...)
+      print(x$monobounds, digits = digits, row.names = FALSE, ...)
     }
     cat("\n")
     invisible(x)

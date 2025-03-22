@@ -357,10 +357,12 @@ cons_tri_x2y2z3 = c(
   -2
 )
 
-bpbounds_tri_x2y2z3 <- function(p,
-                                A = A_tri_x2y2z3,
-                                ice = ice_tri_x2y2z3,
-                                cons = cons_tri_x2y2z3) {
+bpbounds_tri_x2y2z3 <- function(
+  p,
+  A = A_tri_x2y2z3,
+  ice = ice_tri_x2y2z3,
+  cons = cons_tri_x2y2z3
+) {
   prod = A %*% p
   prod = prod + cons
   ivinequality <- prod[ice == 0]

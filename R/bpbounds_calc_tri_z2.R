@@ -51,8 +51,7 @@ bpbounds_calc_tri_z2 <- function(p) {
   # bounds on causal risk ratio
   rrlow = p11low / p10upp
   rrupp = p11upp / p10low
-  retlist = append(retlist, list("crrlb" = rrlow,
-                                 "crrub" = rrupp))
+  retlist = append(retlist, list("crrlb" = rrlow, "crrub" = rrupp))
 
   # monotonicity bounds
   m1 = p000 - p001 >= 0
@@ -62,10 +61,11 @@ bpbounds_calc_tri_z2 <- function(p) {
   mlow = p000 - p001 - p011 - p101
   mupp = p000 + p010 + p110 - p011
   monoinequality = (m1 == TRUE &
-                      m2 == TRUE & m3 == TRUE & m4 == TRUE)
+    m2 == TRUE &
+    m3 == TRUE &
+    m4 == TRUE)
   if (monoinequality) {
-    retlist = append(retlist, list("monobplb" = mlow,
-                                   "monobpub" = mupp))
+    retlist = append(retlist, list("monobplb" = mlow, "monobpub" = mupp))
 
     # bounds on intervention probabilities assuming monotonicity
     monop10low = p100
@@ -85,9 +85,10 @@ bpbounds_calc_tri_z2 <- function(p) {
     # bounds on causal risk ratio assuming monotonicity
     monocrrlow = monop11low / monop10upp
     monocrrupp = monop11upp / monop10low
-    retlist = append(retlist,
-                     list("monocrrlb" = monocrrlow,
-                          "monocrrub" = monocrrupp))
+    retlist = append(
+      retlist,
+      list("monocrrlb" = monocrrlow, "monocrrub" = monocrrupp)
+    )
   }
   retlist = append(retlist, list("monoinequality" = monoinequality))
   return(retlist)

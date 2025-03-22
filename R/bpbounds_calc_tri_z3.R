@@ -97,42 +97,50 @@ bpbounds_calc_tri_z3 <- function(p) {
     p11upp9
   ))
 
-  p10lower = c(p10low1,
-               p10low2,
-               p10low3,
-               p10low4,
-               p10low5,
-               p10low6,
-               p10low7,
-               p10low8,
-               p10low9)
-  p10upper = c(p10upp1,
-               p10upp2,
-               p10upp3,
-               p10upp4,
-               p10upp5,
-               p10upp6,
-               p10upp7,
-               p10upp8,
-               p10upp9)
-  p11lower = c(p11low1,
-               p11low2,
-               p11low3,
-               p11low4,
-               p11low5,
-               p11low6,
-               p11low7,
-               p11low8,
-               p11low9)
-  p11upper = c(p11upp1,
-               p11upp2,
-               p11upp3,
-               p11upp4,
-               p11upp5,
-               p11upp6,
-               p11upp7,
-               p11upp8,
-               p11upp9)
+  p10lower = c(
+    p10low1,
+    p10low2,
+    p10low3,
+    p10low4,
+    p10low5,
+    p10low6,
+    p10low7,
+    p10low8,
+    p10low9
+  )
+  p10upper = c(
+    p10upp1,
+    p10upp2,
+    p10upp3,
+    p10upp4,
+    p10upp5,
+    p10upp6,
+    p10upp7,
+    p10upp8,
+    p10upp9
+  )
+  p11lower = c(
+    p11low1,
+    p11low2,
+    p11low3,
+    p11low4,
+    p11low5,
+    p11low6,
+    p11low7,
+    p11low8,
+    p11low9
+  )
+  p11upper = c(
+    p11upp1,
+    p11upp2,
+    p11upp3,
+    p11upp4,
+    p11upp5,
+    p11upp6,
+    p11upp7,
+    p11upp8,
+    p11upp9
+  )
   retlist = list(
     "p10low" = p10low,
     "p10upp" = p10upp,
@@ -147,8 +155,7 @@ bpbounds_calc_tri_z3 <- function(p) {
   # bounds on causal risk ratio
   rrlow = p11low / p10upp
   rrupp = p11upp / p10low
-  retlist = append(retlist, list("crrlb" = rrlow,
-                                 "crrub" = rrupp))
+  retlist = append(retlist, list("crrlb" = rrlow, "crrub" = rrupp))
 
   # monotonicity bounds
   m1 = (p102 <= p101) & (p101 <= p100)
@@ -160,8 +167,7 @@ bpbounds_calc_tri_z3 <- function(p) {
   if (monoinequality == TRUE) {
     mlow = p112 + p000 - 1
     mupp = 1 - p100 - p110
-    retlist = append(retlist, list("monobplb" = mlow,
-                                   "monobpub" = mupp))
+    retlist = append(retlist, list("monobplb" = mlow, "monobpub" = mupp))
 
     # bounds on intervention probabilities assuming monotonicity
     monop10low = p100
@@ -181,9 +187,10 @@ bpbounds_calc_tri_z3 <- function(p) {
     # bounds on causal risk ratio assuming monotonicity
     monocrrlow = monop11low / monop10upp
     monocrrupp = monop11upp / monop10low
-    retlist = append(retlist,
-                     list("monocrrlb" = monocrrlow,
-                          "monocrrub" = monocrrupp))
+    retlist = append(
+      retlist,
+      list("monocrrlb" = monocrrlow, "monocrrub" = monocrrupp)
+    )
   }
   return(retlist)
 }

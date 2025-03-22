@@ -50,8 +50,7 @@ bpbounds_calc_biv_z3 <- function(g, t) {
   # bounds on causal risk ratio
   rrlow = p11low / p10upp
   rrupp = p11upp / p10low
-  retlist  = append(retlist, list("crrlb" = rrlow,
-                                  "crrub" = rrupp))
+  retlist = append(retlist, list("crrlb" = rrlow, "crrub" = rrupp))
 
   # bounds assuming monotonicity
   monoin1 = -g10 + g11 - g12
@@ -62,7 +61,10 @@ bpbounds_calc_biv_z3 <- function(g, t) {
   monoin6 = g10 - g11 + g12
   monoinequality = (monoin1 <= 0) &
     (monoin2 <= 0) &
-    (monoin3 <= 0) & (monoin4 <= 0) & (monoin5 <= 0) & (monoin6 <= 1)
+    (monoin3 <= 0) &
+    (monoin4 <= 0) &
+    (monoin5 <= 0) &
+    (monoin6 <= 1)
   retlist = append(retlist, list("monoinequality" = monoinequality))
   monolow1 = -g10 - t10
   monolow2 = -g10 - g11 + g12 - t10
@@ -109,8 +111,7 @@ bpbounds_calc_biv_z3 <- function(g, t) {
     )
   )
   if (monoinequality) {
-    retlist = append(retlist, list("monobplb" = monolow,
-                                   "monobpub" = monoupp))
+    retlist = append(retlist, list("monobplb" = monolow, "monobpub" = monoupp))
     monolower = c(
       monolow1,
       monolow2,
@@ -133,9 +134,10 @@ bpbounds_calc_biv_z3 <- function(g, t) {
       monoupp8,
       monoupp9
     )
-    retlist = append(retlist,
-                     list("monolower" = monolower,
-                          "monoupper" = monoupper))
+    retlist = append(
+      retlist,
+      list("monolower" = monolower, "monoupper" = monoupper)
+    )
 
     # bounds on intervention probabilities assuming monotonicity
     monop10low1 = g11 - g12
@@ -186,9 +188,10 @@ bpbounds_calc_biv_z3 <- function(g, t) {
     # bounds on causal risk ratio assuming monotonicity
     monocrrlb = monop11lb / monop10ub
     monocrrub = monop11ub / monop10lb
-    retlist = append(retlist,
-                     list("monocrrlb" = monocrrlb,
-                          "monocrrub" = monocrrub))
+    retlist = append(
+      retlist,
+      list("monocrrlb" = monocrrlb, "monocrrub" = monocrrub)
+    )
   }
   return(retlist)
 }
