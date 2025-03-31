@@ -37,7 +37,7 @@
 #' \describe{
 #' \item{fmt}{whether the data is bivariate or trivariate}
 #' \item{nzcats}{2 or 3, the no. instrument categories}
-#' \item{inequality}{Logical, indicating whether the IV inquality is satisfied}
+#' \item{inequality}{Logical, indicating whether the IV inequality is satisfied}
 #' \item{bplb}{Lower bound of ACE}
 #' \item{bpub}{Upper bound of ACE}
 #' \item{bplower}{Vector of lower bound probabilities}
