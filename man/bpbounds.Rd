@@ -12,7 +12,7 @@ probabilities. For trivariate data these are for the
 phenotype/treatment-outcome association given Z, i.e. P(X, Y | Z).
 
 Cell counts could be generated from \code{xtabs(~ x + y + z, data = data)}.
-And then conditional probabilities obatained by calling
+And then conditional probabilities obtained by calling
 \code{prop.table(..., margins = 3)} on your object from \code{xtabs()}.
 
 If you only know the conditional probabilities you can enter these, e.g.
@@ -39,7 +39,7 @@ the outcome-instrument (Y|Z) association.}
 treatment/phenotype-instrument cell counts or conditional probabilities,
 i.e. (X|Z).}
 
-\item{fmt}{A character string which sould be either "bivariate"
+\item{fmt}{A character string which should be either "bivariate"
 (i.e. X, Z in one dataset and Y, Z in another dataset) or
 "trivariate" (X, Y, Z in the same dataset).}
 }
@@ -48,7 +48,7 @@ List with the following elements:
 \describe{
 \item{fmt}{whether the data is bivariate or trivariate}
 \item{nzcats}{2 or 3, the no. instrument categories}
-\item{inequality}{Logical, indicating whether the IV inquality is satisfied}
+\item{inequality}{Logical, indicating whether the IV inequality is satisfied}
 \item{bplb}{Lower bound of ACE}
 \item{bpub}{Upper bound of ACE}
 \item{bplower}{Vector of lower bound probabilities}
@@ -63,7 +63,7 @@ List with the following elements:
 \item{p10upper}{Vector of probabilities for upper bound of P(Y=1|do(X=0))}
 \item{crrlb}{Lower bound of CRR}
 \item{crrub}{Upper bound of CRR}
-\item{monoinequality}{Logical, indicating whether the monoticity inequality
+\item{monoinequality}{Logical, indicating whether the monotonicity inequality
 is satisfied}
 \item{monobplb}{Lower bound of ACE assuming monotonicity}
 \item{monobpub}{Upper bound of ACE assuming monotonicity}
