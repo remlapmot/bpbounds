@@ -85,7 +85,7 @@ Didelez</h4>
 Bremen<br><h4 data-toc-skip class="author">Nuala
 Sheehan</h4>
             <address class="author_afil">
-      University of Leicester<br><h4 data-toc-skip class="date">2025-02-24</h4>
+      University of Leicester<br><h4 data-toc-skip class="date">2025-03-31</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/remlapmot/bpbounds/blob/master/vignettes/bpbounds.Rmd" class="external-link"><code>vignettes/bpbounds.Rmd</code></a></small>
       <div class="d-none name"><code>bpbounds.Rmd</code></div>
@@ -353,7 +353,7 @@ care to enter them in the correct position in the vectors.</p>
 satisfied.</p>
 </div>
 <div class="section level2">
-<h2 id="simulated-example-that-does-not-satisy-the-iv-conditions">Simulated example that does not satisy the IV conditions<a class="anchor" aria-label="anchor" href="#simulated-example-that-does-not-satisy-the-iv-conditions"></a>
+<h2 id="simulated-example-that-does-not-satisfy-the-iv-conditions">Simulated example that does not satisfy the IV conditions<a class="anchor" aria-label="anchor" href="#simulated-example-that-does-not-satisfy-the-iv-conditions"></a>
 </h2>
 <p>This example recreates that found in section 8.3 of our Stata Journal
 paper which uses simulated data to show that the IV inequality does not
@@ -390,7 +390,7 @@ on <code>y1</code>.</p>
 <span><span class="co">#&gt; Monotonicity inequality: FALSE</span></span></code></pre></div>
 <p>Due to the strong direct effect of the instrument on the outcome,
 both the instrumental variable and monotonicity inequalities are not
-satisifed.</p>
+satisfied.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tab2</span>   <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/xtabs.html" class="external-link">xtabs</a></span><span class="op">(</span><span class="op">~</span> <span class="va">x</span> <span class="op">+</span> <span class="va">y2</span> <span class="op">+</span> <span class="va">z</span><span class="op">)</span></span>
 <span><span class="va">p2</span>     <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/proportions.html" class="external-link">prop.table</a></span><span class="op">(</span><span class="va">tab2</span>, margin <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>

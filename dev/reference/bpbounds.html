@@ -65,7 +65,7 @@
 probabilities. For trivariate data these are for the
 phenotype/treatment-outcome association given Z, i.e. P(X, Y | Z).</p>
 <p>Cell counts could be generated from <code>xtabs(~ x + y + z, data = data)</code>.
-And then conditional probabilities obatained by calling
+And then conditional probabilities obtained by calling
 <code>prop.table(..., margins = 3)</code> on your object from <code><a href="https://rdrr.io/r/stats/xtabs.html" class="external-link">xtabs()</a></code>.</p>
 <p>If you only know the conditional probabilities you can enter these, e.g.
 for the Balke and Pearl Vitamin A example:</p>
@@ -91,7 +91,7 @@ i.e. (X|Z).</p></dd>
 
 
 <dt id="arg-fmt">fmt<a class="anchor" aria-label="anchor" href="#arg-fmt"></a></dt>
-<dd><p>A character string which sould be either "bivariate"
+<dd><p>A character string which should be either "bivariate"
 (i.e. X, Z in one dataset and Y, Z in another dataset) or
 "trivariate" (X, Y, Z in the same dataset).</p></dd>
 
@@ -105,7 +105,7 @@ i.e. (X|Z).</p></dd>
 <dd><p>2 or 3, the no. instrument categories</p></dd>
 
 <dt>inequality</dt>
-<dd><p>Logical, indicating whether the IV inquality is satisfied</p></dd>
+<dd><p>Logical, indicating whether the IV inequality is satisfied</p></dd>
 
 <dt>bplb</dt>
 <dd><p>Lower bound of ACE</p></dd>
@@ -150,7 +150,7 @@ i.e. (X|Z).</p></dd>
 <dd><p>Upper bound of CRR</p></dd>
 
 <dt>monoinequality</dt>
-<dd><p>Logical, indicating whether the monoticity inequality
+<dd><p>Logical, indicating whether the monotonicity inequality
 is satisfied</p></dd>
 
 <dt>monobplb</dt>
