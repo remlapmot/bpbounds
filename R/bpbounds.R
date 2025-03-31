@@ -52,7 +52,7 @@
 #' \item{p10upper}{Vector of probabilities for upper bound of P(Y=1|do(X=0))}
 #' \item{crrlb}{Lower bound of CRR}
 #' \item{crrub}{Upper bound of CRR}
-#' \item{monoinequality}{Logical, indicating whether the monoticity inequality
+#' \item{monoinequality}{Logical, indicating whether the monotonicity inequality
 #' is satisfied}
 #' \item{monobplb}{Lower bound of ACE assuming monotonicity}
 #' \item{monobpub}{Upper bound of ACE assuming monotonicity}
