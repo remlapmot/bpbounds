@@ -29,7 +29,7 @@
 #' @param t Specified for bivariate data. Object with
 #' treatment/phenotype-instrument cell counts or conditional probabilities,
 #' i.e. (X|Z).
-#' @param fmt A character string which sould be either "bivariate"
+#' @param fmt A character string which should be either "bivariate"
 #' (i.e. X, Z in one dataset and Y, Z in another dataset) or
 #' "trivariate" (X, Y, Z in the same dataset).
 #' @export
