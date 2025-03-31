@@ -5,7 +5,7 @@
 #' phenotype/treatment-outcome association given Z, i.e. P(X, Y | Z).
 #'
 #' Cell counts could be generated from `xtabs(~ x + y + z, data = data)`.
-#' And then conditional probabilities obatained by calling
+#' And then conditional probabilities obtained by calling
 #' `prop.table(..., margins = 3)` on your object from `xtabs()`.
 #'
 #' If you only know the conditional probabilities you can enter these, e.g.
