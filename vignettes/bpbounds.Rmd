@@ -148,7 +148,7 @@ print(sbp3)
 ```
 We see that in this example the monotonicity inequality is not satisfied.
 
-## Simulated example that does not satisy the IV conditions 
+## Simulated example that does not satisfy the IV conditions 
 This example recreates that found in section 8.3 of our Stata Journal paper which uses simulated data to show that the IV inequality does not always detect violations to the underlying model assumptions. We simulate two outcomes, `y1` and `y2`, for which the assumptions are violated because there is a direct effect of the instrument, `z`, on the outcome. However, the direct effect on `y2` is much smaller in magnitude than the direct effect on `y1`.
 
 ```{r}
@@ -170,7 +170,7 @@ bpres1 <- bpbounds(p1)
 sbp1   <- summary(bpres1)
 print(sbp1)
 ```
-Due to the strong direct effect of the instrument on the outcome, both the instrumental variable and monotonicity inequalities are not satisifed.
+Due to the strong direct effect of the instrument on the outcome, both the instrumental variable and monotonicity inequalities are not satisfied.
 
 ```{r}
 tab2   <- xtabs(~ x + y2 + z)
