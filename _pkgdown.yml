@@ -2,11 +2,6 @@ url: https://remlapmot.github.io/bpbounds/
 template:
   bootstrap: 5
   light-switch: true
-  params:
-    docsearch:
-      api_key: 179b246487c1c10aaf23f1267f744696
-      index_name: bpbounds
-    ganalytics: UA-156933160-2
 development:
   mode: auto
 navbar:
