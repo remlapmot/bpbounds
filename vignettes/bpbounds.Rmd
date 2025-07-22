@@ -112,7 +112,7 @@ tabp <- array(condprob,
                 x = c(0, 1),
                 y = c(0, 1),
                 z = c(0, 1)
-              )) %>%
+              )) |>
   as.table()
 bpbounds(tabp)
 ```

@@ -322,7 +322,7 @@ test_that("Cond probs and 1, giving cond probs sum error", {
                   x = c(0, 1),
                   y = c(0, 1),
                   z = c(0, 1)
-                )) %>%
+                )) |>
     as.table()
   expect_error(bpbounds(tabpr))
 })
@@ -335,7 +335,7 @@ test_that("Cell counts and one cond prob", {
                   x = c(0, 1),
                   y = c(0, 1),
                   z = c(0, 1)
-                )) %>%
+                )) |>
     as.table()
   expect_error(bpbounds(tabpr))
 })
