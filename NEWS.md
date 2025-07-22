@@ -2,6 +2,8 @@
 
 * bpbounds now requires R 4.1 or later. This is because its soft dependency, **tidyr**, has a hard dependency, **purrr**, with this requirement (and tidyr is required for the main example in the vignette).
 
+* **dplyr** removed as a soft dependency and instances of the magrittr/dplyr pipe, `%>%`, replaced with the native pipe, `|>`.
+
 # bpbounds 0.1.6
 
 * Tweak formatting of code in helpfile examples and vignette
