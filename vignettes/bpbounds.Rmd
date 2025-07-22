@@ -26,9 +26,6 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
-if (!requireNamespace("dplyr", quietly = TRUE)) {
-  install.packages("dplyr", repos = "https://cloud.r-project.org/")
-}
 if (!requireNamespace("tidyr", quietly = TRUE)) {
   install.packages("tidyr", repos = "https://cloud.r-project.org/")
 }
@@ -41,7 +38,6 @@ This short vignette demonstrates the use of the **bpbounds** package. This is a 
 We start by loading our package and the others needed for the code in this vignette.
 ```{r}
 library(bpbounds)
-library(dplyr)
 library(tidyr)
 ```
 

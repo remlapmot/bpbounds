@@ -1,9 +1,6 @@
 # Tests for the bpbounds package
 # 2018-10-23 Tom Palmer
 
-if (!requireNamespace("dplyr", quietly = TRUE)) {
-  install.packages("dplyr", repos = "https://cloud.r-project.org/")
-}
 if (!requireNamespace("tidyr", quietly = TRUE)) {
   install.packages("tidyr", repos = "https://cloud.r-project.org/")
 }

@@ -31,7 +31,6 @@ BugReports: https://github.com/remlapmot/bpbounds/issues
 Depends: 
     R (>= 4.1)
 Suggests:
-    dplyr,
     knitr,
     rmarkdown,
     shiny,
