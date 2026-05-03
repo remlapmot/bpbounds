@@ -1,4 +1,5 @@
 #' @keywords internal
+#' @aliases bpbounds-package NULL
 "_PACKAGE"
 
 ## usethis namespace: start
