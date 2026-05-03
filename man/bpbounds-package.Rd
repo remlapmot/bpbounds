@@ -22,6 +22,7 @@ Useful links:
 
 Authors:
 \itemize{
+  \item Tom Palmer \email{remlapmot@hotmail.com} (\href{https://orcid.org/0000-0003-4655-4511}{ORCID})
   \item Roland Ramsahai (\href{https://orcid.org/0000-0002-7349-1977}{ORCID})
   \item Vanessa Didelez (\href{https://orcid.org/0000-0001-8587-7706}{ORCID})
   \item Nuala Sheehan (\href{https://orcid.org/0000-0001-9094-2605}{ORCID})
