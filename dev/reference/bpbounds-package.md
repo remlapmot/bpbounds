@@ -31,6 +31,9 @@ Useful links:
 
 Authors:
 
+- Tom Palmer <remlapmot@hotmail.com>
+  ([ORCID](https://orcid.org/0000-0003-4655-4511))
+
 - Roland Ramsahai ([ORCID](https://orcid.org/0000-0002-7349-1977))
 
 - Vanessa Didelez ([ORCID](https://orcid.org/0000-0001-8587-7706))

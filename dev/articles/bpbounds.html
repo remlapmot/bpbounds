@@ -78,7 +78,7 @@ Didelez</h4>
 Bremen<br><h4 data-toc-skip class="author">Nuala
 Sheehan</h4>
             <address class="author_afil">
-      University of Leicester<br><h4 data-toc-skip class="date">2025-11-28</h4>
+      University of Leicester<br><h4 data-toc-skip class="date">2026-05-03</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/remlapmot/bpbounds/blob/master/vignettes/bpbounds.Rmd" class="external-link"><code>vignettes/bpbounds.Rmd</code></a></small>
       <div class="d-none name"><code>bpbounds.Rmd</code></div>
@@ -164,7 +164,7 @@ variable).</p>
 <span><span class="co">#&gt;   1    12  9663</span></span></code></pre></div>
 <p>Next we use <code><a href="https://rdrr.io/r/base/proportions.html" class="external-link">prop.table()</a></code> to calculate the conditional
 probabilities,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo>,</mo><mi>X</mi><mo stretchy="false" form="prefix">|</mo><mi>Z</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">P(Y,X|Z)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>Y</mi><mo>,</mo><mi>X</mi><mo stretchy="false" form="prefix">|</mo><mi>Z</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P(Y,X|Z)</annotation></semantics></math>,
 and then run <code><a href="../reference/bpbounds.html">bpbounds()</a></code> assuming the data is trivariate.
 Although we could call <code><a href="../reference/bpbounds.html">bpbounds()</a></code> using the table of cell
 counts <code>xt</code> directly, i.e. <code>bpbounds(xt)</code>.</p>
@@ -207,7 +207,7 @@ counts <code>xt</code> directly, i.e. <code>bpbounds(xt)</code>.</p>
 <span><span class="co">#&gt;               CRR   0.8041263 1.005428354</span></span></code></pre></div>
 <p>Therefore, the average causal effect is bounded between -0.1946 and
 0.0054. The estimate of the ACE is found as
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">ACE</mtext><mo>=</mo><mfrac><mrow><mtext mathvariant="normal">cov</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo>,</mo><mi>Z</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mtext mathvariant="normal">cov</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo>,</mo><mi>Z</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac></mrow><annotation encoding="application/x-tex">\text{ACE} = \frac{\text{cov}(Y,Z)}{\text{cov}(X,Z)}</annotation></semantics></math>
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">ACE</mtext><mo>=</mo><mfrac><mrow><mtext mathvariant="normal">cov</mtext><mo stretchy="false" form="prefix">(</mo><mi>Y</mi><mo>,</mo><mi>Z</mi><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mtext mathvariant="normal">cov</mtext><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>,</mo><mi>Z</mi><mo stretchy="false" form="postfix">)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">\text{ACE} = \frac{\text{cov}(Y,Z)}{\text{cov}(X,Z)}</annotation></semantics></math>
 as follows.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">covyz</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html" class="external-link">cov</a></span><span class="op">(</span><span class="va">tab1inddat</span><span class="op">$</span><span class="va">y</span>, <span class="va">tab1inddat</span><span class="op">$</span><span class="va">z</span><span class="op">)</span></span>
@@ -408,7 +408,7 @@ the average causal effect for a range of data scenarios.</p>
 <div class="section level2 unnumbered">
 <h2 class="unnumbered" id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
-<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-balke-jasa-1997" class="csl-entry">
 Balke, A., and J. Pearl. 1997. <span>“<span class="nocase">Bounds on
 treatment effects from studies with imperfect compliance</span>.”</span>
@@ -422,8 +422,7 @@ disease</span>.”</span> <em>International Journal of Epidemiology</em>
 32 (1): 1–22. <a href="https://doi.org/10.1093/ije/dyg070" class="external-link">https://doi.org/10.1093/ije/dyg070</a>.
 </div>
 <div id="ref-meleady-ajcn-2003" class="csl-entry">
-Meleady, Raymond, Per M Ueland, Henk Blom, Alexander S Whitehead, Helga
-Refsum, Leslie E Daly, Stein Emil Vollset, et al. 2003.
+Meleady, Raymond, Per M Ueland, Henk Blom, et al. 2003.
 <span>“Thermolabile Methylenetetrahydrofolate Reductase, Homocysteine,
 and Cardiovascular Disease Risk: The European Concerted Action
 Project.”</span> <em>The American Journal of Clinical Nutrition</em> 77
@@ -432,23 +431,22 @@ Project.”</span> <em>The American Journal of Clinical Nutrition</em> 77
 <div id="ref-palmer-sj-2011" class="csl-entry">
 Palmer, T. M., R. R. Ramsahai, V. Didelez, and N. A Sheehan. 2011.
 <span>“Nonparametric Bounds for the Causal Effect in a Binary
-Instrumental-Variable Model.”</span> <em>Stata Journal</em> 11 (3):
-345–67. <a href="https://www.stata-journal.com/article.html?article=st0232" class="external-link">https://www.stata-journal.com/article.html?article=st0232</a>.
+Instrumental-Variable Model.”</span> <em>Stata Journal</em> (College
+Station, TX) 11 (3): 345–67. <a href="https://www.stata-journal.com/article.html?article=st0232" class="external-link">https://www.stata-journal.com/article.html?article=st0232</a>.
 </div>
 <div id="ref-ramsahai-uai-2007" class="csl-entry">
-Ramsahai, R. R. 2007. <span>“Causal Bounds and Instruments.”</span> In
+Ramsahai, R. R. 2007. <span>“Causal Bounds and Instruments.”</span>
 <em>Proceedings of the Twenty-Third Annual Conference on Uncertainty in
-Artificial Intelligence (UAI-07)</em>, 310–17. Corvallis, Oregon: AUAI
-Press.
+Artificial Intelligence (UAI-07)</em> (Corvallis, Oregon), 310–17.
 </div>
 <div id="ref-ramsahai-thesis" class="csl-entry">
-———. 2008. <span>“Causal Inference with Instruments and Other
-Supplementary Variables.”</span> PhD thesis, Oxford, UK: Department of
-Statistics, University of Oxford. <a href="https://ora.ox.ac.uk/objects/ora:2803" class="external-link">https://ora.ox.ac.uk/objects/ora:2803</a>.
+Ramsahai, R. R. 2008. <span>“Causal Inference with Instruments and Other
+Supplementary Variables.”</span> PhD thesis, Department of Statistics,
+University of Oxford. <a href="https://ora.ox.ac.uk/objects/ora:2803" class="external-link">https://ora.ox.ac.uk/objects/ora:2803</a>.
 </div>
 <div id="ref-ramsahai-jmlr-2012" class="csl-entry">
-———. 2012. <span>“Causal Bounds and Observable Constraints for
-Non-Deterministic Models.”</span> <em>Journal of Machine Learning
+Ramsahai, R. R. 2012. <span>“Causal Bounds and Observable Constraints
+for Non-Deterministic Models.”</span> <em>Journal of Machine Learning
 Research</em> 13: 829–48.
 </div>
 </div>

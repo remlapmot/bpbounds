@@ -9,24 +9,28 @@ effect of [Balke and Pearl
 Install the released version of **bpbounds** from CRAN:
 
 ``` r
+
 install.packages("bpbounds")
 ```
 
 or from the MRCIEU R-universe
 
 ``` r
+
 install.packages("bpbounds", repos = c("https://mrcieu.r-universe.dev", "https://cloud.r-project.org"))
 ```
 
 Or install the development version from my r-universe
 
 ``` r
+
 install.packages("bpbounds", repos = c("https://remlapmot.r-universe.dev", "https://cloud.r-project.org"))
 ```
 
 Or install the development version from GitHub with:
 
 ``` r
+
 # install.packages("remotes") 
 remotes::install_github("remlapmot/bpbounds")
 ```

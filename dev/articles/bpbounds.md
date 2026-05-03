@@ -14,6 +14,7 @@ We start by loading our package and the others needed for the code in
 this vignette.
 
 ``` r
+
 library(bpbounds)
 library(tidyr)
 ```
@@ -51,6 +52,7 @@ First we setup a `data.frame` of cell counts and convert this into a
 instrumental variable).
 
 ``` r
+
 tab1dat <- data.frame(
   z = c(0, 0, 1, 1, 1, 1, 0, 0),
   x = c(0, 0, 0, 0, 1, 1, 1, 1),
@@ -77,14 +79,14 @@ xt
 ```
 
 Next we use [`prop.table()`](https://rdrr.io/r/base/proportions.html) to
-calculate the conditional probabilities, $P\left( Y,X|Z \right)$, and
-then run
+calculate the conditional probabilities, $`P(Y,X|Z)`$, and then run
 [`bpbounds()`](https://remlapmot.github.io/bpbounds/dev/reference/bpbounds.md)
 assuming the data is trivariate. Although we could call
 [`bpbounds()`](https://remlapmot.github.io/bpbounds/dev/reference/bpbounds.md)
 using the table of cell counts `xt` directly, i.e. `bpbounds(xt)`.
 
 ``` r
+
 p <- prop.table(xt, margin = 3)
 p
 #> , , z = 0
@@ -103,6 +105,7 @@ p
 ```
 
 ``` r
+
 bpres <- bpbounds(p)
 sbp   <- summary(bpres)
 print(sbp)
@@ -127,9 +130,13 @@ print(sbp)
 
 Therefore, the average causal effect is bounded between -0.1946 and
 0.0054. The estimate of the ACE is found as
-$$\text{ACE} = \frac{\text{cov}(Y,Z)}{\text{cov}(X,Z)}$$ as follows.
+``` math
+\text{ACE} = \frac{\text{cov}(Y,Z)}{\text{cov}(X,Z)}
+```
+as follows.
 
 ``` r
+
 covyz <- cov(tab1inddat$y, tab1inddat$z)
 covxz <- cov(tab1inddat$x, tab1inddat$z)
 ace   <- covyz / covxz
@@ -144,6 +151,7 @@ If you already know the conditional probabilities you could pass them to
 as follows.
 
 ``` r
+
 condprob <- c(.0064, 0, .9936, 0, .0028, .001, .1972, .799)
 tabp <- array(condprob,
               dim = c(2, 2, 2),
@@ -179,6 +187,7 @@ To demonstrate the features of the command we can treat this data as
 bivariate.
 
 ``` r
+
 gtab <- xtabs(~ y + z, data = tab1inddat)
 gp   <- prop.table(gtab, margin = 2)
 gp
@@ -236,6 +245,7 @@ The data are presented to us as conditional probabilities, so we take
 care to enter them in the correct position in the vectors.
 
 ``` r
+
 mt3 <- c(.83, .05, .11, .01, .88, .06, .05, .01, .72, .05, .20, .03)
 p3 <- array(mt3,
             dim = c(2, 2, 3),
@@ -276,6 +286,7 @@ outcome. However, the direct effect on `y2` is much smaller in magnitude
 than the direct effect on `y1`.
 
 ``` r
+
 set.seed(2232011)
 n      <- 10000
 z      <- rbinom(n, 1, .5)
@@ -307,6 +318,7 @@ the instrumental variable and monotonicity inequalities are not
 satisfied.
 
 ``` r
+
 tab2   <- xtabs(~ x + y2 + z)
 p2     <- prop.table(tab2, margin = 3)
 
@@ -348,25 +360,25 @@ genetic epidemiology contribute to understanding environmental
 determinants of disease.” *International Journal of Epidemiology* 32
 (1): 1–22. <https://doi.org/10.1093/ije/dyg070>.
 
-Meleady, Raymond, Per M Ueland, Henk Blom, Alexander S Whitehead, Helga
-Refsum, Leslie E Daly, Stein Emil Vollset, et al. 2003. “Thermolabile
+Meleady, Raymond, Per M Ueland, Henk Blom, et al. 2003. “Thermolabile
 Methylenetetrahydrofolate Reductase, Homocysteine, and Cardiovascular
 Disease Risk: The European Concerted Action Project.” *The American
 Journal of Clinical Nutrition* 77 (1): 63–70.
 
 Palmer, T. M., R. R. Ramsahai, V. Didelez, and N. A Sheehan. 2011.
 “Nonparametric Bounds for the Causal Effect in a Binary
-Instrumental-Variable Model.” *Stata Journal* 11 (3): 345–67.
+Instrumental-Variable Model.” *Stata Journal* (College Station, TX) 11
+(3): 345–67.
 <https://www.stata-journal.com/article.html?article=st0232>.
 
-Ramsahai, R. R. 2007. “Causal Bounds and Instruments.” In *Proceedings
-of the Twenty-Third Annual Conference on Uncertainty in Artificial
-Intelligence (UAI-07)*, 310–17. Corvallis, Oregon: AUAI Press.
+Ramsahai, R. R. 2007. “Causal Bounds and Instruments.” *Proceedings of
+the Twenty-Third Annual Conference on Uncertainty in Artificial
+Intelligence (UAI-07)* (Corvallis, Oregon), 310–17.
 
-———. 2008. “Causal Inference with Instruments and Other Supplementary
-Variables.” PhD thesis, Oxford, UK: Department of Statistics, University
-of Oxford. <https://ora.ox.ac.uk/objects/ora:2803>.
+Ramsahai, R. R. 2008. “Causal Inference with Instruments and Other
+Supplementary Variables.” PhD thesis, Department of Statistics,
+University of Oxford. <https://ora.ox.ac.uk/objects/ora:2803>.
 
-———. 2012. “Causal Bounds and Observable Constraints for
+Ramsahai, R. R. 2012. “Causal Bounds and Observable Constraints for
 Non-Deterministic Models.” *Journal of Machine Learning Research* 13:
 829–48.
