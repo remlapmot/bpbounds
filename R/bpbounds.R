@@ -36,7 +36,7 @@
 #' @return List with the following elements:
 #' \describe{
 #' \item{fmt}{whether the data is bivariate or trivariate}
-#' \item{nzcats}{2 or 3, the no. instrument categories}
+#' \item{nzcats}{2 or 3, the number of instrument categories}
 #' \item{inequality}{Logical, indicating whether the IV inequality is satisfied}
 #' \item{bplb}{Lower bound of ACE}
 #' \item{bpub}{Upper bound of ACE}
@@ -121,7 +121,7 @@ bpbounds <- function(p, t = NULL, fmt = "trivariate") {
   ## check t has been specified along with if fmt is bivariate
   if (fmt == "bivariate" && is.null(t)) {
     stop(
-      't, a matrix of trestment/phenotype-instrument conditional probabilities, must be specified for bivariate data'
+      't, a matrix of treatment/phenotype-instrument conditional probabilities, must be specified for bivariate data'
     )
   }
 
@@ -165,7 +165,7 @@ bpbounds <- function(p, t = NULL, fmt = "trivariate") {
   }
 
   ## p should now be conditional probabilities
-  ## check they sum to approx. no. instrument categories
+  ## check they sum to approximately the number of instrument categories
   if (fmt == "trivariate" && length(p) == 8) {
     nzcats <- 2
     if (abs(sum(p) - 2) > 0.1) {
