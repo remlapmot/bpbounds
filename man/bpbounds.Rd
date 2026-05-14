@@ -47,7 +47,7 @@ i.e. (X|Z).}
 List with the following elements:
 \describe{
 \item{fmt}{whether the data is bivariate or trivariate}
-\item{nzcats}{2 or 3, the no. instrument categories}
+\item{nzcats}{2 or 3, the number of instrument categories}
 \item{inequality}{Logical, indicating whether the IV inequality is satisfied}
 \item{bplb}{Lower bound of ACE}
 \item{bpub}{Upper bound of ACE}
