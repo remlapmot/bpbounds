@@ -78,7 +78,7 @@ Didelez</h4>
 Bremen<br><h4 data-toc-skip class="author">Nuala
 Sheehan</h4>
             <address class="author_afil">
-      University of Leicester<br><h4 data-toc-skip class="date">2026-05-03</h4>
+      University of Leicester<br><h4 data-toc-skip class="date">2026-05-14</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/remlapmot/bpbounds/blob/master/vignettes/bpbounds.Rmd" class="external-link"><code>vignettes/bpbounds.Rmd</code></a></small>
       <div class="d-none name"><code>bpbounds.Rmd</code></div>
@@ -92,8 +92,8 @@ Sheehan</h4>
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
 <p>This short vignette demonstrates the use of the
-<strong>bpbounds</strong> package. This is a R implementation of the of
-the nonparametric bounds for the average causal effect of <span class="citation">Balke and Pearl (1997)</span> and some extensions.
+<strong>bpbounds</strong> package. This is an R implementation of the
+nonparametric bounds for the average causal effect of <span class="citation">Balke and Pearl (1997)</span> and some extensions.
 Currently this R package is a port of our <strong>bpbounds</strong>
 Stata package (<span class="citation">Palmer et al. (2011)</span>). The
 code implements the approach of calculating the bounds outlined by <span class="citation">Ramsahai (2007)</span>, <span class="citation">Ramsahai
@@ -113,7 +113,7 @@ command. These are to calculate the bounds for a binary outcome, a
 binary treatment/phenotype, and:</p>
 <ul>
 <li>a binary instrumental variable;</li>
-<li>a 3 category instrumental variable, e.g. a genotype in Mendelian
+<li>a 3-category instrumental variable, e.g. a genotype in Mendelian
 randomization;</li>
 </ul>
 <p>Bounds for these scenarios can be calculated with either</p>
@@ -301,7 +301,7 @@ genotypes established to be robustly associated with phenotypes are used
 as instrumental variables in order to better estimate the causal effect
 of the phenotype on a disease outcome.</p>
 <p>This example uses data from <span class="citation">Meleady et al.
-(2003)</span>. It is trivariate data with 3 category instrument and
+(2003)</span>. It is trivariate data with a 3-category instrument and
 binary phenotype and outcomes. The instrument is the 677CT polymorphism
 (rs1801133) in the Methylenetetrahydrofolate Reductase gene, involved in
 folate metabolism, as an instrumental variable to investigate the effect

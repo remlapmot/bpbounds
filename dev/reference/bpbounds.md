@@ -63,7 +63,7 @@ List with the following elements:
 
 - nzcats:
 
-  2 or 3, the no. instrument categories
+  2 or 3, the number of instrument categories
 
 - inequality:
 

@@ -3,12 +3,11 @@
 ## Introduction
 
 This short vignette demonstrates the use of the **bpbounds** package.
-This is a R implementation of the of the nonparametric bounds for the
-average causal effect of Balke and Pearl (1997) and some extensions.
-Currently this R package is a port of our **bpbounds** Stata package
-(Palmer et al. (2011)). The code implements the approach of calculating
-the bounds outlined by Ramsahai (2007), Ramsahai (2008), and Ramsahai
-(2012).
+This is an R implementation of the nonparametric bounds for the average
+causal effect of Balke and Pearl (1997) and some extensions. Currently
+this R package is a port of our **bpbounds** Stata package (Palmer et
+al. (2011)). The code implements the approach of calculating the bounds
+outlined by Ramsahai (2007), Ramsahai (2008), and Ramsahai (2012).
 
 We start by loading our package and the others needed for the code in
 this vignette.
@@ -28,7 +27,7 @@ command. These are to calculate the bounds for a binary outcome, a
 binary treatment/phenotype, and:
 
 - a binary instrumental variable;
-- a 3 category instrumental variable, e.g. a genotype in Mendelian
+- a 3-category instrumental variable, e.g. a genotype in Mendelian
   randomization;
 
 Bounds for these scenarios can be calculated with either
@@ -235,7 +234,7 @@ to better estimate the causal effect of the phenotype on a disease
 outcome.
 
 This example uses data from Meleady et al. (2003). It is trivariate data
-with 3 category instrument and binary phenotype and outcomes. The
+with a 3-category instrument and binary phenotype and outcomes. The
 instrument is the 677CT polymorphism (rs1801133) in the
 Methylenetetrahydrofolate Reductase gene, involved in folate metabolism,
 as an instrumental variable to investigate the effect of homocysteine on
