@@ -33,7 +33,7 @@ if (!requireNamespace("tidyr", quietly = TRUE)) {
 
 ## Introduction
 
-This short vignette demonstrates the use of the **bpbounds** package. This is a R implementation of the of the nonparametric bounds for the average causal effect of @balke-jasa-1997 and some extensions. Currently this R package is a port of our **bpbounds** Stata package (@palmer-sj-2011). The code implements the approach of calculating the bounds outlined by @ramsahai-uai-2007, @ramsahai-thesis, and @ramsahai-jmlr-2012.
+This short vignette demonstrates the use of the **bpbounds** package. This is an R implementation of the nonparametric bounds for the average causal effect of @balke-jasa-1997 and some extensions. Currently this R package is a port of our **bpbounds** Stata package (@palmer-sj-2011). The code implements the approach of calculating the bounds outlined by @ramsahai-uai-2007, @ramsahai-thesis, and @ramsahai-jmlr-2012.
 
 We start by loading our package and the others needed for the code in this vignette.
 ```{r}
@@ -46,7 +46,7 @@ library(tidyr)
 Currently the package has one function, `bpbounds()`, which can accommodate the four scenarios implemented in our Stata command. These are to calculate the bounds for a binary outcome, a binary treatment/phenotype, and:
 
 * a binary instrumental variable;
-* a 3 category instrumental variable, e.g. a genotype in Mendelian randomization;
+* a 3-category instrumental variable, e.g. a genotype in Mendelian randomization;
 
 Bounds for these scenarios can be calculated with either
 
@@ -135,7 +135,7 @@ print(sbp2)
 
 Mendelian randomization is an approach in epidemiology due to @daveysmith-ije-2003 in which genotypes established to be robustly associated with phenotypes are used as instrumental variables in order to better estimate the causal effect of the phenotype on a disease outcome.
 
-This example uses data from @meleady-ajcn-2003. It is trivariate data with 3 category instrument and binary phenotype and outcomes. The instrument is the 677CT polymorphism (rs1801133) in the Methylenetetrahydrofolate Reductase gene, involved in folate metabolism, as an instrumental variable to investigate the effect of homocysteine on cardiovascular
+This example uses data from @meleady-ajcn-2003. It is trivariate data with a 3-category instrument and binary phenotype and outcomes. The instrument is the 677CT polymorphism (rs1801133) in the Methylenetetrahydrofolate Reductase gene, involved in folate metabolism, as an instrumental variable to investigate the effect of homocysteine on cardiovascular
 disease. 
 
 The data are presented to us as conditional probabilities, so we take care to enter them in the correct position in the vectors.
