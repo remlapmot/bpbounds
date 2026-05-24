@@ -135,8 +135,7 @@ print(sbp2)
 
 Mendelian randomization is an approach in epidemiology due to @daveysmith-ije-2003 in which genotypes established to be robustly associated with phenotypes are used as instrumental variables in order to better estimate the causal effect of the phenotype on a disease outcome.
 
-This example uses data from @meleady-ajcn-2003. It is trivariate data with a 3-category instrument and binary phenotype and outcomes. The instrument is the 677CT polymorphism (rs1801133) in the Methylenetetrahydrofolate Reductase gene, involved in folate metabolism, as an instrumental variable to investigate the effect of homocysteine on cardiovascular
-disease. 
+This example uses data from @meleady-ajcn-2003. It is trivariate data with a 3-category instrument and binary phenotype and outcomes. The instrument is the 677CT polymorphism (rs1801133) in the Methylenetetrahydrofolate Reductase gene, involved in folate metabolism, as an instrumental variable to investigate the effect of homocysteine on cardiovascular disease.
 
 The data from Table 3 of @meleady-ajcn-2003 are given as counts below.
 
