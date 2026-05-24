@@ -296,6 +296,34 @@ test_that("Mendelian randomization with 3 category instrument, bivariate data",
             print(sbp)
           })
 
+# GitHub issue #3: IV inequality with 3 category instrument ----
+# The reporter applied rowSums(apply(tabp, c(1,2), max)) as the IV inequality check,
+# which is only valid for a binary instrument. The correct inequalities for a
+# 3-category instrument are the Ramsahai constraints implemented in A_tri_x2y2z3.
+
+test_that("Issue 3, example 1: inequality correctly detected as violated", {
+  # Reporter expected inequality = TRUE, but the Ramsahai constraint
+  # -P(x=1,y=0|z=0) - P(x=0,y=1|z=0) + P(x=0,y=1|z=1) + P(x=1,y=0|z=2) + P(x=1,y=1|z=2) > 1
+  # confirms a genuine violation (~0.021 > 0).
+  tabp <- as.table(array(
+    data = c(0.5279183, 0.02208171, 0.1220817, 0.3279183,
+             0.0849975, 0.3150025, 0.4650025, 0.1349975,
+             0.1132796, 0.3867204, 0.1867204, 0.3132796),
+    dim = c(2, 2, 3),
+    dimnames = list(x = c(0, 1), y = c(0, 1), z = c(0, 1, 2))
+  ))
+  bpres <- bpbounds(tabp)
+  expect_false(bpres$inequality)
+})
+
+test_that("Issue 3, example 2 (vignette MR data): inequality correctly not violated", {
+  # Reporter expected inequality = FALSE based on rowSums(apply(p3, c(1,2), max)) = 1.08,
+  # but this is not a valid IV inequality check for a 3-category instrument.
+  # All Ramsahai constraints are satisfied for this dataset.
+  bpres <- bpbounds(p3)
+  expect_true(bpres$inequality)
+})
+
 ## More error checks
 test_that("Cond probs and 1 cell count error", {
   cpr <- c(.0064, 0, .9936, 0, .0028, .001, .1972, 20)
