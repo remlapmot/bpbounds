@@ -10,6 +10,11 @@
 - **dplyr** removed as a soft dependency and instances of the
   magrittr/dplyr pipe, `%>%`, replaced with the native pipe, `|>`.
 
+- Fixed incorrect index mapping in `bpbounds_calc_tri_z3()`: the x=0,y=1
+  and x=1,y=0 conditional probability cells were swapped for each
+  category of Z, giving wrong bounds for the trivariate 3-category
+  instrument case (thanks [@sachsmc](https://github.com/sachsmc)).
+
 ## bpbounds 0.1.6
 
 CRAN release: 2024-06-13

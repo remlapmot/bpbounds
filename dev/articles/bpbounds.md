@@ -240,20 +240,19 @@ Methylenetetrahydrofolate Reductase gene, involved in folate metabolism,
 as an instrumental variable to investigate the effect of homocysteine on
 cardiovascular disease.
 
-The data are presented to us as conditional probabilities, so we take
-care to enter them in the correct position in the vectors.
+The data from Table 3 of Meleady et al. (2003) are given as counts
+below.
 
 ``` r
 
-mt3 <- c(.83, .05, .11, .01, .88, .06, .05, .01, .72, .05, .20, .03)
-p3 <- array(mt3,
-            dim = c(2, 2, 3),
-            dimnames = list(
-              x = c(0, 1),
-              y = c(0, 1),
-              z = c(0, 1, 2)
-            ))
-p3     <- as.table(p3)
+dat <- data.frame(
+  count = c(341, 47, 297, 17, 63, 18, 272, 41, 269, 38, 56, 35),
+  z = c(0, 0, 1, 1, 2, 2, 0, 0, 1, 1, 2, 2),
+  y = c(0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1),
+  x = c(0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1)
+)
+xt3    <- xtabs(count ~ x + y + z, data = dat)
+p3     <- prop.table(xt3, margin = 3)
 bpres3 <- bpbounds(p3)
 sbp3   <- summary(bpres3)
 print(sbp3)
@@ -263,10 +262,10 @@ print(sbp3)
 #> 
 #> Instrumental inequality: TRUE 
 #>  Causal parameter Lower bound Upper bound
-#>               ACE       -0.09     0.74000
-#>      P(Y|do(X=0))        0.06     0.12000
-#>      P(Y|do(X=1))        0.03     0.80000
-#>               CRR        0.25    13.33333
+#>               ACE  -0.3100637   0.4621765
+#>      P(Y|do(X=0))   0.4331723   0.5135521
+#>      P(Y|do(X=1))   0.2034884   0.8953488
+#>               CRR   0.3962371   2.0669577
 #> 
 #> Monotonicity inequality: FALSE
 ```
