@@ -1,17 +1,18 @@
 bpbounds_calc_tri_z3 <- function(p) {
   # assuming that p is in the following order
   # notation for conditional probabilities is p(y,x|z)
+  # input vector uses (x,y,z) ordering, consistent with bpbounds_calc_tri_z2
   p000 = p[1]
-  p100 = p[2]
-  p010 = p[3]
+  p100 = p[3]
+  p010 = p[2]
   p110 = p[4]
   p001 = p[5]
-  p101 = p[6]
-  p011 = p[7]
+  p101 = p[7]
+  p011 = p[6]
   p111 = p[8]
   p002 = p[9]
-  p102 = p[10]
-  p012 = p[11]
+  p102 = p[11]
+  p012 = p[10]
   p112 = p[12]
 
   # bounds on probabilities

@@ -231,36 +231,7 @@ test_that("Balke and Pearl Table 2 example: trivariate data with 2 category inst
           })
 
 
-# Meleady AJCN 2003; Trivariate data with 3 category instrument - Table 3 of paper ----
-## Trivariate data
-mt3 <- c(.83, .05, .11, .01, .88, .06, .05, .01, .72, .05, .20, .03)
-p3 <- array(mt3,
-           dim = c(2, 2, 3),
-           dimnames = list(
-             x = c(0, 1),
-             y = c(0, 1),
-             z = c(0, 1, 2)
-           ))
-p3 <- as.table(p3)
-
-test_that("Mendelian randomization with 3 category instrument, trivariate data",
-          {
-            bpres <- bpbounds(p3)
-            expect_true(bpres$inequality)
-            expect_equal(bpres$bplb, -0.090, tol = 1e-4)
-            expect_equal(bpres$bpub, 0.74, tol = 1e-4)
-            expect_equal(bpres$p10low, 0.06, tol = 1e-4)
-            expect_equal(bpres$p10upp, 0.12, tol = 1e-4)
-            expect_equal(bpres$p11low, 0.03, tol = 1e-4)
-            expect_equal(bpres$p11upp, 0.800, tol = 1e-4)
-            expect_equal(bpres$crrlb, 0.25, tol = 1e-4)
-            expect_equal(bpres$crrub, 13.3333, tol = 1e-4)
-            expect_false(bpres$monoinequality)
-            sbp <- summary(bpres)
-            print(sbp)
-          })
-
-## Bivariate data
+# Meleady AJCN 2003; 3 category instrument - Table 3 of paper ----
 dat <- data.frame(
   count = c(341, 47, 297, 17, 63, 18, 272, 41, 269, 38, 56, 35),
   z = c(0, 0, 1, 1, 2, 2, 0, 0, 1, 1, 2, 2),
@@ -269,6 +240,28 @@ dat <- data.frame(
 )
 longdat <- tidyr::uncount(dat, weights = count)
 
+## Trivariate data
+xt3 <- xtabs(count ~ x + y + z, data = dat)
+p3  <- prop.table(xt3, margin = 3)
+
+test_that("Mendelian randomization with 3 category instrument, trivariate data",
+          {
+            bpres <- bpbounds(p3)
+            expect_true(bpres$inequality)
+            expect_equal(bpres$bplb, -0.3101, tol = 1e-4)
+            expect_equal(bpres$bpub, 0.4622, tol = 1e-4)
+            expect_equal(bpres$p10low, 0.4332, tol = 1e-4)
+            expect_equal(bpres$p10upp, 0.5136, tol = 1e-4)
+            expect_equal(bpres$p11low, 0.2035, tol = 1e-4)
+            expect_equal(bpres$p11upp, 0.8953, tol = 1e-4)
+            expect_equal(bpres$crrlb, 0.3962, tol = 1e-4)
+            expect_equal(bpres$crrub, 2.0670, tol = 1e-4)
+            expect_false(bpres$monoinequality)
+            sbp <- summary(bpres)
+            print(sbp)
+          })
+
+## Bivariate data
 gtab <- xtabs(~ y + z, data = longdat)
 gp <- prop.table(gtab, margin = 2)
 gp
