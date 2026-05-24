@@ -37,11 +37,11 @@
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Changelog</h1>
-      <small>Source: <a href="https://github.com/remlapmot/bpbounds/blob/master/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
+      <small>Source: <a href="https://github.com/remlapmot/bpbounds/blob/v0.1.7/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.1.7" id="bpbounds-017">bpbounds 0.1.7<a class="anchor" aria-label="anchor" href="#bpbounds-017"></a></h2>
+<h2 class="pkg-version" data-toc-text="0.1.7" id="bpbounds-017">bpbounds 0.1.7<a class="anchor" aria-label="anchor" href="#bpbounds-017"></a></h2><p class="text-muted">CRAN release: 2026-05-24</p>
 <ul><li><p>bpbounds now requires R 4.1 or later. This is because its soft dependency, <strong>tidyr</strong>, has a hard dependency, <strong>purrr</strong>, with this requirement (and tidyr is required for the main example in the vignette).</p></li>
 <li><p><strong>dplyr</strong> removed as a soft dependency and instances of the magrittr/dplyr pipe, <code>%&gt;%</code>, replaced with the native pipe, <code>|&gt;</code>.</p></li>
 <li><p>Fixed incorrect index mapping in <code>bpbounds_calc_tri_z3()</code>: the x=0,y=1 and x=1,y=0 conditional probability cells were swapped for each category of Z, giving wrong bounds for the trivariate 3-category instrument case (thanks <a href="https://github.com/sachsmc" class="external-link">@sachsmc</a>).</p></li>

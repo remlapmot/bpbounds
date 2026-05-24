@@ -2,6 +2,8 @@
 
 ## bpbounds 0.1.7
 
+CRAN release: 2026-05-24
+
 - bpbounds now requires R 4.1 or later. This is because its soft
   dependency, **tidyr**, has a hard dependency, **purrr**, with this
   requirement (and tidyr is required for the main example in the
