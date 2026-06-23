@@ -14,7 +14,7 @@
 ## Citation
 
 Source:
-[`inst/CITATION`](https://github.com/remlapmot/bpbounds/blob/v0.1.7/inst/CITATION)
+[`inst/CITATION`](https://github.com/remlapmot/bpbounds/blob/master/inst/CITATION)
 
 Palmer T, Ramsahai R, Didelez V, Sheehan N (2018). bpbounds: R package
 implementing Balke-Pearl bounds for the average causal effect.
