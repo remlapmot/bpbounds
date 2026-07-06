@@ -53,12 +53,12 @@ bpbounds_calc_biv_z2 <- function(g, t) {
   monolow1 = 2 * g00 - g01 + t00 - 2
   monolow2 = g00 - 2 * g01 - t01
   monolow3 = g00 + t00 - 2
-  monolow4 = -1 * g00 - t01
+  monolow4 = -1 * g01 - t01
   monolow5 = g00 - g01 + t00 - t01 - 1
   monoupp1 = 2 * g00 - g01 - t00 + 1
   monoupp2 = g00 - 2 * g01 + t01 + 1
   monoupp3 = g00 - t00 + 1
-  monoupp4 = -1 * g00 + t01 + 1
+  monoupp4 = -1 * g01 + t01 + 1
   monoupp5 = g00 - g01 - t00 + t01 + 1
   monolow = max(c(monolow1, monolow2, monolow3, monolow4, monolow5))
   monoupp = min(c(monoupp1, monoupp2, monoupp3, monoupp4, monoupp5))
