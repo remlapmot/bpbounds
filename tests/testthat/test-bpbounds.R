@@ -294,10 +294,12 @@ test_that("Mendelian randomization with 3 category instrument, bivariate data",
 # which is only valid for a binary instrument. The correct inequalities for a
 # 3-category instrument are the Ramsahai constraints implemented in A_tri_x2y2z3.
 
-test_that("Issue 3, example 1: inequality correctly detected as violated", {
-  # Reporter expected inequality = TRUE, but the Ramsahai constraint
-  # -P(x=1,y=0|z=0) - P(x=0,y=1|z=0) + P(x=0,y=1|z=1) + P(x=1,y=0|z=2) + P(x=1,y=1|z=2) > 1
-  # confirms a genuine violation (~0.021 > 0).
+test_that("Issue 3, example 1: inequality correctly detected as satisfied", {
+  # This table is compatible with a valid IV model: a joint distribution over
+  # the 8 compliance types and 4 response types exists that reproduces it
+  # exactly (verified by linear programming), so all Ramsahai constraints
+  # hold. Versions <= 0.1.7 wrongly reported a violation because the panels
+  # of p were fed to A_tri_x2y2z3 in the wrong within-panel order.
   tabp <- as.table(array(
     data = c(0.5279183, 0.02208171, 0.1220817, 0.3279183,
              0.0849975, 0.3150025, 0.4650025, 0.1349975,
@@ -306,7 +308,7 @@ test_that("Issue 3, example 1: inequality correctly detected as violated", {
     dimnames = list(x = c(0, 1), y = c(0, 1), z = c(0, 1, 2))
   ))
   bpres <- bpbounds(tabp)
-  expect_false(bpres$inequality)
+  expect_true(bpres$inequality)
 })
 
 test_that("Issue 3, example 2 (vignette MR data): inequality correctly not violated", {

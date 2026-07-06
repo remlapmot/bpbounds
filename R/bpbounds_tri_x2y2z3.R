@@ -361,6 +361,10 @@ bpbounds_tri_x2y2z3 <- function(p,
                                 A = A_tri_x2y2z3,
                                 ice = ice_tri_x2y2z3,
                                 cons = cons_tri_x2y2z3) {
+  # A expects each z-panel ordered P(0,0|z), P(0,1|z), P(1,0|z), P(1,1|z),
+  # whereas p arrives with x varying fastest, so swap positions 2 and 3
+  # within each panel
+  p = p[c(1, 3, 2, 4, 5, 7, 6, 8, 9, 11, 10, 12)]
   prod = A %*% p
   prod = prod + cons
   ivinequality <- prod[ice == 0]
