@@ -1,3 +1,13 @@
+# bpbounds (development version)
+
+* Fixed the ordering of the conditional probabilities passed to the constraint matrix for trivariate data with a 3-category instrument: the x=0,y=1 and x=1,y=0 cells within each category of Z were swapped. This could cause the IV inequality to be wrongly reported as violated on valid data (and, more rarely, vice versa) and could give incorrect ACE bounds. Consequently, the first example table from GitHub issue #3 is in fact compatible with the IV model, so `bpbounds()` now correctly reports its IV inequality as satisfied.
+
+* Fixed two typos in the monotonicity ACE bounds for bivariate data with a binary instrument (`monolow4` and `monoupp4` used `g00` where `g01` was required), which could give monotonicity bounds that excluded the true ACE.
+
+* Fixed the monotonicity ACE upper bound for trivariate data with a 3-category instrument, which is `1 - p100 - p012` rather than `1 - p100 - p110`.
+
+* Following these fixes, the bounds for all cases (trivariate and bivariate data, 2- and 3-category instruments, with and without monotonicity) have been verified to equal the sharp bounds computed by linear programming across simulated instrumental variable models. A new test covers the previously untested monotonicity bounds for trivariate data with a 3-category instrument.
+
 # bpbounds 0.1.7
 
 * bpbounds now requires R 4.1 or later. This is because its soft dependency, **tidyr**, has a hard dependency, **purrr**, with this requirement (and tidyr is required for the main example in the vignette).
