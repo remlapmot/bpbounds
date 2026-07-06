@@ -160,7 +160,7 @@ bpbounds_calc_tri_z3 <- function(p) {
   retlist = append(retlist, list("monoinequality" = monoinequality))
   if (monoinequality == TRUE) {
     mlow = p112 + p000 - 1
-    mupp = 1 - p100 - p110
+    mupp = 1 - p100 - p012
     retlist = append(retlist, list("monobplb" = mlow,
                                    "monobpub" = mupp))
 

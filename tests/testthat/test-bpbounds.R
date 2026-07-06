@@ -319,6 +319,44 @@ test_that("Issue 3, example 2 (vignette MR data): inequality correctly not viola
   expect_true(bpres$inequality)
 })
 
+# Trivariate data, 3 category instrument, monotonicity bounds ----
+# Constructed from an explicit IV model with monotone compliance:
+# compliance types never/(z=2 only)/(z=1,2)/always with probabilities
+# 0.4/0.3/0.2/0.1 and response types (y0,y1) = (0,0)/(1,0)/(0,1)/(1,1) with
+# probabilities 0.3/0.2/0.4/0.1, independent of each other. Hence
+# P(Y=1|do(X=0)) = 0.3, P(Y=1|do(X=1)) = 0.5, and the true ACE = 0.2.
+test_that("Trivariate 3 category instrument monotonicity bounds", {
+  cpm <- c(0.63, 0.05, 0.27, 0.05,
+           0.49, 0.15, 0.21, 0.15,
+           0.28, 0.30, 0.12, 0.30)
+  tabm <- as.table(array(
+    cpm,
+    dim = c(2, 2, 3),
+    dimnames = list(x = c(0, 1), y = c(0, 1), z = c(0, 1, 2))
+  ))
+  bpres <- bpbounds(tabm)
+
+  expect_true(bpres$inequality)
+  expect_true(bpres$monoinequality)
+
+  # mlow = p112 + p000 - 1; mupp = 1 - p100 - p012
+  expect_equal(bpres$monobplb, -0.07, tol = 1e-8)
+  expect_equal(bpres$monobpub, 0.43, tol = 1e-8)
+
+  expect_equal(bpres$monop10low, 0.27, tol = 1e-8)
+  expect_equal(bpres$monop10upp, 0.37, tol = 1e-8)
+  expect_equal(bpres$monop11low, 0.30, tol = 1e-8)
+  expect_equal(bpres$monop11upp, 0.70, tol = 1e-8)
+
+  expect_equal(bpres$monocrrlb, 0.30 / 0.37, tol = 1e-8)
+  expect_equal(bpres$monocrrub, 0.70 / 0.27, tol = 1e-8)
+
+  # bounds must contain the true causal quantities of the generating model
+  expect_true(bpres$monobplb <= 0.2 && 0.2 <= bpres$monobpub)
+  expect_true(bpres$monop10low <= 0.3 && 0.3 <= bpres$monop10upp)
+  expect_true(bpres$monop11low <= 0.5 && 0.5 <= bpres$monop11upp)
+})
+
 ## More error checks
 test_that("Cond probs and 1 cell count error", {
   cpr <- c(.0064, 0, .9936, 0, .0028, .001, .1972, 20)
