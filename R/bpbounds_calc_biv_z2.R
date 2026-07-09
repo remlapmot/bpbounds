@@ -15,15 +15,15 @@ bpbounds_calc_biv_z2 <- function(g, t) {
   p10low2 = g10 - t10
   p10upp1 = g11 + t11
   p10upp2 = g10 + t10
-  p10low = max(c(p10low1, p10low2))
-  p10upp = min(c(p10upp1, p10upp2))
+  p10low = max(c(0, p10low1, p10low2))
+  p10upp = min(c(1, p10upp1, p10upp2))
 
   p11low1 = g11 + t11 - 1
   p11low2 = g10 + t10 - 1
   p11upp1 = g11 - t11 + 1
   p11upp2 = g10 - t10 + 1
-  p11low = max(c(p11low1, p11low2))
-  p11upp = min(c(p11upp1, p11upp2))
+  p11low = max(c(0, p11low1, p11low2))
+  p11upp = min(c(1, p11upp1, p11upp2))
 
   p10lower = c(p10low1, p10low2)
   p10upper = c(p10upp1, p10upp2)
@@ -81,10 +81,10 @@ bpbounds_calc_biv_z2 <- function(g, t) {
     monop11upp1 = 1 + g11 - t11
     monop11upp2 = 1 - g10 + g11
 
-    monop10lb = max(c(monop10low1, monop10low2))
-    monop10ub = min(c(monop10upp1, monop10upp2))
-    monop11lb = max(c(monop11low1, monop11low2))
-    monop11ub = min(c(monop11upp1, monop11upp2))
+    monop10lb = max(c(0, monop10low1, monop10low2))
+    monop10ub = min(c(1, monop10upp1, monop10upp2))
+    monop11lb = max(c(0, monop11low1, monop11low2))
+    monop11ub = min(c(1, monop11upp1, monop11upp2))
     retlist = append(
       retlist,
       list(

@@ -111,9 +111,9 @@ test_that("Balke and Pearl Table 1 example treated as bivariate data", {
   expect_equal(bpres$p10low, 0.9936, tol = 1e-4)
   expect_equal(bpres$p10upp, 0.9936, tol = 1e-4)
   expect_equal(bpres$p11low, 0.7962, tol = 1e-4)
-  expect_equal(bpres$p11upp, 1.1962, tol = 1e-4)
+  expect_equal(bpres$p11upp, 1, tol = 1e-4)
   expect_equal(bpres$crrlb, 0.8013, tol = 1e-4)
-  expect_equal(bpres$crrub, 1.2039, tol = 1e-4)
+  expect_equal(bpres$crrub, 1.0064, tol = 1e-4)
 
   expect_true(bpres$monoinequality)
   expect_equal(bpres$monobplb, -0.1974, tol = 1e-4)
@@ -121,9 +121,9 @@ test_that("Balke and Pearl Table 1 example treated as bivariate data", {
   expect_equal(bpres$monop10low, 0.9936, tol = 1e-4)
   expect_equal(bpres$monop10upp, 0.9936, tol = 1e-4)
   expect_equal(bpres$monop11low, 0.7962, tol = 1e-4)
-  expect_equal(bpres$monop11upp, 1.0026, tol = 1e-4)
+  expect_equal(bpres$monop11upp, 1, tol = 1e-4)
   expect_equal(bpres$monocrrlb, 0.8013, tol = 1e-4)
-  expect_equal(bpres$monocrrub, 1.0090, tol = 1e-4)
+  expect_equal(bpres$monocrrub, 1.0064, tol = 1e-4)
 
   sbp = summary(bpres)
   print(sbp, digits = 3)
@@ -139,9 +139,9 @@ test_that("Balke and Pearl, bivariate data using cell counts",
             expect_equal(bpres$p10low, 0.9936, tol = 1e-4)
             expect_equal(bpres$p10upp, 0.9936, tol = 1e-4)
             expect_equal(bpres$p11low, 0.7962, tol = 1e-4)
-            expect_equal(bpres$p11upp, 1.1962, tol = 1e-4)
+            expect_equal(bpres$p11upp, 1, tol = 1e-4)
             expect_equal(bpres$crrlb, 0.8013, tol = 1e-4)
-            expect_equal(bpres$crrub, 1.2039, tol = 1e-4)
+            expect_equal(bpres$crrub, 1.0064, tol = 1e-4)
 
             expect_true(bpres$monoinequality)
             expect_equal(bpres$monobplb, -0.1974, tol = 1e-4)
@@ -149,9 +149,9 @@ test_that("Balke and Pearl, bivariate data using cell counts",
             expect_equal(bpres$monop10low, 0.9936, tol = 1e-4)
             expect_equal(bpres$monop10upp, 0.9936, tol = 1e-4)
             expect_equal(bpres$monop11low, 0.7962, tol = 1e-4)
-            expect_equal(bpres$monop11upp, 1.0026, tol = 1e-4)
+            expect_equal(bpres$monop11upp, 1, tol = 1e-4)
             expect_equal(bpres$monocrrlb, 0.8013, tol = 1e-4)
-            expect_equal(bpres$monocrrub, 1.0090, tol = 1e-4)
+            expect_equal(bpres$monocrrub, 1.0064, tol = 1e-4)
 
             sbp <- summary(bpres)
             print(sbp, digits = 3)
@@ -172,9 +172,9 @@ test_that("Bivariate data with cell counts for one and cond probs other", {
   expect_equal(bpres$p10low, 0.9936, tol = 1e-4)
   expect_equal(bpres$p10upp, 0.9936, tol = 1e-4)
   expect_equal(bpres$p11low, 0.7962, tol = 1e-4)
-  expect_equal(bpres$p11upp, 1.1962, tol = 1e-4) # TODO: bug??
+  expect_equal(bpres$p11upp, 1, tol = 1e-4)
   expect_equal(bpres$crrlb, 0.8013, tol = 1e-4)
-  expect_equal(bpres$crrub, 1.2039, tol = 1e-4)
+  expect_equal(bpres$crrub, 1.0064, tol = 1e-4)
 
   expect_true(bpres$inequality)
   expect_equal(bpres$monobplb, -0.1974, tol = 1e-4)
@@ -182,9 +182,9 @@ test_that("Bivariate data with cell counts for one and cond probs other", {
   expect_equal(bpres$monop10low, 0.9936, tol = 1e-4)
   expect_equal(bpres$monop10upp, 0.9936, tol = 1e-4)
   expect_equal(bpres$monop11low, 0.7962, tol = 1e-4)
-  expect_equal(bpres$monop11upp, 1.0026, tol = 1e-4) # TODO: bug??
+  expect_equal(bpres$monop11upp, 1, tol = 1e-4)
   expect_equal(bpres$monocrrlb, 0.8013, tol = 1e-4)
-  expect_equal(bpres$monocrrub, 1.0090, tol = 1e-4)
+  expect_equal(bpres$monocrrub, 1.0064, tol = 1e-4)
 })
 
 ## Balke and Pearl, 1997, Table 2 - 0.001 was 0 in published table ----
@@ -279,10 +279,10 @@ test_that("Mendelian randomization with 3 category instrument, bivariate data",
             expect_equal(bpres$bpub, 0.5942, tol = 1e-4)
             expect_equal(bpres$p10low, 0.4058, tol = 1e-4)
             expect_equal(bpres$p10upp, 0.5720, tol = 1e-4)
-            expect_equal(bpres$p11low, -0.1628, tol = 1e-4)
-            expect_equal(bpres$p11upp, 1.2209, tol = 1e-4)
-            expect_equal(bpres$crrlb, -0.2846, tol = 1e-4)
-            expect_equal(bpres$crrub, 3.009, tol = 1e-4)
+            expect_equal(bpres$p11low, 0, tol = 1e-4)
+            expect_equal(bpres$p11upp, 1, tol = 1e-4)
+            expect_equal(bpres$crrlb, 0, tol = 1e-4)
+            expect_equal(bpres$crrub, 2.4643, tol = 1e-4)
             expect_false(bpres$monoinequality)
 
             sbp <- summary(bpres)
