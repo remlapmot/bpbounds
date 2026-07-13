@@ -12,6 +12,8 @@
 
 * Fixes to the Shiny app (`runExample()`): the default values for the trivariate data with 3-category instrument example were transposed relative to their labels, and as labelled violated the IV inequality; the bivariate 3-category example is now correctly described as the Mendelian randomization example from the vignette in bivariate form rather than as hypothetical data; updated the contact email address; and refactored the server code to use a single reactive `renderPrint()`.
 
+* CRR bounds are now reported as `NA` when the corresponding bound on P(Y|do(X=0)) is 0, since the causal risk ratio bound is then unbounded; the printed summary includes an explanatory note when this occurs.
+
 # bpbounds 0.1.7
 
 * bpbounds now requires R 4.1 or later. This is because its soft dependency, **tidyr**, has a hard dependency, **purrr**, with this requirement (and tidyr is required for the main example in the vignette).
