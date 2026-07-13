@@ -2,7 +2,7 @@
 
 * For bivariate data the intervention probability bounds, `p10low`, `p10upp`, `p11low`, `p11upp`, and their monotonicity counterparts, are now clamped to [0, 1], so these and the causal risk ratio bounds derived from them can no longer fall outside their feasible ranges (matching the same change in the Stata package). The vectors of individual bound terms are returned unclamped.
 
-* Fixed the ordering of the conditional probabilities passed to the constraint matrix for trivariate data with a 3-category instrument: the x=0,y=1 and x=1,y=0 cells within each category of Z were swapped. This could cause the IV inequality to be wrongly reported as violated on valid data (and, more rarely, vice versa) and could give incorrect ACE bounds. Consequently, the first example table from GitHub issue #3 is in fact compatible with the IV model, so `bpbounds()` now correctly reports its IV inequality as satisfied.
+* Fixed the ordering of the conditional probabilities passed to the constraint matrix for trivariate data with a 3-category instrument: the x=0,y=1 and x=1,y=0 cells within each category of Z were swapped. This could cause the IV inequality to be wrongly reported as violated on valid data (and, more rarely, vice versa) and could give incorrect ACE bounds. Consequently, the first example table from GitHub issue #3 is in fact compatible with the IV model, so `bpbounds()` now correctly reports its IV inequality as satisfied (thanks to @rmtrane for reporting this in issue #3).
 
 * Fixed two typos in the monotonicity ACE bounds for bivariate data with a binary instrument (`monolow4` and `monoupp4` used `g00` where `g01` was required), which could give monotonicity bounds that excluded the true ACE.
 
