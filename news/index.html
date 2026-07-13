@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">bpbounds</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.7</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.8</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,6 +40,16 @@
       <small>Source: <a href="https://github.com/remlapmot/bpbounds/blob/master/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.1.8" id="bpbounds-018">bpbounds 0.1.8<a class="anchor" aria-label="anchor" href="#bpbounds-018"></a></h2>
+<ul><li><p>For bivariate data the intervention probability bounds, <code>p10low</code>, <code>p10upp</code>, <code>p11low</code>, <code>p11upp</code>, and their monotonicity counterparts, are now clamped to [0, 1], so these and the causal risk ratio bounds derived from them can no longer fall outside their feasible ranges (matching the same change in the Stata package). The vectors of individual bound terms are returned unclamped.</p></li>
+<li><p>Fixed the ordering of the conditional probabilities passed to the constraint matrix for trivariate data with a 3-category instrument: the x=0,y=1 and x=1,y=0 cells within each category of Z were swapped. This could cause the IV inequality to be wrongly reported as violated on valid data (and, more rarely, vice versa) and could give incorrect ACE bounds. Consequently, the first example table from GitHub issue <a href="https://github.com/remlapmot/bpbounds/issues/3" class="external-link">#3</a> is in fact compatible with the IV model, so <code><a href="../reference/bpbounds.html">bpbounds()</a></code> now correctly reports its IV inequality as satisfied (thanks to <a href="https://github.com/rmtrane" class="external-link">@rmtrane</a> for reporting this in issue <a href="https://github.com/remlapmot/bpbounds/issues/3" class="external-link">#3</a>).</p></li>
+<li><p>Fixed two typos in the monotonicity ACE bounds for bivariate data with a binary instrument (<code>monolow4</code> and <code>monoupp4</code> used <code>g00</code> where <code>g01</code> was required), which could give monotonicity bounds that excluded the true ACE.</p></li>
+<li><p>Fixed the monotonicity ACE upper bound for trivariate data with a 3-category instrument, which is <code>1 - p100 - p012</code> rather than <code>1 - p100 - p110</code>.</p></li>
+<li><p>Following these fixes, the bounds for all cases (trivariate and bivariate data, 2- and 3-category instruments, with and without monotonicity) have been verified to equal the sharp bounds computed by linear programming across simulated instrumental variable models. A new test covers the previously untested monotonicity bounds for trivariate data with a 3-category instrument.</p></li>
+<li><p>Fixes to the Shiny app (<code><a href="../reference/runExample.html">runExample()</a></code>): the default values for the trivariate data with 3-category instrument example were transposed relative to their labels, and as labelled violated the IV inequality; the bivariate 3-category example is now correctly described as the Mendelian randomization example from the vignette in bivariate form rather than as hypothetical data; updated the contact email address; and refactored the server code to use a single reactive <code>renderPrint()</code>.</p></li>
+<li><p>CRR bounds are now reported as <code>NA</code> when the corresponding bound on P(Y|do(X=0)) is 0, since the causal risk ratio bound is then unbounded; the printed summary includes an explanatory note when this occurs.</p></li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.7" id="bpbounds-017">bpbounds 0.1.7<a class="anchor" aria-label="anchor" href="#bpbounds-017"></a></h2><p class="text-muted">CRAN release: 2026-05-24</p>
 <ul><li><p>bpbounds now requires R 4.1 or later. This is because its soft dependency, <strong>tidyr</strong>, has a hard dependency, <strong>purrr</strong>, with this requirement (and tidyr is required for the main example in the vignette).</p></li>
@@ -92,7 +102,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer></div>

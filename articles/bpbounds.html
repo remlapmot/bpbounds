@@ -21,7 +21,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">bpbounds</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.7</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.8</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,9 +66,7 @@
             <address class="author_afil">
       MRC IEU and Population Health Sciences, Bristol Medical School,
 University of
-Bristol<br><a class="author_email" href="mailto:#"></a><a href="mailto:tom.palmer@bristol.ac.uk" class="email">tom.palmer@bristol.ac.uk</a>
-      </address>
-                              <h4 data-toc-skip class="author">Roland
+Bristol<br><h4 data-toc-skip class="author">Roland
 Ramsahai</h4>
                                     <h4 data-toc-skip class="author">Vanessa
 Didelez</h4>
@@ -77,11 +75,12 @@ Didelez</h4>
 Bremen<br><h4 data-toc-skip class="author">Nuala
 Sheehan</h4>
             <address class="author_afil">
-      University of Leicester<br><h4 data-toc-skip class="date">2026-06-23</h4>
+      University of Leicester<br><h4 data-toc-skip class="date">2026-07-13</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/remlapmot/bpbounds/blob/master/vignettes/bpbounds.Rmd" class="external-link"><code>vignettes/bpbounds.Rmd</code></a></small>
       <div class="d-none name"><code>bpbounds.Rmd</code></div>
     </address>
+</address>
 </address>
 </div>
 
@@ -281,15 +280,15 @@ bivariate.</p>
 <span><span class="co">#&gt;  Causal parameter Lower bound Upper bound</span></span>
 <span><span class="co">#&gt;               ACE  -0.1974342 0.006385916</span></span>
 <span><span class="co">#&gt;      P(Y|do(X=0))   0.9936141 0.993614084</span></span>
-<span><span class="co">#&gt;      P(Y|do(X=1))   0.7961799 1.196212998</span></span>
-<span><span class="co">#&gt;               CRR   0.8012969 1.203901009</span></span>
+<span><span class="co">#&gt;      P(Y|do(X=1))   0.7961799 1.000000000</span></span>
+<span><span class="co">#&gt;               CRR   0.8012969 1.006426958</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Monotonicity inequality: TRUE </span></span>
 <span><span class="co">#&gt;  Causal parameter Lower bound Upper bound</span></span>
 <span><span class="co">#&gt;               ACE  -0.1974342 0.006385916</span></span>
 <span><span class="co">#&gt;      P(Y|do(X=0))   0.9936141 0.993614084</span></span>
-<span><span class="co">#&gt;      P(Y|do(X=1))   0.7961799 1.002582378</span></span>
-<span><span class="co">#&gt;               CRR   0.8012969 1.009025933</span></span></code></pre></div>
+<span><span class="co">#&gt;      P(Y|do(X=1))   0.7961799 1.000000000</span></span>
+<span><span class="co">#&gt;               CRR   0.8012969 1.006426958</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
@@ -301,7 +300,7 @@ as instrumental variables in order to better estimate the causal effect
 of the phenotype on a disease outcome.</p>
 <p>This example uses data from <span class="citation">Meleady et al.
 (2003)</span>. It is trivariate data with a 3-category instrument and
-binary phenotype and outcomes. The instrument is the 677CT polymorphism
+binary phenotype and outcome. The instrument is the 677CT polymorphism
 (rs1801133) in the Methylenetetrahydrofolate Reductase gene, involved in
 folate metabolism, as an instrumental variable to investigate the effect
 of homocysteine on cardiovascular disease.</p>
@@ -392,9 +391,10 @@ satisfied.</p>
 <span><span class="co">#&gt;               CRR  0.21515868   4.9049378</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Monotonicity inequality: FALSE</span></span></code></pre></div>
-<p>However, with the weaker direct effect we see that both are satisfied
-when the true underlying data generating model does not satisfy the
-instrumental variable assumptions.</p>
+<p>However, with the weaker direct effect we see that the instrumental
+variable inequality is satisfied even though the true underlying data
+generating model does not satisfy the instrumental variable
+assumptions.</p>
 </div>
 <div class="section level2">
 <h2 id="conclusion">Conclusion<a class="anchor" aria-label="anchor" href="#conclusion"></a>
@@ -460,7 +460,7 @@ Research</em> 13: 829–48. <a href="https://jmlr.org/papers/v13/ramsahai12a.htm
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer>
