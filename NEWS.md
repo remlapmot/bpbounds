@@ -1,4 +1,4 @@
-# bpbounds (development version)
+# bpbounds 0.1.8
 
 * For bivariate data the intervention probability bounds, `p10low`, `p10upp`, `p11low`, `p11upp`, and their monotonicity counterparts, are now clamped to [0, 1], so these and the causal risk ratio bounds derived from them can no longer fall outside their feasible ranges (matching the same change in the Stata package). The vectors of individual bound terms are returned unclamped.
 
