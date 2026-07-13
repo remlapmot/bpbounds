@@ -51,6 +51,10 @@ bpbounds_calc_tri_z2 <- function(p) {
   # bounds on causal risk ratio
   rrlow = p11low / p10upp
   rrupp = p11upp / p10low
+
+  # report NA when a zero denominator makes a CRR bound infinite/undefined
+  if (!is.finite(rrlow)) rrlow = NA_real_
+  if (!is.finite(rrupp)) rrupp = NA_real_
   retlist = append(retlist, list("crrlb" = rrlow,
                                  "crrub" = rrupp))
 
@@ -85,6 +89,8 @@ bpbounds_calc_tri_z2 <- function(p) {
     # bounds on causal risk ratio assuming monotonicity
     monocrrlow = monop11low / monop10upp
     monocrrupp = monop11upp / monop10low
+    if (!is.finite(monocrrlow)) monocrrlow = NA_real_
+    if (!is.finite(monocrrupp)) monocrrupp = NA_real_
     retlist = append(retlist,
                      list("monocrrlb" = monocrrlow,
                           "monocrrub" = monocrrupp))

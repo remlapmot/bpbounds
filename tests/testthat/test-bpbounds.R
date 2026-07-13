@@ -357,6 +357,24 @@ test_that("Trivariate 3 category instrument monotonicity bounds", {
   expect_true(bpres$monop11low <= 0.5 && 0.5 <= bpres$monop11upp)
 })
 
+# CRR bounds reported as NA when unbounded ----
+test_that("CRR bound is NA with a note when P(Y|do(X=0)) lower bound is 0", {
+  g <- as.table(array(c(.9, .1, .8, .2), dim = c(2, 2),
+                      dimnames = list(y = 0:1, z = 0:1)))
+  t <- as.table(array(c(.5, .5, .4, .6), dim = c(2, 2),
+                      dimnames = list(x = 0:1, z = 0:1)))
+  bpres <- bpbounds(p = g, t = t, fmt = "bivariate")
+
+  expect_true(bpres$inequality)
+  expect_true(bpres$monoinequality)
+  expect_equal(bpres$p10low, 0)
+  expect_true(is.na(bpres$crrub))
+  expect_true(is.na(bpres$monocrrub))
+  expect_equal(bpres$crrlb, 0)
+
+  expect_output(print(summary(bpres)), "CRR bounds reported as NA are unbounded")
+})
+
 ## More error checks
 test_that("Cond probs and 1 cell count error", {
   cpr <- c(.0064, 0, .9936, 0, .0028, .001, .1972, 20)

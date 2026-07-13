@@ -325,6 +325,19 @@ print.summary.bpbounds <-
             row.names = FALSE,
             ...)
     }
+    crrna <- FALSE
+    if (!is.null(x$bounds)) {
+      crrna <- anyNA(x$bounds[x$bounds[[1]] == "CRR", -1])
+    }
+    if (!is.null(x$monobounds)) {
+      crrna <- crrna || anyNA(x$monobounds[x$monobounds[[1]] == "CRR", -1])
+    }
+    if (crrna) {
+      cat(
+        "\nNote: CRR bounds reported as NA are unbounded because the",
+        "\ncorresponding bound on P(Y|do(X=0)) is 0.\n"
+      )
+    }
     cat("\n")
     invisible(x)
   }

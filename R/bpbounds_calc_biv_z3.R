@@ -50,6 +50,10 @@ bpbounds_calc_biv_z3 <- function(g, t) {
   # bounds on causal risk ratio
   rrlow = p11low / p10upp
   rrupp = p11upp / p10low
+
+  # report NA when a zero denominator makes a CRR bound infinite/undefined
+  if (!is.finite(rrlow)) rrlow = NA_real_
+  if (!is.finite(rrupp)) rrupp = NA_real_
   retlist  = append(retlist, list("crrlb" = rrlow,
                                   "crrub" = rrupp))
 
@@ -186,6 +190,8 @@ bpbounds_calc_biv_z3 <- function(g, t) {
     # bounds on causal risk ratio assuming monotonicity
     monocrrlb = monop11lb / monop10ub
     monocrrub = monop11ub / monop10lb
+    if (!is.finite(monocrrlb)) monocrrlb = NA_real_
+    if (!is.finite(monocrrub)) monocrrub = NA_real_
     retlist = append(retlist,
                      list("monocrrlb" = monocrrlb,
                           "monocrrub" = monocrrub))
