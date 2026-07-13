@@ -10,6 +10,8 @@
 
 * Following these fixes, the bounds for all cases (trivariate and bivariate data, 2- and 3-category instruments, with and without monotonicity) have been verified to equal the sharp bounds computed by linear programming across simulated instrumental variable models. A new test covers the previously untested monotonicity bounds for trivariate data with a 3-category instrument.
 
+* Fixes to the Shiny app (`runExample()`): the default values for the trivariate data with 3-category instrument example were transposed relative to their labels, and as labelled violated the IV inequality; the bivariate 3-category example is now correctly described as the Mendelian randomization example from the vignette in bivariate form rather than as hypothetical data; updated the contact email address; and refactored the server code to use a single reactive `renderPrint()`.
+
 # bpbounds 0.1.7
 
 * bpbounds now requires R 4.1 or later. This is because its soft dependency, **tidyr**, has a hard dependency, **purrr**, with this requirement (and tidyr is required for the main example in the vignette).
