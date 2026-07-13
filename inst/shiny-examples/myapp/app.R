@@ -23,7 +23,7 @@ ui <- fluidPage(
                    c("2" = 2,
                      "3" = 3)),
       conditionalPanel(
-        condition = "input.zcats == 2 & input.fmt == 'trivariate'",
+        condition = "input.zcats == 2 && input.fmt == 'trivariate'",
         p(
           "The example data given below are cell counts from Balke and Pearl's Vitamin A example."
         ),
@@ -38,26 +38,26 @@ ui <- fluidPage(
         numericInput("cp8", "P(Y=1, X=1 | Z=1) or cell count", value = 9663)
       ),
       conditionalPanel(
-        condition = "input.zcats == 3 & input.fmt == 'trivariate'",
+        condition = "input.zcats == 3 && input.fmt == 'trivariate'",
         p(
-          "The example data given below are conditional probabilities from the Mendelian randomization example given in the package vignette."
+          "The example data given below are conditional probabilities from a hypothetical Mendelian randomization example."
         ),
         p("Edit the values in the cells to run for your own data."),
         numericInput("bp1", "P(Y=0, X=0 | Z=0) or cell count", value = .83),
-        numericInput("bp2", "P(Y=0, X=1 | Z=0) or cell count", value = .05),
-        numericInput("bp3", "P(Y=1, X=0 | Z=0) or cell count", value = .11),
+        numericInput("bp2", "P(Y=0, X=1 | Z=0) or cell count", value = .11),
+        numericInput("bp3", "P(Y=1, X=0 | Z=0) or cell count", value = .05),
         numericInput("bp4", "P(Y=1, X=1 | Z=0) or cell count", value = .01),
         numericInput("bp5", "P(Y=0, X=0 | Z=1) or cell count", value = .88),
-        numericInput("bp6", "P(Y=0, X=1 | Z=1) or cell count", value = .06),
-        numericInput("bp7", "P(Y=1, X=0 | Z=1) or cell count", value = .05),
+        numericInput("bp6", "P(Y=0, X=1 | Z=1) or cell count", value = .05),
+        numericInput("bp7", "P(Y=1, X=0 | Z=1) or cell count", value = .06),
         numericInput("bp8", "P(Y=1, X=1 | Z=1) or cell count", value = .01),
         numericInput("bp9", "P(Y=0, X=0 | Z=2) or cell count", value = .72),
-        numericInput("bp10", "P(Y=0, X=1 | Z=2) or cell count", value = .05),
-        numericInput("bp11", "P(Y=1, X=0 | Z=2) or cell count", value = .20),
+        numericInput("bp10", "P(Y=0, X=1 | Z=2) or cell count", value = .20),
+        numericInput("bp11", "P(Y=1, X=0 | Z=2) or cell count", value = .05),
         numericInput("bp12", "P(Y=1, X=1 | Z=2) or cell count", value = .03)
       ),
       conditionalPanel(
-        condition = "input.zcats == 2 & input.fmt == 'bivariate'",
+        condition = "input.zcats == 2 && input.fmt == 'bivariate'",
         p(
           "The example data given below are conditional probabilities from Balke and Pearl's Vitamin A example."
         ),
@@ -79,9 +79,9 @@ ui <- fluidPage(
         numericInput("tp4", "P(X=1 | Z=1) or cell count", value = .8) # 9675
       ),
       conditionalPanel(
-        condition = "input.zcats == 3 & input.fmt == 'bivariate'",
+        condition = "input.zcats == 3 && input.fmt == 'bivariate'",
         p(
-          "The example data given below are cell counts from a hypothetical example."
+          "The example data given below are cell counts from the Mendelian randomization example in the package vignette, treated as bivariate data."
         ),
         p("Edit the values in the cells to run for your own data."),
         numericInput("xp1", "P(Y=0 | Z=0) or cell count", value = 388),
@@ -114,7 +114,7 @@ ui <- fluidPage(
       ),
       p(
         "Author: Tom Palmer,",
-        a("tom.palmer@bristol.ac.uk", href = "mailto:tom.palmer@bristol.ac.uk")
+        a("remlapmot@hotmail.com", href = "mailto:remlapmot@hotmail.com")
       )
     )
 
@@ -123,8 +123,8 @@ ui <- fluidPage(
 
 # Server ----
 server <- function(input, output) {
-  observe({
-    if (input$zcats == 2 & input$fmt == "trivariate") {
+  output$bpboundsSummary <- renderPrint({
+    if (input$zcats == 2 && input$fmt == "trivariate") {
       cp = c(
         input$cp1,
         input$cp2,
@@ -145,11 +145,8 @@ server <- function(input, output) {
             z = c(0, 1)
           )
         ))
-      output$bpboundsSummary <- renderPrint({
-        res <- bpbounds(tabp, fmt = input$fmt)
-        summary(res)
-      })
-    } else if (input$zcats == 3 & input$fmt == "trivariate") {
+      res <- bpbounds(tabp, fmt = input$fmt)
+    } else if (input$zcats == 3 && input$fmt == "trivariate") {
       cp = c(
         input$bp1,
         input$bp2,
@@ -173,11 +170,8 @@ server <- function(input, output) {
           z = c(0, 1, 2)
         )
       ))
-      output$bpboundsSummary <- renderPrint({
-        res <- bpbounds(tabp, fmt = input$fmt)
-        summary(res)
-      })
-    } else if (input$zcats == 2 & input$fmt == "bivariate") {
+      res <- bpbounds(tabp, fmt = input$fmt)
+    } else if (input$zcats == 2 && input$fmt == "bivariate") {
       cp = c(input$vp1,
              input$vp2,
              input$vp3,
@@ -198,13 +192,10 @@ server <- function(input, output) {
         dimnames = list(x = c(0, 1),
                         z = c(0, 1))
       )))
-      output$bpboundsSummary <- renderPrint({
-        res <- bpbounds(p = tabp,
-                        t = tabt,
-                        fmt = input$fmt)
-        summary(res)
-      })
-    } else if (input$zcats == 3 & input$fmt == "bivariate") {
+      res <- bpbounds(p = tabp,
+                      t = tabt,
+                      fmt = input$fmt)
+    } else if (input$zcats == 3 && input$fmt == "bivariate") {
       cp = c(input$xp1,
              input$xp2,
              input$xp3,
@@ -229,13 +220,11 @@ server <- function(input, output) {
         dimnames = list(x = c(0, 1),
                         z = c(0, 1, 2))
       )))
-      output$bpboundsSummary <- renderPrint({
-        res <- bpbounds(tabp,
-                        tabt,
-                        fmt = input$fmt)
-        summary(res)
-      })
+      res <- bpbounds(tabp,
+                      tabt,
+                      fmt = input$fmt)
     }
+    summary(res)
   })
 }
 
