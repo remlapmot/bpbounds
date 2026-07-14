@@ -2,6 +2,8 @@
 
 ## bpbounds 0.1.8
 
+CRAN release: 2026-07-13
+
 - For bivariate data the intervention probability bounds, `p10low`,
   `p10upp`, `p11low`, `p11upp`, and their monotonicity counterparts, are
   now clamped to \[0, 1\], so these and the causal risk ratio bounds
