@@ -214,15 +214,15 @@ print(sbp2)
 #>  Causal parameter Lower bound Upper bound
 #>               ACE  -0.1974342 0.006385916
 #>      P(Y|do(X=0))   0.9936141 0.993614084
-#>      P(Y|do(X=1))   0.7961799 1.196212998
-#>               CRR   0.8012969 1.203901009
+#>      P(Y|do(X=1))   0.7961799 1.000000000
+#>               CRR   0.8012969 1.006426958
 #> 
 #> Monotonicity inequality: TRUE 
 #>  Causal parameter Lower bound Upper bound
 #>               ACE  -0.1974342 0.006385916
 #>      P(Y|do(X=0))   0.9936141 0.993614084
-#>      P(Y|do(X=1))   0.7961799 1.002582378
-#>               CRR   0.8012969 1.009025933
+#>      P(Y|do(X=1))   0.7961799 1.000000000
+#>               CRR   0.8012969 1.006426958
 ```
 
 ## Mendelian randomization example
@@ -234,7 +234,7 @@ to better estimate the causal effect of the phenotype on a disease
 outcome.
 
 This example uses data from Meleady et al. (2003). It is trivariate data
-with a 3-category instrument and binary phenotype and outcomes. The
+with a 3-category instrument and binary phenotype and outcome. The
 instrument is the 677CT polymorphism (rs1801133) in the
 Methylenetetrahydrofolate Reductase gene, involved in folate metabolism,
 as an instrumental variable to investigate the effect of homocysteine on
@@ -337,9 +337,9 @@ print(sbp2)
 #> Monotonicity inequality: FALSE
 ```
 
-However, with the weaker direct effect we see that both are satisfied
-when the true underlying data generating model does not satisfy the
-instrumental variable assumptions.
+However, with the weaker direct effect we see that the instrumental
+variable inequality is satisfied even though the true underlying data
+generating model does not satisfy the instrumental variable assumptions.
 
 ## Conclusion
 
@@ -352,6 +352,7 @@ range of data scenarios.
 Balke, A., and J. Pearl. 1997. “Bounds on treatment effects from studies
 with imperfect compliance.” *Journal of the American Statistical
 Association* 92 (439): 1172–76.
+<https://doi.org/10.1080/01621459.1997.10474074>.
 
 Davey Smith, G., and S. Ebrahim. 2003. “‘Mendelian randomization’: can
 genetic epidemiology contribute to understanding environmental
@@ -362,16 +363,17 @@ Meleady, Raymond, Per M Ueland, Henk Blom, et al. 2003. “Thermolabile
 Methylenetetrahydrofolate Reductase, Homocysteine, and Cardiovascular
 Disease Risk: The European Concerted Action Project.” *The American
 Journal of Clinical Nutrition* 77 (1): 63–70.
+<https://doi.org/10.1093/ajcn/77.1.63>.
 
 Palmer, T. M., R. R. Ramsahai, V. Didelez, and N. A Sheehan. 2011.
 “Nonparametric Bounds for the Causal Effect in a Binary
 Instrumental-Variable Model.” *Stata Journal* (College Station, TX) 11
-(3): 345–67.
-<https://www.stata-journal.com/article.html?article=st0232>.
+(3): 345–67. <https://doi.org/10.1177/1536867x1101100302>.
 
 Ramsahai, R. R. 2007. “Causal Bounds and Instruments.” *Proceedings of
 the Twenty-Third Annual Conference on Uncertainty in Artificial
 Intelligence (UAI-07)* (Corvallis, Oregon), 310–17.
+<https://arxiv.org/abs/1206.5262>.
 
 Ramsahai, R. R. 2008. “Causal Inference with Instruments and Other
 Supplementary Variables.” PhD thesis, Department of Statistics,
@@ -379,4 +381,4 @@ University of Oxford. <https://ora.ox.ac.uk/objects/ora:2803>.
 
 Ramsahai, R. R. 2012. “Causal Bounds and Observable Constraints for
 Non-Deterministic Models.” *Journal of Machine Learning Research* 13:
-829–48.
+829–48. <https://jmlr.org/papers/v13/ramsahai12a.html>.
