@@ -20,3 +20,4 @@ cran-comments.md
 ^\.positai$
 ^\.claude$
 ^justfile$
+^inst/shiny-examples/myapp/rsconnect$
