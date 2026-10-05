@@ -122,7 +122,7 @@ ui <- fluidPage(
 )
 
 # Server ----
-server <- function(input, output) {
+server <- function(input, output, session) {
   output$bpboundsSummary <- renderPrint({
     if (input$zcats == 2 && input$fmt == "trivariate") {
       cp = c(
