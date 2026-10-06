@@ -39,7 +39,7 @@ remotes::install_github("remlapmot/bpbounds")
 
 ## Shiny App
 
-There is a Shiny app demonstrating the package at: <https://01a10b0e-a19d-d716-fc2c-8977d688e087.share.connect.posit.cloud/>.
+There is a Shiny app demonstrating the package at: <https://remlapmot-bpbounds.share.connect.posit.cloud>.
 
 ## Package website
 
